@@ -1,16 +1,9 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
 
-interface SlideData {
-  id: number;
-  tag: string;
-  title: string;
-  description: string;
-  bgGradient: string;
-  badgeBg: string;
-  accentIcon: string;
-}
+import { SlideData } from "@/types";
 
 const slides: SlideData[] = [
   {
@@ -19,9 +12,11 @@ const slides: SlideData[] = [
     title: "¿Tienes sueño en clase después de almorzar?",
     description:
       "Evita el pico de insulina que te apaga el cerebro. Optimiza tus carbohidratos para mantener la energía al máximo toda la tarde.",
-    bgGradient: "from-emerald-900 via-emerald-800 to-teal-950",
+    bgGradient: "from-emerald-950 via-slate-900 to-teal-950",
     badgeBg: "bg-emerald-700/60 text-emerald-100 border-emerald-500/40",
     accentIcon: "⚡",
+    image: "/images/slide-sueno.jpg",
+    imageAlt: "Estudiante con sueño frente al computador en clase",
   },
   {
     id: 2,
@@ -67,7 +62,7 @@ export function HeroCarousel() {
 
   return (
     <div
-      className="relative w-full h-[540px] md:h-[68vh] md:min-h-[520px] overflow-hidden select-none bg-stone-900 shadow-md"
+      className="relative w-full h-[540px] md:h-[68vh] md:min-h-[520px] overflow-hidden select-none bg-black shadow-md"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -79,45 +74,67 @@ export function HeroCarousel() {
         {slides.map((slide) => (
           <div
             key={slide.id}
-            className={`min-w-full h-full flex flex-col justify-center items-center text-white px-6 md:px-12 text-center bg-gradient-to-br ${slide.bgGradient} relative overflow-hidden`}
+            className="min-w-full h-full flex items-center relative overflow-hidden bg-black"
           >
+            {/* Imagen que ocupa la pantalla en el fondo / lado derecho */}
+            {slide.image ? (
+              <div className="absolute inset-0 w-full h-full">
+                <Image
+                  src={slide.image}
+                  alt={slide.imageAlt || slide.title}
+                  fill
+                  className="object-cover object-center md:object-right"
+                  priority={slide.id === 1}
+                  unoptimized
+                />
+              </div>
+            ) : (
+              /* Fondo con gradiente de respaldo si la pantalla aún no tiene foto */
+              <div
+                className={`absolute inset-0 w-full h-full bg-gradient-to-br ${slide.bgGradient}`}
+              />
+            )}
+
+            {/* Difuminado negro desde la izquierda hacia la derecha */}
+            {/* Cubre el lado izquierdo con negro sólido para que el texto resalte, y se corta suavemente hacia la derecha mostrando la imagen */}
+            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/90 via-35% md:via-black/80 md:via-45% to-transparent z-10 pointer-events-none" />
+
             {/* Ambient subtle glow */}
-            <div className="absolute -top-24 -left-24 w-96 h-96 bg-amber-400/10 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-emerald-400/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -top-24 -left-24 w-96 h-96 bg-amber-400/10 rounded-full blur-3xl pointer-events-none z-10" />
 
-            <div className="relative z-10 max-w-3xl mx-auto flex flex-col items-center">
-              {/* Título Grande (h1) */}
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6 tracking-tight leading-tight text-white drop-shadow-md">
-                {slide.title}
-              </h1>
+            {/* Contenedor del texto llamativo a la izquierda */}
+            <div className="relative z-20 max-w-7xl mx-auto w-full h-full flex items-center px-10 sm:px-16 md:px-20 lg:px-24">
+              <div className="max-w-2xl flex flex-col items-start text-left py-12">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-5 tracking-tight leading-tight text-white drop-shadow-2xl">
+                  {slide.title}
+                </h1>
 
-              {/* Párrafo de descripción */}
-              <p className="text-base sm:text-lg md:text-xl text-stone-200 mb-8 max-w-2xl leading-relaxed drop-shadow">
-                {slide.description}
-              </p>
+                <p className="text-base sm:text-lg md:text-xl text-stone-200 mb-8 max-w-xl leading-relaxed drop-shadow-md">
+                  {slide.description}
+                </p>
 
-              {/* Botón amarillo "Saber más" */}
-              <div>
-                <a
-                  href="#perfiles"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-extrabold text-stone-950 bg-amber-400 hover:bg-amber-300 active:scale-95 shadow-lg shadow-amber-400/20 transition-all text-base group cursor-pointer border border-amber-300"
-                >
-                  <span>Saber más</span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={2.5}
-                    stroke="currentColor"
-                    className="w-4 h-4 transition-transform group-hover:translate-x-1"
+                <div>
+                  <a
+                    href="#perfiles"
+                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-extrabold text-stone-950 bg-amber-400 hover:bg-amber-300 active:scale-95 shadow-xl shadow-amber-400/20 transition-all text-base group cursor-pointer border border-amber-300"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                    />
-                  </svg>
-                </a>
+                    <span>Saber más</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={2.5}
+                      stroke="currentColor"
+                      className="w-4 h-4 transition-transform group-hover:translate-x-1"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                      />
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -127,7 +144,7 @@ export function HeroCarousel() {
       {/* Flechas de Navegación */}
       <button
         onClick={prevSlide}
-        className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center rounded-full bg-stone-900/40 hover:bg-stone-900/70 border border-white/20 text-white backdrop-blur-md transition-all hover:scale-105 active:scale-95 z-20"
+        className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center rounded-full bg-stone-900/50 hover:bg-stone-900/80 border border-white/20 text-white backdrop-blur-md transition-all hover:scale-105 active:scale-95 z-30"
         aria-label="Slide anterior"
       >
         <svg
@@ -148,7 +165,7 @@ export function HeroCarousel() {
 
       <button
         onClick={nextSlide}
-        className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center rounded-full bg-stone-900/40 hover:bg-stone-900/70 border border-white/20 text-white backdrop-blur-md transition-all hover:scale-105 active:scale-95 z-20"
+        className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center rounded-full bg-stone-900/50 hover:bg-stone-900/80 border border-white/20 text-white backdrop-blur-md transition-all hover:scale-105 active:scale-95 z-30"
         aria-label="Slide siguiente"
       >
         <svg
@@ -168,7 +185,7 @@ export function HeroCarousel() {
       </button>
 
       {/* Indicadores / Dots */}
-      <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex items-center gap-2.5 z-20 bg-stone-950/30 px-3.5 py-1.5 rounded-full backdrop-blur-md border border-white/10">
+      <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex items-center gap-2.5 z-30 bg-stone-950/40 px-3.5 py-1.5 rounded-full backdrop-blur-md border border-white/10">
         {slides.map((_, index) => (
           <button
             key={index}

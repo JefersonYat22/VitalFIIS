@@ -38,37 +38,35 @@ export function Navbar() {
           {/* Navegación Simple */}
           <nav className="flex items-center space-x-6 sm:space-x-8">
             <Link
-              href="/"
-              className="text-stone-950 hover:opacity-80 font-bold text-sm sm:text-base transition-opacity py-1"
-            >
-              Inicio
-            </Link>
-            <Link
-              href="#perfiles"
+              href="/hacks-energia"
               className="text-stone-900 hover:text-stone-950 font-semibold text-sm sm:text-base transition-colors py-1"
             >
-              Perfiles
+              Hacks de Energía
             </Link>
             <Link
-              href="#combos"
+              href="/nutricion"
               className="text-stone-900 hover:text-stone-950 font-semibold text-sm sm:text-base transition-colors py-1"
             >
-              Combos
+              Combustible y Nutrición
             </Link>
             <Link
-              href="#tips"
+              href="/rendimiento"
               className="text-stone-900 hover:text-stone-950 font-semibold text-sm sm:text-base transition-colors py-1"
             >
-              Tips
+              Rendimiento y Sueño
             </Link>
-
-            {/* Acento Amarillo */}
-            <a
-              href="#perfiles"
-              className="hidden sm:inline-flex items-center justify-center px-4 py-2 text-xs uppercase tracking-wider font-bold rounded-lg bg-amber-400 hover:bg-amber-300 text-stone-900 shadow-sm transition-all hover:shadow"
+            <Link
+              href="/contexto"
+              className="text-stone-900 hover:text-stone-950 font-semibold text-sm sm:text-base transition-colors py-1"
             >
-              Comenzar
-            </a>
+              Por Contexto
+            </Link>
+            <Link
+              href="/platos"
+              className="text-stone-900 hover:text-stone-950 font-semibold text-sm sm:text-base transition-colors py-1"
+            >
+              Platos
+            </Link>
           </nav>
         </div>
       </div>

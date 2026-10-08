@@ -5,9 +5,9 @@ export function Footer() {
   return (
     <footer className="bg-[#C7965A] border-t border-[#b38247] text-stone-950 mt-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          {/* Columna Marca */}
-          <div className="md:col-span-2 space-y-3">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-10">
+          {/* Columna Marca & Proyecto (5 cols) */}
+          <div className="md:col-span-5 space-y-3">
             <div className="flex items-center gap-2.5">
               <div className="relative w-11 h-11 rounded-xl overflow-hidden bg-white shadow-sm border border-stone-900/20 p-0.5 flex items-center justify-center">
                 <Image
@@ -28,65 +28,81 @@ export function Footer() {
               universitarios. Optimizamos recursos, energía y función cognitiva
               con hacks accesibles para el día a día académico.
             </p>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-200/80 border border-amber-400/80 text-xs font-bold text-stone-950 shadow-xs">
-              <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
-              Enfoque en Salud y Rendimiento Intelectual
-            </div>
+            <p className="text-xs font-bold text-stone-950/80 pt-1">
+              Proyecto colaborativo estudiantil — Grupo 7
+            </p>
           </div>
 
-          {/* Enlaces Rápidos */}
-          <div>
-            <h3 className="font-extrabold text-stone-950 text-sm tracking-wide uppercase mb-3">
+          {/* Enlaces Principales / Explorar (3 cols) */}
+          <div className="md:col-span-3">
+            <h3 className="font-extrabold text-stone-950 text-sm tracking-wider uppercase mb-3.5">
               Explorar
             </h3>
-            <ul className="space-y-2 text-sm text-stone-900 font-medium">
+            <ul className="space-y-2 text-sm text-stone-900 font-semibold">
               <li>
-                <Link href="#perfiles" className="hover:text-black hover:underline transition-colors">
-                  Perfiles de Rendimiento
+                <Link href="/hacks-energia" className="hover:text-black hover:underline transition-colors">
+                  Hacks de Energía
                 </Link>
               </li>
               <li>
-                <Link href="#combos" className="hover:text-black hover:underline transition-colors">
-                  Combos Diarios
+                <Link href="/nutricion" className="hover:text-black hover:underline transition-colors">
+                  Combustible y Nutrición
                 </Link>
               </li>
               <li>
-                <Link href="#tips" className="hover:text-black hover:underline transition-colors">
-                  Protocolos & Hacks
+                <Link href="/rendimiento" className="hover:text-black hover:underline transition-colors">
+                  Rendimiento y Sueño
                 </Link>
               </li>
               <li>
-                <Link href="#comedor" className="hover:text-black hover:underline transition-colors">
-                  Guía del Comedor Universitario
+                <Link href="/contexto" className="hover:text-black hover:underline transition-colors">
+                  Soluciones por Contexto
+                </Link>
+              </li>
+              <li>
+                <Link href="/platos" className="hover:text-black hover:underline transition-colors">
+                  Platos Peruanos
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Contacto / Proyecto */}
-          <div>
-            <h3 className="font-extrabold text-stone-950 text-sm tracking-wide uppercase mb-3">
-              Comunidad
+          {/* Fuentes y Referencias como texto limpio (4 cols) */}
+          <div className="md:col-span-4">
+            <h3 className="font-extrabold text-stone-950 text-sm tracking-wider uppercase mb-3.5">
+              Fuentes & Referentes
             </h3>
-            <p className="text-xs text-stone-900 font-semibold mb-3">
-              Proyecto colaborativo estudiantil - Grupo 7.
-            </p>
-            <div className="flex flex-col gap-2">
-              <a
-                href="#perfiles"
-                className="inline-flex items-center justify-center px-4 py-2 text-xs font-extrabold rounded-lg bg-amber-300 hover:bg-amber-200 text-stone-950 shadow-sm transition-colors text-center border border-amber-400"
-              >
-                Elegir Perfil Nutricional
-              </a>
-            </div>
+            <ul className="space-y-2 text-xs sm:text-sm text-stone-900 font-medium">
+              <li>
+                <strong className="font-bold text-stone-950">Jessie Inchauspé</strong> — Bioquímica y glucosa
+              </li>
+              <li>
+                <strong className="font-bold text-stone-950">Dr. Andy Galpin</strong> — Rendimiento físico e hidratación
+              </li>
+              <li>
+                <strong className="font-bold text-stone-950">Dr. Andrew Huberman</strong> — Neurobiología y descanso
+              </li>
+              <li>
+                <strong className="font-bold text-stone-950">James Clear</strong> — Psicología de hábitos sostenibles
+              </li>
+              <li>
+                <strong className="font-bold text-stone-950">Tim Ferriss</strong> — Mínima Dosis Eficaz
+              </li>
+            </ul>
           </div>
         </div>
 
-        <div className="pt-6 border-t border-[#b38247] flex flex-col sm:flex-row justify-between items-center text-xs text-stone-900 font-semibold gap-2">
-          <p>© {new Date().getFullYear()} VitalFIIS - Todos los derechos reservados.</p>
-          <p className="flex items-center gap-1">
-            Diseñado para estudiantes universitarios con energía al 100%.
+        {/* Descargo de Responsabilidad Médico */}
+        <div className="pt-6 border-t border-[#b38247] text-xs text-stone-900 leading-relaxed font-normal mb-6">
+          <p>
+            <strong className="font-bold text-stone-950">Descargo de responsabilidad:</strong> La información presentada en este sitio web tiene fines estrictamente educativos e informativos y ha sido elaborada por estudiantes universitarios. No constituye asesoramiento médico, nutricional ni diagnóstico profesional. Consulta siempre con un profesional de la salud o nutricionista colegiado antes de realizar cambios drásticos en tu dieta.
           </p>
+        </div>
+
+        {/* Barra Inferior de Derechos */}
+        <div className="pt-4 border-t border-[#b38247]/60 flex flex-col sm:flex-row justify-between items-center text-xs text-stone-950 font-semibold gap-2">
+          <p>© {new Date().getFullYear()} VitalFIIS — Todos los derechos reservados.</p>
+          <p>Diseñado para estudiantes universitarios con mucho cariño.</p>
         </div>
       </div>
     </footer>

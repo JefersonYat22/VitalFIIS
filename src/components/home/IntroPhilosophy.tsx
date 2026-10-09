@@ -72,6 +72,20 @@ export function IntroPhilosophy() {
           </p>
         </div>
 
+        {/* Mascota */}
+        <div className="flex justify-center mb-10 -mt-6">
+          <div className="relative w-64 h-64 sm:w-80 sm:h-80 drop-shadow-xl hover:-translate-y-2 transition-transform duration-500">
+            <Image
+              src="/images/mascot.png"
+              alt="Mascota VitalFIIS"
+              fill
+              className="object-contain"
+              sizes="(max-width: 768px) 256px, 320px"
+              priority
+            />
+          </div>
+        </div>
+
         {/* Texto continuo y fluido */}
         <div className="space-y-12 sm:space-y-14">
           {/* Párrafo inicial: Realidad y contexto universitario */}

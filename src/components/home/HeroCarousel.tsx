@@ -15,7 +15,7 @@ const slides: SlideData[] = [
     bgGradient: "from-emerald-950 via-slate-900 to-teal-950",
     badgeBg: "bg-emerald-700/60 text-emerald-100 border-emerald-500/40",
     accentIcon: "⚡",
-    image: "/images/slide-sueno.jpg",
+    image: "/images/slide-sueno.webp",
     imageAlt: "Estudiante con sueño frente al computador en clase",
   },
   {

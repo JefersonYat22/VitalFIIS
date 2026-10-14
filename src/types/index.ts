@@ -78,4 +78,8 @@ export interface PlatoNutricional {
   evitarEn: string;
   precioPromedioSol?: string;
   emoji: string;
+  imagen?: string;
+  imagenAlt?: string;
+  resumenSueno: string;
+  datosEstimados?: boolean;
 }

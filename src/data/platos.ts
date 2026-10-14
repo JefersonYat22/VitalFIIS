@@ -45,7 +45,6 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     emoji: "🍗",
     imagen: "/images/platos/arroz-con-pollo.webp",
     imagenAlt: "Arroz con pollo acompañado de papa a la huancaína",
-    imagenIlustrativa: true,
     datosEstimados: true,
   },
   {
@@ -91,7 +90,6 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     emoji: "🍲",
     imagen: "/images/platos/lentejas-pescado.webp",
     imagenAlt: "Lentejas peruanas con pescado frito, arroz y sarsa criolla",
-    imagenIlustrativa: true,
     datosEstimados: true,
   },
   {
@@ -137,7 +135,6 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     emoji: "🥩",
     imagen: "/images/platos/lomo-saltado.webp",
     imagenAlt: "Lomo saltado peruano con papas fritas y arroz blanco",
-    imagenIlustrativa: true,
     datosEstimados: true,
   },
   {
@@ -312,7 +309,6 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     emoji: "🐟",
     imagen: "/images/platos/ceviche-pescado.webp",
     imagenAlt: "Ceviche peruano tradicional con choclo, camote y cebolla roja",
-    imagenIlustrativa: true,
     datosEstimados: true,
   },
   {

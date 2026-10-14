@@ -12,14 +12,25 @@ import {
   ChevronDownIcon,
   ChevronUpIcon,
   InfoIcon,
+  ScaleIcon,
+  CheckIcon,
 } from "./Icons";
 
 interface PlatoDetailModalProps {
   plato: PlatoNutricional | null;
   onClose: () => void;
+  isSelectedForCompare?: boolean;
+  onToggleCompare?: (id: string) => void;
+  canCompare?: boolean;
 }
 
-export function PlatoDetailModal({ plato, onClose }: PlatoDetailModalProps) {
+export function PlatoDetailModal({
+  plato,
+  onClose,
+  isSelectedForCompare = false,
+  onToggleCompare,
+  canCompare = true,
+}: PlatoDetailModalProps) {
   const [showBioquimica, setShowBioquimica] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
 
@@ -37,8 +48,6 @@ export function PlatoDetailModal({ plato, onClose }: PlatoDetailModalProps) {
     };
 
     window.addEventListener("keydown", handleKeyDown);
-
-    // Focus en el modal
     modalRef.current?.focus();
 
     return () => {
@@ -119,6 +128,13 @@ export function PlatoDetailModal({ plato, onClose }: PlatoDetailModalProps) {
                   sizes="(max-width: 768px) 100vw, 600px"
                   className="object-cover"
                 />
+                {plato.imagenIlustrativa && (
+                  <div className="absolute top-2.5 right-2.5 z-10">
+                    <span className="inline-flex items-center px-2 py-0.5 rounded-md text-xs font-bold bg-black/60 text-white backdrop-blur-xs">
+                      Imagen ilustrativa
+                    </span>
+                  </div>
+                )}
               </div>
             ) : (
               <div className="w-full h-32 rounded-2xl bg-gradient-to-br from-amber-50 via-stone-100 to-emerald-50 flex items-center justify-center border border-stone-200/80">
@@ -310,15 +326,42 @@ export function PlatoDetailModal({ plato, onClose }: PlatoDetailModalProps) {
           </div>
         </div>
 
-        {/* Barra inferior fija del modal */}
-        <div className="p-4 bg-stone-50 border-t border-stone-200 flex justify-end">
+        {/* Barra inferior fija del modal: Botón principal "Agregar al duelo" */}
+        <div className="p-4 bg-stone-50 border-t border-stone-200 flex items-center justify-between gap-3">
           <button
             type="button"
             onClick={onClose}
-            className="px-5 py-2.5 rounded-xl bg-stone-900 hover:bg-stone-800 text-white text-xs font-bold transition-colors cursor-pointer"
+            className="px-4 py-2.5 text-xs font-bold text-stone-500 hover:text-stone-800 transition-colors cursor-pointer"
           >
-            Entendido, cerrar
+            Cerrar
           </button>
+
+          {onToggleCompare && (
+            <button
+              type="button"
+              disabled={!isSelectedForCompare && !canCompare}
+              onClick={() => onToggleCompare(plato.id)}
+              className={`flex-1 max-w-xs py-2.5 px-4 rounded-xl text-xs font-black uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm ${
+                isSelectedForCompare
+                  ? "bg-emerald-600 hover:bg-emerald-700 text-white"
+                  : canCompare
+                  ? "bg-stone-900 hover:bg-stone-800 text-white"
+                  : "bg-stone-200 text-stone-400 border border-stone-200 cursor-not-allowed opacity-60"
+              }`}
+            >
+              {isSelectedForCompare ? (
+                <>
+                  <CheckIcon className="w-4 h-4" />
+                  <span>✓ En el duelo (quitar)</span>
+                </>
+              ) : (
+                <>
+                  <ScaleIcon className="w-4 h-4" />
+                  <span>Agregar al duelo</span>
+                </>
+              )}
+            </button>
+          )}
         </div>
       </div>
     </div>

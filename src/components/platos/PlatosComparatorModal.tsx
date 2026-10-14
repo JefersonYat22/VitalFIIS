@@ -1,13 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { PlatoNutricional } from "@/types";
 import {
   XIcon,
   ScaleIcon,
-  FlameIcon,
-  ClockIcon,
-  BrainIcon,
   SparklesIcon,
 } from "./Icons";
 
@@ -15,300 +13,488 @@ interface PlatosComparatorModalProps {
   selectedPlatos: PlatoNutricional[];
   onRemovePlato: (id: string) => void;
   onClearAll: () => void;
+  isDetailOpen?: boolean;
 }
 
 export function PlatosComparatorModal({
   selectedPlatos,
   onRemovePlato,
   onClearAll,
+  isDetailOpen = false,
 }: PlatosComparatorModalProps) {
   const [isOpen, setIsOpen] = useState(false);
+
+  // Cerrar con Escape y bloquear scroll cuando el modal de comparación esté abierto
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen]);
 
   if (selectedPlatos.length === 0) return null;
 
   const platoA = selectedPlatos[0];
   const platoB = selectedPlatos[1] || null;
 
+  // Cálculos comparativos
+  const diffKcal = platoB ? Math.abs(platoA.calorias - platoB.calorias) : 0;
+  const riskScore = { bajo: 1, moderado: 2, alto: 3 };
+
+  // Mejor en riesgo de sueño
+  const bestSleep =
+    platoB
+      ? riskScore[platoA.riesgoSomnolencia] < riskScore[platoB.riesgoSomnolencia]
+        ? "A"
+        : riskScore[platoA.riesgoSomnolencia] > riskScore[platoB.riesgoSomnolencia]
+        ? "B"
+        : "igual"
+      : "A";
+
+  // Mejor en proteína
+  const bestProtein =
+    platoB
+      ? platoA.macros.proteinas > platoB.macros.proteinas
+        ? "A"
+        : platoA.macros.proteinas < platoB.macros.proteinas
+        ? "B"
+        : "igual"
+      : "A";
+
+  // Mejor en fibra
+  const bestFiber =
+    platoB
+      ? platoA.macros.fibra > platoB.macros.fibra
+        ? "A"
+        : platoA.macros.fibra < platoB.macros.fibra
+        ? "B"
+        : "igual"
+      : "A";
+
   return (
     <>
-      {/* BANNER FLOTANTE INFERIOR */}
-      <div className="fixed bottom-4 inset-x-0 z-50 px-4 sm:px-6 pointer-events-none">
-        <div className="max-w-3xl mx-auto bg-stone-900/95 text-white backdrop-blur-lg rounded-2xl shadow-2xl border border-stone-700/80 p-3 sm:p-4 pointer-events-auto flex flex-col sm:flex-row items-center justify-between gap-3 animate-in fade-in slide-in-from-bottom-4 duration-300">
-          {/* Info de selección */}
-          <div className="flex items-center gap-3 w-full sm:w-auto">
-            <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-500/40">
-              <ScaleIcon className="w-5 h-5" />
-            </div>
-
-            <div className="min-w-0 flex-1">
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-black uppercase tracking-wider text-emerald-400">
-                  Duelo de Menús ({selectedPlatos.length}/2)
-                </span>
-                {platoB && (
-                  <span className="text-[10px] font-bold bg-emerald-500/30 text-emerald-300 px-2 py-0.5 rounded-full">
-                    ¡Listo para comparar!
+      {/* 1. BARRA FLOTANTE DE COMPARACIÓN COMPACTA Y CLARA (Oculta si el drawer de detalle está abierto) */}
+      {!isDetailOpen && (
+        <div className="fixed bottom-3 sm:bottom-4 inset-x-0 z-40 px-3 sm:px-4 pointer-events-none pb-[env(safe-area-inset-bottom,0px)]">
+          <div className="max-w-xl mx-auto bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-stone-200 p-2 sm:p-2.5 pointer-events-auto flex items-center justify-between gap-2 animate-in fade-in slide-in-from-bottom-3 duration-250">
+            {/* Dos casillas */}
+            <div className="flex items-center gap-1.5 flex-1 min-w-0">
+              {/* Casilla 1: Plato A */}
+              <div className="flex items-center gap-1.5 p-1 pr-1.5 rounded-xl bg-stone-50 border border-stone-200 min-w-0 flex-1">
+                {platoA.imagen ? (
+                  <div className="relative w-8 h-8 rounded-lg overflow-hidden shrink-0 border border-stone-200">
+                    <Image
+                      src={platoA.imagen}
+                      alt={platoA.nombre}
+                      fill
+                      sizes="32px"
+                      className="object-cover"
+                    />
+                  </div>
+                ) : (
+                  <span className="w-8 h-8 rounded-lg bg-white flex items-center justify-center text-base shrink-0 border border-stone-200">
+                    {platoA.emoji}
                   </span>
                 )}
+                <span className="text-xs font-bold text-stone-900 truncate flex-1">
+                  {platoA.nombre}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => onRemovePlato(platoA.id)}
+                  className="w-5 h-5 rounded-full hover:bg-stone-200 text-stone-400 hover:text-stone-700 flex items-center justify-center shrink-0 cursor-pointer"
+                  title="Quitar plato"
+                >
+                  <XIcon className="w-3.5 h-3.5" />
+                </button>
               </div>
 
-              <div className="text-xs font-bold text-stone-200 truncate mt-0.5">
-                <span>{platoA.nombre}</span>
-                {platoB ? (
-                  <span className="text-amber-400 font-black"> vs {platoB.nombre}</span>
-                ) : (
-                  <span className="text-stone-400 italic"> — Selecciona 1 plato más en el catálogo</span>
-                )}
-              </div>
+              {/* Casilla 2: Plato B o Casilla punteada */}
+              {platoB ? (
+                <div className="flex items-center gap-1.5 p-1 pr-1.5 rounded-xl bg-stone-50 border border-stone-200 min-w-0 flex-1">
+                  {platoB.imagen ? (
+                    <div className="relative w-8 h-8 rounded-lg overflow-hidden shrink-0 border border-stone-200">
+                      <Image
+                        src={platoB.imagen}
+                        alt={platoB.nombre}
+                        fill
+                        sizes="32px"
+                        className="object-cover"
+                      />
+                    </div>
+                  ) : (
+                    <span className="w-8 h-8 rounded-lg bg-white flex items-center justify-center text-base shrink-0 border border-stone-200">
+                      {platoB.emoji}
+                    </span>
+                  )}
+                  <span className="text-xs font-bold text-stone-900 truncate flex-1">
+                    {platoB.nombre}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => onRemovePlato(platoB.id)}
+                    className="w-5 h-5 rounded-full hover:bg-stone-200 text-stone-400 hover:text-stone-700 flex items-center justify-center shrink-0 cursor-pointer"
+                    title="Quitar plato"
+                  >
+                    <XIcon className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              ) : (
+                <div className="flex items-center justify-center gap-1 p-1.5 rounded-xl border border-dashed border-stone-300 text-stone-400 text-xs font-bold min-w-0 flex-1 truncate">
+                  <span>+</span>
+                  <span className="truncate">Elige otro plato</span>
+                </div>
+              )}
+            </div>
+
+            {/* A la derecha: Botón Comparar y texto Limpiar */}
+            <div className="flex items-center gap-1.5 shrink-0">
+              <button
+                type="button"
+                onClick={onClearAll}
+                className="px-2 py-1 text-xs font-bold text-stone-400 hover:text-stone-700 transition cursor-pointer"
+              >
+                Limpiar
+              </button>
+
+              <button
+                type="button"
+                disabled={!platoB}
+                onClick={() => setIsOpen(true)}
+                className={`px-3.5 py-2 rounded-xl text-xs font-black uppercase tracking-wider transition-all flex items-center gap-1.5 cursor-pointer ${
+                  platoB
+                    ? "bg-emerald-600 hover:bg-emerald-700 text-white shadow-xs active:scale-95"
+                    : "bg-stone-200 text-stone-400 cursor-not-allowed border border-stone-200"
+                }`}
+              >
+                <ScaleIcon className="w-3.5 h-3.5" />
+                <span>Comparar</span>
+              </button>
             </div>
           </div>
-
-          {/* Acciones */}
-          <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
-            <button
-              onClick={onClearAll}
-              className="px-3 py-2 text-xs font-bold text-stone-400 hover:text-white transition cursor-pointer"
-            >
-              Limpiar
-            </button>
-
-            <button
-              disabled={!platoB}
-              onClick={() => setIsOpen(true)}
-              className={`px-4 py-2.5 rounded-xl text-xs font-black tracking-wide uppercase flex items-center gap-2 transition-all cursor-pointer ${
-                platoB
-                  ? "bg-emerald-500 hover:bg-emerald-400 text-stone-950 shadow-lg shadow-emerald-500/20 active:scale-95"
-                  : "bg-stone-800 text-stone-500 cursor-not-allowed border border-stone-700"
-              }`}
-            >
-              <ScaleIcon className="w-4 h-4" />
-              <span>{platoB ? "Abrir Duelo Comparativo" : "Falta 1 plato"}</span>
-            </button>
-          </div>
         </div>
-      </div>
+      )}
 
-      {/* MODAL COMPARADOR COMPLETO */}
+      {/* 2. MODAL DEL COMPARADOR (Encabezado claro, sticky headers y filas alineadas) */}
       {isOpen && platoA && platoB && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto bg-stone-950/80 backdrop-blur-md animate-in fade-in duration-200">
-          <div className="relative w-full max-w-4xl bg-white rounded-3xl shadow-2xl border border-stone-200 overflow-hidden my-8 max-h-[90vh] flex flex-col">
-            {/* Cabecera del Modal */}
-            <div className="p-5 sm:p-6 bg-gradient-to-r from-stone-900 via-stone-800 to-stone-900 text-white flex items-center justify-between border-b border-stone-700">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-amber-400/20 text-amber-300 flex items-center justify-center border border-amber-400/30">
-                  <ScaleIcon className="w-5 h-5" />
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 overflow-y-auto bg-stone-950/60 backdrop-blur-xs animate-in fade-in duration-200"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) {
+              setIsOpen(false);
+            }
+          }}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="duelo-modal-title"
+        >
+          <div className="relative w-full max-w-3xl bg-white rounded-3xl shadow-2xl border border-stone-200 overflow-hidden my-6 max-h-[92vh] flex flex-col focus:outline-none">
+            {/* Encabezado Claro (sin bloque negro) */}
+            <div className="px-5 py-4 bg-[#FAF8F5] border-b border-stone-200 flex items-center justify-between">
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center border border-amber-300">
+                  <ScaleIcon className="w-4 h-4" />
                 </div>
                 <div>
-                  <h3 className="text-lg sm:text-xl font-black tracking-tight text-white">
-                    Duelo Nutricional Universitario
+                  <h3 id="duelo-modal-title" className="text-base sm:text-lg font-black text-stone-950 tracking-tight">
+                    Duelo Nutricional
                   </h3>
-                  <p className="text-xs text-stone-300 font-medium">
-                    Radiografía frente a frente para tu decisión estratégica de hoy
+                  <p className="text-xs text-stone-500 font-medium">
+                    Comparativa frente a frente para optimizar tu energía cognitiva
                   </p>
                 </div>
               </div>
 
               <button
+                type="button"
                 onClick={() => setIsOpen(false)}
-                className="w-9 h-9 rounded-full bg-stone-800 hover:bg-stone-700 text-stone-300 hover:text-white flex items-center justify-center transition cursor-pointer"
-                title="Cerrar ventana"
+                className="w-8 h-8 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-600 hover:text-stone-900 flex items-center justify-center transition cursor-pointer"
+                aria-label="Cerrar comparador"
               >
-                <XIcon className="w-5 h-5" />
+                <XIcon className="w-4 h-4" />
               </button>
             </div>
 
-            {/* Contenido scrolleable de la comparativa */}
-            <div className="p-5 sm:p-8 overflow-y-auto space-y-6">
-              {/* Tarjetas lado a lado de los 2 platos */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                {[platoA, platoB].map((item, index) => {
-                  const isFirst = index === 0;
-                  const other = isFirst ? platoB : platoA;
-                  const calDiff = item.calorias - other.calorias;
+            {/* Sub-header Sticky con nombres de ambos platos */}
+            <div className="sticky top-0 z-20 bg-white/95 backdrop-blur-md px-5 py-2.5 border-b border-stone-200 grid grid-cols-2 gap-3 text-xs font-black text-stone-900 shadow-2xs">
+              <div className="flex items-center gap-1.5 truncate">
+                <span>{platoA.emoji}</span>
+                <span className="truncate">{platoA.nombre}</span>
+              </div>
+              <div className="flex items-center gap-1.5 truncate">
+                <span>{platoB.emoji}</span>
+                <span className="truncate">{platoB.nombre}</span>
+              </div>
+            </div>
 
-                  return (
-                    <div
-                      key={item.id}
-                      className="p-5 rounded-2xl bg-[#FAF8F5] border border-stone-200 shadow-2xs space-y-4"
-                    >
-                      {/* Cabecera plato */}
-                      <div className="flex items-start justify-between gap-2">
-                        <div className="flex items-center gap-2">
-                          <span className="text-3xl">{item.emoji}</span>
-                          <div>
-                            <span className="text-[10px] font-black uppercase tracking-wider text-stone-500 block">
-                              {item.categoriaLabel}
-                            </span>
-                            <h4 className="text-base sm:text-lg font-black text-stone-950 leading-tight">
-                              {item.nombre}
-                            </h4>
-                          </div>
-                        </div>
-
-                        <button
-                          onClick={() => {
-                            onRemovePlato(item.id);
-                            if (selectedPlatos.length <= 2) {
-                              setIsOpen(false);
-                            }
-                          }}
-                          className="text-stone-400 hover:text-rose-600 transition p-1"
-                          title="Remover de comparador"
-                        >
-                          <XIcon className="w-4 h-4" />
-                        </button>
-                      </div>
-
-                      {/* Métricas Principales */}
-                      <div className="grid grid-cols-2 gap-2">
-                        {/* Calorías */}
-                        <div className="p-3 rounded-xl bg-white border border-stone-200">
-                          <span className="text-[10px] font-black uppercase tracking-wider text-stone-500 block">
-                            Calorías Totales
-                          </span>
-                          <div className="flex items-baseline gap-1 mt-0.5">
-                            <span className="text-xl font-black text-amber-900">
-                              {item.calorias}
-                            </span>
-                            <span className="text-[11px] font-bold text-stone-500">kcal</span>
-                          </div>
-                          {calDiff !== 0 && (
-                            <span className={`text-[10px] font-bold ${calDiff > 0 ? "text-rose-600" : "text-emerald-600"}`}>
-                              {calDiff > 0 ? `+${calDiff} kcal vs rival` : `${calDiff} kcal vs rival`}
-                            </span>
-                          )}
-                        </div>
-
-                        {/* Saciedad */}
-                        <div className="p-3 rounded-xl bg-white border border-stone-200">
-                          <span className="text-[10px] font-black uppercase tracking-wider text-stone-500 block">
-                            Saciedad
-                          </span>
-                          <span className="text-sm font-black text-stone-900 block mt-1">
-                            {item.horasSaciedad}
-                          </span>
-                          <span className="text-[10px] font-medium text-stone-500">
-                            Duración estimada
-                          </span>
-                        </div>
-                      </div>
-
-                      {/* Semáforo de Sueño */}
-                      <div
-                        className={`p-3 rounded-xl border ${
-                          item.riesgoSomnolencia === "bajo"
-                            ? "bg-emerald-50 border-emerald-300 text-emerald-900"
-                            : item.riesgoSomnolencia === "moderado"
-                            ? "bg-amber-50 border-amber-300 text-amber-900"
-                            : "bg-rose-50 border-rose-300 text-rose-900"
-                        }`}
-                      >
-                        <span className="text-[10px] font-black uppercase tracking-wider block">
-                          Impacto en Clase (Coma Alimenticio)
-                        </span>
-                        <div className="font-extrabold text-xs mt-0.5">
-                          {item.riesgoSomnolenciaDetalle}
-                        </div>
-                      </div>
-
-                      {/* Macros Detallados */}
-                      <div className="p-3 rounded-xl bg-white border border-stone-200 space-y-2">
-                        <span className="text-[10px] font-black uppercase tracking-wider text-stone-600 block">
-                          Desglose Nutricional
-                        </span>
-                        <div className="grid grid-cols-4 gap-1 text-center">
-                          <div className="p-1.5 rounded-lg bg-emerald-50">
-                            <span className="text-[10px] text-stone-500 font-bold block">Prot</span>
-                            <span className="text-xs font-black text-emerald-800">{item.macros.proteinas}g</span>
-                          </div>
-                          <div className="p-1.5 rounded-lg bg-amber-50">
-                            <span className="text-[10px] text-stone-500 font-bold block">Carb</span>
-                            <span className="text-xs font-black text-amber-800">{item.macros.carbohidratos}g</span>
-                          </div>
-                          <div className="p-1.5 rounded-lg bg-rose-50">
-                            <span className="text-[10px] text-stone-500 font-bold block">Grasa</span>
-                            <span className="text-xs font-black text-rose-800">{item.macros.grasas}g</span>
-                          </div>
-                          <div className="p-1.5 rounded-lg bg-teal-50">
-                            <span className="text-[10px] text-stone-500 font-bold block">Fibra</span>
-                            <span className="text-xs font-black text-teal-800">{item.macros.fibra}g</span>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* El Hack Recomendado */}
-                      <div className="p-3 rounded-xl bg-emerald-50/70 border border-emerald-200 text-xs">
-                        <span className="text-[10px] font-black uppercase tracking-wider text-emerald-900 block mb-1">
-                          Hack Rápido:
-                        </span>
-                        <p className="text-stone-800 font-medium leading-snug">
-                          {item.vitalHack.accion}
-                        </p>
-                      </div>
-                    </div>
-                  );
-                })}
+            {/* Contenido scrolleable de comparación */}
+            <div className="p-5 sm:p-6 overflow-y-auto space-y-5">
+              {/* Resumen arriba con el veredicto y diferencia de kcal */}
+              <div className="p-4 rounded-2xl bg-gradient-to-r from-amber-50/70 via-stone-50 to-emerald-50/70 border border-stone-200/90 text-xs space-y-1.5">
+                <div className="flex items-center gap-1.5 font-black text-stone-900 uppercase tracking-wider text-xs">
+                  <SparklesIcon className="w-4 h-4 text-amber-600" />
+                  <span>Resumen Estratégico</span>
+                </div>
+                <p className="text-stone-700 leading-relaxed font-medium">
+                  {bestSleep === "A" ? (
+                    <>
+                      <strong className="text-emerald-800 font-bold">{platoA.nombre}</strong> suele asociarse a menor riesgo de somnolencia postprandial.
+                    </>
+                  ) : bestSleep === "B" ? (
+                    <>
+                      <strong className="text-emerald-800 font-bold">{platoB.nombre}</strong> suele asociarse a menor riesgo de somnolencia postprandial.
+                    </>
+                  ) : (
+                    "Ambos platos presentan un nivel semejante de impacto glucémico estimado."
+                  )}
+                  {diffKcal > 0 && (
+                    <span className="block mt-0.5 text-stone-600">
+                      Diferencia calórica: <strong className="text-stone-900">{diffKcal} kcal</strong> entre ambas opciones.
+                    </span>
+                  )}
+                </p>
               </div>
 
-              {/* VEREDICTO VITALFIIS: Cuál elegir según tu situación */}
-              <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-amber-50 via-white to-emerald-50 border-2 border-amber-300/80 space-y-4">
-                <div className="flex items-center gap-2">
-                  <SparklesIcon className="w-5 h-5 text-amber-600" />
-                  <h4 className="text-base font-black text-stone-950 uppercase tracking-tight">
-                    El Veredicto Estratégico VitalFIIS
-                  </h4>
+              {/* Cabecera con fotos de cada columna (aspect-[16/9]) */}
+              <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                {[platoA, platoB].map((item) => (
+                  <div key={item.id} className="space-y-1.5">
+                    <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden border border-stone-200 shadow-2xs bg-stone-100">
+                      {item.imagen ? (
+                        <Image
+                          src={item.imagen}
+                          alt={item.imagenAlt || item.nombre}
+                          fill
+                          sizes="350px"
+                          className="object-cover"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-amber-50 to-emerald-50">
+                          <span className="text-4xl">{item.emoji}</span>
+                        </div>
+                      )}
+                      {item.imagenIlustrativa && (
+                        <div className="absolute top-2 right-2">
+                          <span className="px-1.5 py-0.5 rounded text-[10px] font-bold bg-black/60 text-white">
+                            Ilustrativa
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                    <div className="text-xs font-bold text-stone-500">
+                      {item.categoriaLabel} • ~{item.porcionGramos}g
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* FILAS ALINEADAS POR ATRIBUTOS */}
+
+              {/* Fila 1: Calorías */}
+              <div className="space-y-1">
+                <span className="text-xs font-black uppercase tracking-wider text-stone-500 block">
+                  Calorías Totales
+                </span>
+                <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                  <div className="p-3 rounded-xl bg-stone-50 border border-stone-200">
+                    <div className="flex items-center justify-between">
+                      <span className="text-base sm:text-lg font-black text-amber-950">
+                        {platoA.calorias} kcal
+                      </span>
+                      {platoA.calorias <= platoB.calorias && (
+                        <span className="text-xs font-bold text-emerald-700 bg-emerald-100 px-1.5 py-0.5 rounded">
+                          ✓ Menos calórico
+                        </span>
+                      )}
+                    </div>
+                    {platoA.calorias !== platoB.calorias && (
+                      <span className="text-xs text-stone-500 font-medium block mt-0.5">
+                        {platoA.calorias > platoB.calorias
+                          ? `${diffKcal} kcal más que el otro plato`
+                          : `${diffKcal} kcal menos que el otro plato`}
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="p-3 rounded-xl bg-stone-50 border border-stone-200">
+                    <div className="flex items-center justify-between">
+                      <span className="text-base sm:text-lg font-black text-amber-950">
+                        {platoB.calorias} kcal
+                      </span>
+                      {platoB.calorias < platoA.calorias && (
+                        <span className="text-xs font-bold text-emerald-700 bg-emerald-100 px-1.5 py-0.5 rounded">
+                          ✓ Menos calórico
+                        </span>
+                      )}
+                    </div>
+                    {platoA.calorias !== platoB.calorias && (
+                      <span className="text-xs text-stone-500 font-medium block mt-0.5">
+                        {platoB.calorias > platoA.calorias
+                          ? `${diffKcal} kcal más que el otro plato`
+                          : `${diffKcal} kcal menos que el otro plato`}
+                      </span>
+                    )}
+                  </div>
                 </div>
+              </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  {/* Escenario 1: Clase pesada 2pm */}
-                  <div className="p-3.5 rounded-xl bg-white border border-stone-200 shadow-2xs">
-                    <div className="flex items-center gap-1.5 text-xs font-black text-stone-900 mb-1">
-                      <BrainIcon className="w-4 h-4 text-emerald-600" />
-                      <span>Para Examen / Clase 2PM</span>
+              {/* Fila 2: Riesgo de Somnolencia (Coma Alimenticio) */}
+              <div className="space-y-1">
+                <span className="text-xs font-black uppercase tracking-wider text-stone-500 block">
+                  Riesgo de Somnolencia en Clase
+                </span>
+                <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                  <div
+                    className={`p-3 rounded-xl border text-xs ${
+                      platoA.riesgoSomnolencia === "bajo"
+                        ? "bg-emerald-50 border-emerald-300 text-emerald-950"
+                        : platoA.riesgoSomnolencia === "moderado"
+                        ? "bg-amber-50 border-amber-300 text-amber-950"
+                        : "bg-rose-50 border-rose-300 text-rose-950"
+                    }`}
+                  >
+                    <div className="flex items-center justify-between font-black">
+                      <span className="capitalize">{platoA.riesgoSomnolencia}</span>
+                      {bestSleep === "A" && <span className="text-emerald-700 font-bold">✓ Menor riesgo</span>}
                     </div>
-                    <p className="text-xs text-stone-700 leading-relaxed">
-                      Elige{" "}
-                      <strong className="text-emerald-800 font-black">
-                        {platoA.riesgoSomnolencia === "bajo"
-                          ? platoA.nombre
-                          : platoB.riesgoSomnolencia === "bajo"
-                          ? platoB.nombre
-                          : platoA.macros.fibra >= platoB.macros.fibra
-                          ? platoA.nombre
-                          : platoB.nombre}
-                      </strong>
-                      . Su perfil glucémico y mayor aporte de fibra mantienen la glucosa sin picos, evitando la somnolencia en clase.
+                    <p className="mt-1 text-xs text-stone-700 font-medium leading-snug">
+                      {platoA.resumenSueno}
                     </p>
                   </div>
 
-                  {/* Escenario 2: Entrenamiento / Gym */}
-                  <div className="p-3.5 rounded-xl bg-white border border-stone-200 shadow-2xs">
-                    <div className="flex items-center gap-1.5 text-xs font-black text-stone-900 mb-1">
-                      <FlameIcon className="w-4 h-4 text-amber-600" />
-                      <span>Para Entreno / Alta Demanda</span>
+                  <div
+                    className={`p-3 rounded-xl border text-xs ${
+                      platoB.riesgoSomnolencia === "bajo"
+                        ? "bg-emerald-50 border-emerald-300 text-emerald-950"
+                        : platoB.riesgoSomnolencia === "moderado"
+                        ? "bg-amber-50 border-amber-300 text-amber-950"
+                        : "bg-rose-50 border-rose-300 text-rose-950"
+                    }`}
+                  >
+                    <div className="flex items-center justify-between font-black">
+                      <span className="capitalize">{platoB.riesgoSomnolencia}</span>
+                      {bestSleep === "B" && <span className="text-emerald-700 font-bold">✓ Menor riesgo</span>}
                     </div>
-                    <p className="text-xs text-stone-700 leading-relaxed">
-                      Elige{" "}
-                      <strong className="text-amber-800 font-black">
-                        {platoA.macros.proteinas >= platoB.macros.proteinas ? platoA.nombre : platoB.nombre}
-                      </strong>
-                      . Con{" "}
-                      {Math.max(platoA.macros.proteinas, platoB.macros.proteinas)}g de proteína bruta, ofrece la mejor base de aminoácidos para recuperación muscular.
+                    <p className="mt-1 text-xs text-stone-700 font-medium leading-snug">
+                      {platoB.resumenSueno}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Fila 3: Saciedad e Impacto en Glucosa */}
+              <div className="space-y-1">
+                <span className="text-xs font-black uppercase tracking-wider text-stone-500 block">
+                  Saciedad y Curva Glucémica
+                </span>
+                <div className="grid grid-cols-2 gap-3 sm:gap-4 text-xs">
+                  <div className="p-3 rounded-xl bg-stone-50 border border-stone-200 space-y-1">
+                    <div className="font-bold text-stone-900">
+                      Saciedad: <strong>{platoA.horasSaciedad}</strong>
+                    </div>
+                    <div className="text-stone-600 font-medium">
+                      Glucosa: <strong>{platoA.impactoGlucemico}</strong>
+                    </div>
+                  </div>
+
+                  <div className="p-3 rounded-xl bg-stone-50 border border-stone-200 space-y-1">
+                    <div className="font-bold text-stone-900">
+                      Saciedad: <strong>{platoB.horasSaciedad}</strong>
+                    </div>
+                    <div className="text-stone-600 font-medium">
+                      Glucosa: <strong>{platoB.impactoGlucemico}</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Fila 4: Desglose de Macronutrientes (Proteína, Carbos, Grasas, Fibra) */}
+              <div className="space-y-1">
+                <span className="text-xs font-black uppercase tracking-wider text-stone-500 block">
+                  Macronutrientes por Porción
+                </span>
+                <div className="grid grid-cols-2 gap-3 sm:gap-4 text-xs">
+                  <div className="p-3 rounded-xl bg-white border border-stone-200 space-y-2">
+                    <div className="flex items-center justify-between">
+                      <span className="text-stone-600 font-bold">Proteína:</span>
+                      <span className="font-black text-emerald-800">
+                        {platoA.macros.proteinas}g {bestProtein === "A" && "✓"}
+                      </span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-stone-600 font-bold">Carbohidratos:</span>
+                      <span className="font-black text-amber-800">{platoA.macros.carbohidratos}g</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-stone-600 font-bold">Grasas:</span>
+                      <span className="font-black text-rose-800">{platoA.macros.grasas}g</span>
+                    </div>
+                    <div className="flex items-center justify-between pt-1 border-t border-stone-100">
+                      <span className="text-stone-600 font-bold">Fibra:</span>
+                      <span className="font-black text-teal-800">
+                        {platoA.macros.fibra}g {bestFiber === "A" && "✓"}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="p-3 rounded-xl bg-white border border-stone-200 space-y-2">
+                    <div className="flex items-center justify-between">
+                      <span className="text-stone-600 font-bold">Proteína:</span>
+                      <span className="font-black text-emerald-800">
+                        {platoB.macros.proteinas}g {bestProtein === "B" && "✓"}
+                      </span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-stone-600 font-bold">Carbohidratos:</span>
+                      <span className="font-black text-amber-800">{platoB.macros.carbohidratos}g</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-stone-600 font-bold">Grasas:</span>
+                      <span className="font-black text-rose-800">{platoB.macros.grasas}g</span>
+                    </div>
+                    <div className="flex items-center justify-between pt-1 border-t border-stone-100">
+                      <span className="text-stone-600 font-bold">Fibra:</span>
+                      <span className="font-black text-teal-800">
+                        {platoB.macros.fibra}g {bestFiber === "B" && "✓"}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Fila 5: Hack VitalFIIS de cada uno */}
+              <div className="space-y-1">
+                <span className="text-xs font-black uppercase tracking-wider text-stone-500 block">
+                  Hack Estratégico Recomendado
+                </span>
+                <div className="grid grid-cols-2 gap-3 sm:gap-4 text-xs">
+                  <div className="p-3 rounded-xl bg-emerald-50/70 border border-emerald-200 space-y-1">
+                    <span className="font-black text-emerald-950 block">
+                      {platoA.vitalHack.titulo}
+                    </span>
+                    <p className="text-stone-800 font-medium leading-relaxed">
+                      {platoA.vitalHack.accion}
                     </p>
                   </div>
 
-                  {/* Escenario 3: Saciedad Prolongada */}
-                  <div className="p-3.5 rounded-xl bg-white border border-stone-200 shadow-2xs">
-                    <div className="flex items-center gap-1.5 text-xs font-black text-stone-900 mb-1">
-                      <ClockIcon className="w-4 h-4 text-purple-600" />
-                      <span>Para Jornada Corrida</span>
-                    </div>
-                    <p className="text-xs text-stone-700 leading-relaxed">
-                      Elige{" "}
-                      <strong className="text-purple-800 font-black">
-                        {platoA.macros.fibra >= platoB.macros.fibra ? platoA.nombre : platoB.nombre}
-                      </strong>
-                      . El contenido de fibra retrasa la grelina (hormona del hambre) manteniéndote enfocado sin pensar en comida durante horas.
+                  <div className="p-3 rounded-xl bg-emerald-50/70 border border-emerald-200 space-y-1">
+                    <span className="font-black text-emerald-950 block">
+                      {platoB.vitalHack.titulo}
+                    </span>
+                    <p className="text-stone-800 font-medium leading-relaxed">
+                      {platoB.vitalHack.accion}
                     </p>
                   </div>
                 </div>
@@ -316,15 +502,21 @@ export function PlatosComparatorModal({
             </div>
 
             {/* Footer Modal */}
-            <div className="p-4 bg-stone-100 border-t border-stone-200 flex items-center justify-between">
-              <span className="text-xs text-stone-500 font-bold">
-                VitalFIIS • Herramienta de Decisión Alimentaria Universitaria
-              </span>
+            <div className="p-3.5 bg-stone-50 border-t border-stone-200 flex items-center justify-between">
               <button
-                onClick={() => setIsOpen(false)}
-                className="px-5 py-2 rounded-xl bg-stone-900 hover:bg-stone-800 text-white text-xs font-black tracking-wide cursor-pointer transition"
+                type="button"
+                onClick={onClearAll}
+                className="text-xs font-bold text-stone-500 hover:text-rose-600 transition cursor-pointer"
               >
-                Cerrar Comparador
+                Limpiar duelo
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setIsOpen(false)}
+                className="px-4 py-2 rounded-xl bg-stone-900 hover:bg-stone-800 text-white text-xs font-bold transition cursor-pointer"
+              >
+                Cerrar comparador
               </button>
             </div>
           </div>

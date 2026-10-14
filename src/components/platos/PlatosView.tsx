@@ -8,7 +8,7 @@ import { PlatosControls } from "./PlatosControls";
 import { PlatoCard } from "./PlatoCard";
 import { PlatoDetailModal } from "./PlatoDetailModal";
 import { PlatosComparatorModal } from "./PlatosComparatorModal";
-import { BrainIcon, SparklesIcon } from "./Icons";
+import { BrainIcon, SparklesIcon, ChevronDownIcon, ChevronUpIcon } from "./Icons";
 
 export function PlatosView() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -17,6 +17,7 @@ export function PlatosView() {
   const [sortBy, setSortBy] = useState<string>("default");
   const [compareIds, setCompareIds] = useState<string[]>([]);
   const [selectedPlatoForDetail, setSelectedPlatoForDetail] = useState<PlatoNutricional | null>(null);
+  const [isSourcesExpanded, setIsSourcesExpanded] = useState(false);
 
   // Filtrado y Ordenamiento
   const filteredPlatos = useMemo(() => {
@@ -99,7 +100,7 @@ export function PlatosView() {
   }, [compareIds]);
 
   return (
-    <div className="w-full min-h-screen bg-[#FAF8F5] pb-28">
+    <div className="w-full min-h-screen bg-[#FAF8F5] pb-36 sm:pb-32">
       {/* 1. Header / Hero de Sección */}
       <PlatosHeader />
 
@@ -128,7 +129,7 @@ export function PlatosView() {
               Valores estimados por porción promedio según preparaciones universitarias habituales; no sustituye asesoría nutricional profesional.
             </span>
           </div>
-          <span className="text-[11px] font-extrabold text-amber-800 uppercase tracking-wider hidden sm:inline shrink-0">
+          <span className="text-xs font-extrabold text-amber-800 uppercase tracking-wider hidden sm:inline shrink-0">
             CENAN / INS
           </span>
         </div>
@@ -165,84 +166,136 @@ export function PlatosView() {
           </div>
         )}
 
-        {/* 4. Fuentes y Metodología */}
-        <section className="mt-16 p-6 sm:p-8 rounded-3xl bg-white border border-stone-200/90 shadow-2xs space-y-4">
-          <div className="flex items-center gap-2.5">
-            <SparklesIcon className="w-5 h-5 text-amber-600" />
-            <h3 className="text-base sm:text-lg font-black text-stone-900 tracking-tight">
-              Fuentes y Metodología Nutricional
-            </h3>
-          </div>
-          <p className="text-xs text-stone-600 leading-relaxed font-normal">
-            Esta radiografía nutricional no busca satanizar alimentos tradicionales, sino aplicar el <strong className="text-stone-950 font-bold">Pragmatismo Empático</strong>:
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-stone-700">
-            <div className="p-3.5 rounded-2xl bg-[#FAF8F5] border border-stone-200/80">
-              <strong className="font-bold text-stone-900 block mb-1">
-                Bioquímica de la Glucosa (Jessie Inchauspé)
-              </strong>
-              Investigaciones sobre el impacto de la secuencia de ingesta (fibra → proteína/grasa → almidón) para regular el vaciado gástrico y atenuar picos glucémicos postprandiales.
-            </div>
-            <div className="p-3.5 rounded-2xl bg-[#FAF8F5] border border-stone-200/80">
-              <strong className="font-bold text-stone-900 block mb-1">
-                Tablas Peruanas de Composición de Alimentos (CENAN / INS)
-              </strong>
-              Estimaciones de macronutrientes, fibra y calorías adaptadas a raciones habituales servidas en comedores universitarios, carretillas y preparaciones para tupper.
-            </div>
-          </div>
-        </section>
-
-        {/* 5. Glosario Bioquímico */}
-        <section className="mt-6 p-6 sm:p-8 rounded-3xl bg-white border border-stone-200/90 shadow-2xs space-y-4">
-          <div className="flex items-center gap-2.5">
-            <BrainIcon className="w-5 h-5 text-emerald-700" />
-            <h3 className="text-base sm:text-lg font-black text-stone-900 tracking-tight">
-              Conceptos Clave para Estudiar con Energía
-            </h3>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
-            <div className="p-3.5 rounded-2xl bg-[#FAF8F5] border border-stone-200/80 space-y-1">
-              <h4 className="font-extrabold text-stone-900 flex items-center gap-1.5">
-                <span className="text-emerald-700">●</span> Somnolencia Postprandial
-              </h4>
-              <p className="text-stone-600 leading-relaxed font-normal">
-                Ocurre tras comidas con almidón rápido que provocan una rápida elevación de insulina, facilitando el ingreso de triptófano cerebral y la síntesis de melatonina.
-              </p>
+        {/* 4. Sección Unificada de Fuentes, Metodología y Conceptos Científicos con Acordeón */}
+        <section className="mt-16 rounded-3xl bg-white border border-stone-200/90 shadow-2xs overflow-hidden">
+          <button
+            type="button"
+            onClick={() => setIsSourcesExpanded(!isSourcesExpanded)}
+            className="w-full p-5 sm:p-6 flex items-center justify-between text-left hover:bg-stone-50 transition-colors cursor-pointer"
+          >
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold">
+                <BrainIcon className="w-4 h-4" />
+              </div>
+              <div>
+                <h3 className="text-base sm:text-lg font-black text-stone-900 tracking-tight">
+                  Fuentes, Metodología y Conceptos Científicos
+                </h3>
+                <p className="text-xs text-stone-500 font-medium">
+                  Bases bioquímicas de la glucosa, tablas oficiales del INS y glosario cognitivo
+                </p>
+              </div>
             </div>
 
-            <div className="p-3.5 rounded-2xl bg-[#FAF8F5] border border-stone-200/80 space-y-1">
-              <h4 className="font-extrabold text-stone-900 flex items-center gap-1.5">
-                <span className="text-amber-600">●</span> La Malla de Fibra Gástrica
-              </h4>
-              <p className="text-stone-600 leading-relaxed font-normal">
-                Comer ensalada antes del arroz genera una barrera viscosa en el intestino que hace gradual la absorción de los azúcares en la sangre.
-              </p>
+            <div className="flex items-center gap-3">
+              <span className="text-xs font-bold text-stone-400 hidden sm:inline">
+                {isSourcesExpanded ? "Ocultar" : "Ver detalles"}
+              </span>
+              <span className="text-stone-400">
+                {isSourcesExpanded ? <ChevronUpIcon className="w-5 h-5" /> : <ChevronDownIcon className="w-5 h-5" />}
+              </span>
             </div>
+          </button>
 
-            <div className="p-3.5 rounded-2xl bg-[#FAF8F5] border border-stone-200/80 space-y-1">
-              <h4 className="font-extrabold text-stone-900 flex items-center gap-1.5">
-                <span className="text-blue-600">●</span> Almidón Resistente
-              </h4>
-              <p className="text-stone-600 leading-relaxed font-normal">
-                Alimentos como camote o papa cocidos y enfriados convierten parte de sus almidones en fibra prebiótica que nutre a las bacterias del colon sin generar picos de glucosa.
-              </p>
+          {isSourcesExpanded && (
+            <div className="px-5 pb-6 sm:px-6 space-y-6 border-t border-stone-100 animate-in fade-in duration-200 pt-5">
+              {/* Fuentes y Metodología */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-stone-700">
+                <div className="p-4 rounded-2xl bg-[#FAF8F5] border border-stone-200/80 space-y-1.5">
+                  <div className="flex items-center gap-1.5 font-bold text-stone-900">
+                    <SparklesIcon className="w-4 h-4 text-amber-600" />
+                    <span>Bioquímica de la Glucosa (Jessie Inchauspé)</span>
+                  </div>
+                  <p className="text-stone-600 leading-relaxed font-normal">
+                    Modelos sobre la secuencia de ingesta (fibra vegetal → proteína/grasas → almidones) para regular la tasa de vaciamiento gástrico y aplanar la curva insulínica postprandial sin dietas restrictivas.
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-2xl bg-[#FAF8F5] border border-stone-200/80 space-y-1.5">
+                  <div className="flex items-center gap-1.5 font-bold text-stone-900">
+                    <span>🇵🇪</span>
+                    <span>Tablas Peruanas de Composición de Alimentos</span>
+                  </div>
+                  <p className="text-stone-600 leading-relaxed font-normal">
+                    Valores de macronutrientes, fibra y energía referenciados en las publicaciones oficiales del{" "}
+                    <a
+                      href="https://web.ins.gob.pe/es/alimentacion-y-nutricion/ciencia-y-tecnologia-de-alimentos/tabla-de-composicion-de-alimentos"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-emerald-700 underline font-bold hover:text-emerald-900"
+                    >
+                      CENAN / Instituto Nacional de Salud (INS) ↗
+                    </a>
+                    , adaptados a raciones usuales universitarias.
+                  </p>
+                </div>
+              </div>
+
+              {/* Conceptos Clave */}
+              <div>
+                <h4 className="text-xs font-black uppercase tracking-wider text-stone-800 mb-2.5">
+                  Glosario de Fisiología y Rendimiento en Aula
+                </h4>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+                  <div className="p-3.5 rounded-2xl bg-[#FAF8F5] border border-stone-200/80 space-y-1">
+                    <h5 className="font-extrabold text-stone-900 flex items-center gap-1.5">
+                      <span className="text-emerald-700">●</span> Somnolencia Postprandial
+                    </h5>
+                    <p className="text-stone-600 leading-relaxed font-normal">
+                      Ocurre cuando un pico abrupto de glucosa estimula una descarga de insulina, facilitando el transporte de triptófano al cerebro y la síntesis subsecuente de melatonina.
+                    </p>
+                  </div>
+
+                  <div className="p-3.5 rounded-2xl bg-[#FAF8F5] border border-stone-200/80 space-y-1">
+                    <h5 className="font-extrabold text-stone-900 flex items-center gap-1.5">
+                      <span className="text-amber-600">●</span> La Malla de Fibra Gástrica
+                    </h5>
+                    <p className="text-stone-600 leading-relaxed font-normal">
+                      Ingerir ensalada o legumbres antes de los almidones genera un recubrimiento viscoso en la mucosa intestinal que modula la entrada de azúcares al torrente sanguíneo.
+                    </p>
+                  </div>
+
+                  <div className="p-3.5 rounded-2xl bg-[#FAF8F5] border border-stone-200/80 space-y-1">
+                    <h5 className="font-extrabold text-stone-900 flex items-center gap-1.5">
+                      <span className="text-blue-600">●</span> Almidón Resistente
+                    </h5>
+                    <p className="text-stone-600 leading-relaxed font-normal">
+                      Almidones cocidos y enfriados (tubérculos en ensalada o tupper) se retrogradan a fibra prebiótica indigerible, reduciendo su impacto glucémico neto.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Metadato de última revisión */}
+              <div className="pt-3 border-t border-stone-100 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-400 font-medium gap-1">
+                <span>Plataforma estudiantil VitalFIIS • Grupo 7</span>
+                <span>Última revisión: Octubre 2026</span>
+              </div>
             </div>
-          </div>
+          )}
         </section>
       </main>
 
-      {/* 6. Modal de Detalle Crudo (Drawer/Bottom sheet) */}
+      {/* 5. Modal de Detalle Crudo (Drawer/Bottom sheet) */}
       <PlatoDetailModal
         plato={selectedPlatoForDetail}
         onClose={() => setSelectedPlatoForDetail(null)}
+        isSelectedForCompare={
+          selectedPlatoForDetail ? compareIds.includes(selectedPlatoForDetail.id) : false
+        }
+        onToggleCompare={handleToggleCompare}
+        canCompare={
+          compareIds.length < 2 ||
+          (selectedPlatoForDetail ? compareIds.includes(selectedPlatoForDetail.id) : false)
+        }
       />
 
-      {/* 7. Comparador Flotante y Modal Side-by-Side */}
+      {/* 6. Comparador Flotante y Modal Side-by-Side (Oculto cuando el detalle está abierto) */}
       <PlatosComparatorModal
         selectedPlatos={selectedPlatosForModal}
         onRemovePlato={handleRemoveCompare}
         onClearAll={handleClearAllCompare}
+        isDetailOpen={selectedPlatoForDetail !== null}
       />
     </div>
   );

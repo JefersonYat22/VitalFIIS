@@ -86,7 +86,7 @@ export function PlatosHeader() {
           </div>
         </div>
 
-        {/* Stepper horizontal de las 4 reglas con flechas (scroll horizontal en móvil) */}
+        {/* Stepper horizontal de las 4 reglas con flex-1 ocupando todo el ancho */}
         <div className="mt-8 pt-6 border-t border-stone-200/80">
           <div className="flex items-center gap-2 mb-3">
             <SparklesIcon className="w-4 h-4 text-amber-600" />
@@ -95,10 +95,10 @@ export function PlatosHeader() {
             </span>
           </div>
 
-          <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+          <div className="flex flex-col sm:flex-row items-stretch gap-2.5 overflow-x-auto pb-2 scrollbar-none">
             {steps.map((st, idx) => (
-              <div key={idx} className="flex items-center gap-2 shrink-0">
-                <div className="flex items-start gap-2.5 p-3 rounded-xl bg-white border border-stone-200 shadow-2xs min-w-[210px] max-w-[240px]">
+              <div key={idx} className="flex-1 flex items-center gap-2 min-w-[200px]">
+                <div className="flex-1 flex items-start gap-2.5 p-3 rounded-xl bg-white border border-stone-200 shadow-2xs h-full">
                   <span
                     className={`w-7 h-7 rounded-lg ${st.color} text-xs font-black flex items-center justify-center shrink-0`}
                   >
@@ -111,7 +111,7 @@ export function PlatosHeader() {
                 </div>
 
                 {idx < steps.length - 1 && (
-                  <span className="text-stone-300 font-black text-sm shrink-0 px-0.5">
+                  <span className="hidden sm:inline text-stone-300 font-black text-sm shrink-0 px-0.5">
                     →
                   </span>
                 )}

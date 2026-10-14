@@ -1,7 +1,7 @@
 import { PlatoNutricional } from "@/types";
 
 export const PLATOS_DATA: PlatoNutricional[] = [
-  // --- COMEDOR / MENÚ ---
+  // --- COMEDOR / MENÚ (11 platos) ---
   {
     id: "arroz-con-pollo-huancaina",
     nombre: "Arroz con Pollo + Papa a la Huancaína",
@@ -18,7 +18,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     },
     riesgoSomnolencia: "alto",
     riesgoSomnolenciaDetalle: "Riesgo alto de somnolencia por doble almidón y rápida respuesta insulínica",
-    resumenSueno: "Doble almidón de rápida absorción; eleva el riesgo de sopor a las 2:00 PM.",
+    resumenSueno: "Doble almidón rápido; eleva el riesgo de sopor a las 2:00 PM.",
     horasSaciedad: "4 hrs",
     impactoGlucemico: "Pico alto y abrupto",
     descripcion:
@@ -45,6 +45,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     emoji: "🍗",
     imagen: "/images/platos/arroz-con-pollo.webp",
     imagenAlt: "Arroz con pollo acompañado de papa a la huancaína",
+    imagenIlustrativa: true,
     datosEstimados: true,
   },
   {
@@ -63,7 +64,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     },
     riesgoSomnolencia: "bajo",
     riesgoSomnolenciaDetalle: "Riesgo bajo gracias a la abundante fibra soluble que estabiliza la digestión",
-    resumenSueno: "Curva de glucosa muy estable gracias a más de 11g de fibra de legumbre.",
+    resumenSueno: "Curva de glucosa muy estable por más de 11g de fibra de legumbre.",
     horasSaciedad: "4.5 - 5 hrs",
     impactoGlucemico: "Plano y sostenido",
     descripcion:
@@ -90,6 +91,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     emoji: "🍲",
     imagen: "/images/platos/lentejas-pescado.webp",
     imagenAlt: "Lentejas peruanas con pescado frito, arroz y sarsa criolla",
+    imagenIlustrativa: true,
     datosEstimados: true,
   },
   {
@@ -108,7 +110,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     },
     riesgoSomnolencia: "moderado",
     riesgoSomnolenciaDetalle: "Riesgo moderado por combinación de almidón y grasa de fritura",
-    resumenSueno: "Buena proteína pero digestión más pausada por grasa y doble guarnición.",
+    resumenSueno: "Buena proteína pero digestión pausada por fritura y almidón.",
     horasSaciedad: "4 hrs",
     impactoGlucemico: "Moderado",
     descripcion:
@@ -135,6 +137,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     emoji: "🥩",
     imagen: "/images/platos/lomo-saltado.webp",
     imagenAlt: "Lomo saltado peruano con papas fritas y arroz blanco",
+    imagenIlustrativa: true,
     datosEstimados: true,
   },
   {
@@ -153,7 +156,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     },
     riesgoSomnolencia: "alto",
     riesgoSomnolenciaDetalle: "Riesgo alto de somnolencia severa por sobrecarga de carbohidratos refinados",
-    resumenSueno: "Elevada carga glucémica por pasta y papa; alto riesgo de sopor en clase.",
+    resumenSueno: "Elevada carga glucémica por pasta y papa; alto riesgo de sopor.",
     horasSaciedad: "3.5 hrs",
     impactoGlucemico: "Pico alto y abrupto",
     descripcion:
@@ -196,7 +199,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     },
     riesgoSomnolencia: "bajo",
     riesgoSomnolenciaDetalle: "Riesgo bajo-moderado gracias al almidón resistente y fibra de los frejoles",
-    resumenSueno: "Fibra abundante que sostiene la energía y amortigua el impacto del arroz.",
+    resumenSueno: "Fibra abundante que sostiene la energía y modula el arroz.",
     horasSaciedad: "5 hrs",
     impactoGlucemico: "Plano y sostenido",
     descripcion:
@@ -239,7 +242,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     },
     riesgoSomnolencia: "moderado",
     riesgoSomnolenciaDetalle: "Riesgo moderado por almidones espesantes combinados con lácteos y arroz",
-    resumenSueno: "Buena proteína; la crema contiene pan o galleta que requiere moderar el arroz.",
+    resumenSueno: "Buena proteína; salsa espesada que requiere moderar el arroz.",
     horasSaciedad: "4 hrs",
     impactoGlucemico: "Moderado",
     descripcion:
@@ -282,7 +285,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     },
     riesgoSomnolencia: "bajo",
     riesgoSomnolenciaDetalle: "Riesgo mínimo; digestión ligera y carbohidratos complejos de absorción media",
-    resumenSueno: "Cero pesadez; proteína marina magra y digestión sumamente ágil.",
+    resumenSueno: "Cero pesadez; proteína marina magra y digestión ágil.",
     horasSaciedad: "3.5 hrs",
     impactoGlucemico: "Plano y sostenido",
     descripcion:
@@ -309,6 +312,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     emoji: "🐟",
     imagen: "/images/platos/ceviche-pescado.webp",
     imagenAlt: "Ceviche peruano tradicional con choclo, camote y cebolla roja",
+    imagenIlustrativa: true,
     datosEstimados: true,
   },
   {
@@ -327,7 +331,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     },
     riesgoSomnolencia: "moderado",
     riesgoSomnolenciaDetalle: "Riesgo moderado por almidón denso y dorado en sartén",
-    resumenSueno: "Gran saciedad por menestra; el dorado en sartén puede enlentecer la digestión.",
+    resumenSueno: "Gran saciedad por menestra; el dorado en sartén aporta densidad.",
     horasSaciedad: "4.5 hrs",
     impactoGlucemico: "Moderado",
     descripcion:
@@ -370,7 +374,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     },
     riesgoSomnolencia: "moderado",
     riesgoSomnolenciaDetalle: "Riesgo moderado si no se regula la porción de arroz con la papa cocida",
-    resumenSueno: "Guiso casero con buena proteína; doble almidón moderado si se controla el arroz.",
+    resumenSueno: "Guiso casero con buena proteína; doble almidón moderado.",
     horasSaciedad: "3.5 - 4 hrs",
     impactoGlucemico: "Moderado",
     descripcion:
@@ -413,7 +417,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     },
     riesgoSomnolencia: "moderado",
     riesgoSomnolenciaDetalle: "Riesgo moderado por caldo caliente reconfortante y carbohidratos de fideo",
-    resumenSueno: "Reconfortante y proteico; el caldo tibio induce relajación corporal natural.",
+    resumenSueno: "Reconfortante y proteico; el caldo tibio induce reposo natural.",
     horasSaciedad: "3.5 hrs",
     impactoGlucemico: "Moderado",
     descripcion:
@@ -456,7 +460,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     },
     riesgoSomnolencia: "moderado",
     riesgoSomnolenciaDetalle: "Riesgo moderado si se ingiere pasta abundante sin suficientes vegetales",
-    resumenSueno: "Buena proteína salteada; modera el volumen de fideos para evitar pesadez.",
+    resumenSueno: "Buena proteína salteada; modera fideos para evitar pesadez.",
     horasSaciedad: "3.5 hrs",
     impactoGlucemico: "Moderado",
     descripcion:
@@ -484,7 +488,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     datosEstimados: true,
   },
 
-  // --- AL PASO / ECONÓMICOS ---
+  // --- AL PASO / ECONÓMICOS (6 platos) ---
   {
     id: "arroz-chaufa-pollo",
     nombre: "Arroz Chaufa de Pollo (Chifa Universitario)",
@@ -501,7 +505,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     },
     riesgoSomnolencia: "alto",
     riesgoSomnolenciaDetalle: "Riesgo alto de somnolencia por almidón refinado abundante y sodio elevado",
-    resumenSueno: "Volumen alto de almidón y sodio; propicia un pico glucémico con posterior letargia.",
+    resumenSueno: "Almidón rápido y sodio alto; propicia un pico con posterior bajón.",
     horasSaciedad: "2.5 - 3 hrs",
     impactoGlucemico: "Pico alto y abrupto",
     descripcion:
@@ -544,7 +548,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     },
     riesgoSomnolencia: "alto",
     riesgoSomnolenciaDetalle: "Riesgo alto de pesadez por alta densidad de grasas fritas y salsas comerciales",
-    resumenSueno: "Digestión prolongada por grasas saturadas; puede alterar el descanso nocturno.",
+    resumenSueno: "Digestión lenta por grasas saturadas; puede alterar el descanso.",
     horasSaciedad: "3 hrs",
     impactoGlucemico: "Pico alto y abrupto",
     descripcion:
@@ -586,7 +590,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     },
     riesgoSomnolencia: "bajo",
     riesgoSomnolenciaDetalle: "Riesgo bajo gracias a proteína magra rica en hierro y carbohidratos no refinados",
-    resumenSueno: "Excelente aporte de hierro hemo y proteína magra sin disparar la glucosa.",
+    resumenSueno: "Hierro hemo y proteína magra sin disparar la glucosa.",
     horasSaciedad: "4 hrs",
     impactoGlucemico: "Plano y sostenido",
     descripcion:
@@ -629,7 +633,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     },
     riesgoSomnolencia: "moderado",
     riesgoSomnolenciaDetalle: "Riesgo moderado por masa de harina refinada con manteca",
-    resumenSueno: "Snack rápido entre clases; la masa con manteca puede ralentizar la digestión.",
+    resumenSueno: "Snack rápido; la masa con manteca puede ralentizar la digestión.",
     horasSaciedad: "2.5 hrs",
     impactoGlucemico: "Moderado",
     descripcion:
@@ -672,7 +676,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     },
     riesgoSomnolencia: "bajo",
     riesgoSomnolenciaDetalle: "Riesgo bajo gracias a porción moderada y proteína magra",
-    resumenSueno: "Opción rápida y limpia para el recreo; energía equilibrada y sin pesadez.",
+    resumenSueno: "Opción limpia para el recreo; energía equilibrada sin pesadez.",
     horasSaciedad: "3 hrs",
     impactoGlucemico: "Plano y sostenido",
     descripcion:
@@ -715,7 +719,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     },
     riesgoSomnolencia: "alto",
     riesgoSomnolenciaDetalle: "Riesgo alto por masa de papa prensada frita en aceite profundo",
-    resumenSueno: "Almidón frito de absorción rápida; propicio al sopor si se come al mediodía.",
+    resumenSueno: "Almidón frito de absorción rápida; propicio al sopor al mediodía.",
     horasSaciedad: "3 hrs",
     impactoGlucemico: "Pico alto y abrupto",
     descripcion:
@@ -743,7 +747,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     datosEstimados: true,
   },
 
-  // --- TUPPER SALUDABLE ---
+  // --- TUPPER SALUDABLE (6 platos) ---
   {
     id: "pollo-plancha-quinua-ensalada",
     nombre: "Pollo a la Plancha con Quinua y Ensalada Fresca",
@@ -760,7 +764,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     },
     riesgoSomnolencia: "bajo",
     riesgoSomnolenciaDetalle: "Riesgo mínimo; quinua de bajo índice glucémico y proteína magra",
-    resumenSueno: "Mente clara y sin bajón; carbohidrato andino de asimilación lenta y sostenida.",
+    resumenSueno: "Mente clara y sin bajón; cereal andino de asimilación sostenida.",
     horasSaciedad: "4 hrs",
     impactoGlucemico: "Plano y sostenido",
     descripcion:
@@ -803,7 +807,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     },
     riesgoSomnolencia: "bajo",
     riesgoSomnolenciaDetalle: "Riesgo mínimo; ácidos grasos Omega-3 y carbohidratos complejos",
-    resumenSueno: "Fácil de preparar, económico y con digestión ligera que evita el cansancio.",
+    resumenSueno: "Económico y fácil; digestión ligera que previene el cansancio.",
     horasSaciedad: "4 hrs",
     impactoGlucemico: "Plano y sostenido",
     descripcion:
@@ -846,7 +850,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     },
     riesgoSomnolencia: "bajo",
     riesgoSomnolenciaDetalle: "Riesgo bajo por excelente carga de fibra vegetal y huevo cocido",
-    resumenSueno: "Energía estable y prolongada gracias a la fibra de las legumbres caseras.",
+    resumenSueno: "Energía estable y prolongada gracias a la fibra de las legumbres.",
     horasSaciedad: "4.5 hrs",
     impactoGlucemico: "Plano y sostenido",
     descripcion:
@@ -889,7 +893,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     },
     riesgoSomnolencia: "bajo",
     riesgoSomnolenciaDetalle: "Riesgo bajo por presencia de hortalizas integradas y proteína del huevo",
-    resumenSueno: "Ligera y nutritiva; las verduras cocidas con huevo evitan el letargo de la tarde.",
+    resumenSueno: "Ligera y nutritiva; verduras con huevo que evitan el letargo.",
     horasSaciedad: "3.5 hrs",
     impactoGlucemico: "Plano y sostenido",
     descripcion:
@@ -916,8 +920,94 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     emoji: "🍳",
     datosEstimados: true,
   },
+  {
+    id: "salteado-verduras-pollo-arroz",
+    nombre: "Salteado de Pollo con Brócoli, Pimientos y Arroz",
+    categoria: "tupper",
+    categoriaLabel: "Tupper Saludable",
+    objetivos: ["anti-sueno", "alta-proteina", "energia-sostenida"],
+    porcionGramos: 430,
+    calorias: 480,
+    macros: {
+      proteinas: 40,
+      carbohidratos: 52,
+      grasas: 12,
+      fibra: 7.5,
+    },
+    riesgoSomnolencia: "bajo",
+    riesgoSomnolenciaDetalle: "Riesgo bajo gracias a la fibra de brócoli y pimientos salteados",
+    resumenSueno: "Fibra abundante y pollo magro que mantienen la mente despejada.",
+    horasSaciedad: "4 hrs",
+    impactoGlucemico: "Plano y sostenido",
+    descripcion:
+      "Pechuga en tiras salteada al wok con brócoli, pimiento y zanahoria, con arroz blanco medido.",
+    ingredientesPrincipales: [
+      "Pechuga de pollo en tiras",
+      "Brócoli y pimiento rojo en trozos",
+      "Zanahoria en juliana",
+      "Arroz blanco o integral medido",
+    ],
+    porQueDaSueno:
+      "La abundancia de hortalizas crujientes amortigua el paso del almidón a la sangre, ayudando a preservar la lucidez mental sin bajón.",
+    vitalHack: {
+      titulo: "Brócoli Crujiente Primero",
+      accion:
+        "Come primero los arbolitos de brócoli y pimiento antes de mezclar con el arroz del tupper.",
+      explicacionCientifica:
+        "El sulforafano y la fibra insoluble del brócoli aportan volumen viscoso gástrico temprano.",
+      ordenIngestaRecomendado: ["1° Brócoli y verduras", "2° Pollo salteado", "3° Arroz"],
+    },
+    mejorMomento: "Almuerzo de tupper antes de clases prácticas de programación.",
+    evitarEn: "Si se prepara con aderezos comerciales con exceso de glutamato y sodio.",
+    precioPromedioSol: "S/ 5.00 - S/ 7.00",
+    emoji: "🥦",
+    datosEstimados: true,
+  },
+  {
+    id: "quiche-espinaca-ensalada-tupper",
+    nombre: "Pastel Casero de Espinaca con Tomate y Limón",
+    categoria: "tupper",
+    categoriaLabel: "Tupper Saludable",
+    objetivos: ["anti-sueno", "energia-sostenida"],
+    porcionGramos: 360,
+    calorias: 420,
+    macros: {
+      proteinas: 22,
+      carbohidratos: 36,
+      grasas: 18,
+      fibra: 6.0,
+    },
+    riesgoSomnolencia: "bajo",
+    riesgoSomnolenciaDetalle: "Riesgo bajo por reducida carga de carbohidratos y hojas verdes",
+    resumenSueno: "Bajo en carbohidratos y rico en luteína para proteger la vista.",
+    horasSaciedad: "3.5 hrs",
+    impactoGlucemico: "Plano y sostenido",
+    descripcion:
+      "Porción de pastel de espinaca, acelga y queso fresco con ensalada de tomate, limón y orégano.",
+    ingredientesPrincipales: [
+      "Espinaca y acelga cocidas",
+      "Huevos batidos y queso fresco",
+      "Base ligera de masa horneada",
+      "Tomates con limón y orégano",
+    ],
+    porQueDaSueno:
+      "Al contener un porcentaje moderado de carbohidratos, no dispara la secreción de insulina, evitando el desvío masivo de energía a la digestión.",
+    vitalHack: {
+      titulo: "Tomate con Limón Previo",
+      accion:
+        "Consume los tomates aliñados antes del pastel de espinaca para activar la digestión con frescura.",
+      explicacionCientifica:
+        "El licopeno del tomate y la acidez del limón predisponen una absorción uniforme.",
+      ordenIngestaRecomendado: ["1° Ensalada de tomate", "2° Pastel de espinaca"],
+    },
+    mejorMomento: "Días de exposiciones orales donde requieras agilidad verbal.",
+    evitarEn: "Si la masa contiene manteca hidrogenada en exceso.",
+    precioPromedioSol: "S/ 4.50 - S/ 6.50",
+    emoji: "🥧",
+    datosEstimados: true,
+  },
 
-  // --- DESAYUNOS ---
+  // --- DESAYUNOS (6 platos) ---
   {
     id: "desayuno-carretilla-quinua-palta",
     nombre: "Vaso de Quinua Caliente + Pan con Palta o Huevo",
@@ -934,7 +1024,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     },
     riesgoSomnolencia: "bajo",
     riesgoSomnolenciaDetalle: "Riesgo bajo si se solicita con dulzor moderado",
-    resumenSueno: "Energía matutina constante para las primeras horas de clase si se pide bajo en dulce.",
+    resumenSueno: "Energía constante si se pide bajo en dulce matutino.",
     horasSaciedad: "3 hrs",
     impactoGlucemico: "Plano y sostenido",
     descripcion:
@@ -976,7 +1066,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     },
     riesgoSomnolencia: "bajo",
     riesgoSomnolenciaDetalle: "Riesgo bajo gracias a los betaglucanos de la avena y la proteína del huevo",
-    resumenSueno: "Desayuno clásico que brinda saciedad estable durante toda la mañana universitaria.",
+    resumenSueno: "Saciedad estable para toda la mañana universitaria.",
     horasSaciedad: "3.5 hrs",
     impactoGlucemico: "Plano y sostenido",
     descripcion:
@@ -1019,7 +1109,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     },
     riesgoSomnolencia: "moderado",
     riesgoSomnolenciaDetalle: "Riesgo moderado por masa de maíz cocida con manteca",
-    resumenSueno: "Energía densa tradicional; acompáñalo de buena sarsa criolla para agilizar la digestión.",
+    resumenSueno: "Energía tradicional; acompáñalo de sarsa criolla fresca.",
     horasSaciedad: "3.5 hrs",
     impactoGlucemico: "Moderado",
     descripcion:
@@ -1044,6 +1134,135 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "Desayuno apurado a 10 minutos de ingresar a una prueba de laboratorio.",
     precioPromedioSol: "S/ 3.50 - S/ 6.00",
     emoji: "🫔",
+    datosEstimados: true,
+  },
+  {
+    id: "pan-con-sangrecita-hierbabuena",
+    nombre: "Pan con Sangrecita Criolla y Hierbabuena",
+    categoria: "desayuno",
+    categoriaLabel: "Desayunos",
+    objetivos: ["anti-sueno", "alta-proteina", "energia-sostenida"],
+    porcionGramos: 250,
+    calorias: 380,
+    macros: {
+      proteinas: 29,
+      carbohidratos: 38,
+      grasas: 12,
+      fibra: 3.2,
+    },
+    riesgoSomnolencia: "bajo",
+    riesgoSomnolenciaDetalle: "Riesgo bajo; máxima densidad de hierro hemo para oxigenación cerebral",
+    resumenSueno: "Máxima densidad de hierro hemo para mantener el cerebro oxigenado.",
+    horasSaciedad: "3.5 - 4 hrs",
+    impactoGlucemico: "Plano y sostenido",
+    descripcion:
+      "Pan francés relleno de sangrecita de pollo guisada con cebollita china, ají amarillo y hierbabuena fresca.",
+    ingredientesPrincipales: [
+      "Sangrecita de pollo cocida y sazonada",
+      "Cebolla china y ají amarillo picado",
+      "Hierbabuena fresca picada",
+      "Pan francés crujiente",
+    ],
+    porQueDaSueno:
+      "Aporta hierro de alta asimilación que favorece la oxigenación celular, con baja carga glucémica que previene la somnolencia en clase matutina.",
+    vitalHack: {
+      titulo: "Hierbabuena Fresca y Cítrico",
+      accion:
+        "Asegúrate de pedirlo con abundante hierbabuena fresca y acompaña con una infusión caliente sin azúcar.",
+      explicacionCientifica:
+        "La hierbabuena aporta aceites esenciales que facilitan la motilidad digestiva matinal.",
+      ordenIngestaRecomendado: ["1° Infusión tibia", "2° Pan con sangrecita"],
+    },
+    mejorMomento: "Desayuno universitario ideal para estudiantes con fatiga matinal o anemia.",
+    evitarEn: "Consumir simultáneamente con té negro concentrado que inhibe el hierro.",
+    precioPromedioSol: "S/ 2.50 - S/ 4.00",
+    emoji: "🥖",
+    datosEstimados: true,
+  },
+  {
+    id: "jugo-especial-pan-queso",
+    nombre: "Jugo Especial de Frutas + Pan con Queso Fresco",
+    categoria: "desayuno",
+    categoriaLabel: "Desayunos",
+    objetivos: ["energia-sostenida", "alta-proteina"],
+    porcionGramos: 420,
+    calorias: 450,
+    macros: {
+      proteinas: 20,
+      carbohidratos: 64,
+      grasas: 12,
+      fibra: 4.8,
+    },
+    riesgoSomnolencia: "moderado",
+    riesgoSomnolenciaDetalle: "Riesgo moderado si el jugo contiene exceso de algarrobina o azúcar",
+    resumenSueno: "Nutritivo y tradicional; solicita poco dulce para evitar un bajón.",
+    horasSaciedad: "3 hrs",
+    impactoGlucemico: "Moderado",
+    descripcion:
+      "Vaso grande de jugo especial con papaya, plátano y huevo, acompañado de pan con queso fresco pasteurizado.",
+    ingredientesPrincipales: [
+      "Frutas licuadas (papaya, plátano, piña)",
+      "Huevo o leche en el licuado",
+      "Pizca de algarrobina tradicional",
+      "Pan francés con queso fresco",
+    ],
+    porQueDaSueno:
+      "La fructosa líquida de las frutas maduras se asimila con rapidez; moderar el azúcar evita una elevación rápida de glucosa con caída posterior.",
+    vitalHack: {
+      titulo: "Pan con Queso Primero",
+      accion:
+        "Come el pan con queso antes de tomar el jugo especial y pídelo sin azúcar refinada extra.",
+      explicacionCientifica:
+        "La proteína y grasa del queso retrasan la absorción de los azúcares naturales del jugo.",
+      ordenIngestaRecomendado: ["1° Pan con queso fresco", "2° Jugo especial a sorbos"],
+    },
+    mejorMomento: "Mañanas de sábado o previas a entrenamientos deportivos matinales.",
+    evitarEn: "Si se le añade miel, algarrobina y azúcar en exceso de forma conjunta.",
+    precioPromedioSol: "S/ 5.00 - S/ 8.00",
+    emoji: "🥤",
+    datosEstimados: true,
+  },
+  {
+    id: "yogur-fruta-granola-universitario",
+    nombre: "Yogur Natural con Fruta Picada, Avena y Chía",
+    categoria: "desayuno",
+    categoriaLabel: "Desayunos",
+    objetivos: ["anti-sueno", "energia-sostenida"],
+    porcionGramos: 320,
+    calorias: 360,
+    macros: {
+      proteinas: 16,
+      carbohidratos: 52,
+      grasas: 10,
+      fibra: 5.6,
+    },
+    riesgoSomnolencia: "bajo",
+    riesgoSomnolenciaDetalle: "Riesgo bajo gracias a probióticos y fibra soluble de frutas y avena",
+    resumenSueno: "Probióticos y fibra que brindan una digestión rápida y liviana.",
+    horasSaciedad: "3 hrs",
+    impactoGlucemico: "Plano y sostenido",
+    descripcion:
+      "Tazón de yogur natural con trozos de manzana o plátano, avena tostada y semillas de chía o maní.",
+    ingredientesPrincipales: [
+      "Yogur natural o griego",
+      "Manzana picada o rodajas de plátano",
+      "Granola o avena tostada",
+      "Semillas de chía o maní tostado",
+    ],
+    porQueDaSueno:
+      "Aporta fermentos lácteos y carbohidratos con fibra, facilitando una digestión limpia y sin pesadez durante las primeras horas en aula.",
+    vitalHack: {
+      titulo: "Semillas de Chía o Maní",
+      accion:
+        "Agrega maní o chía al yogur para sumar grasas saludables que prolonguen la sensación de plenitud.",
+      explicacionCientifica:
+        "Los ácidos grasos y la fibra soluble aumentan la viscosidad del contenido estomacal.",
+      ordenIngestaRecomendado: ["1° Yogur con semillas", "2° Frutas picadas"],
+    },
+    mejorMomento: "Desayuno fresco para días soleados antes de clases de laboratorio.",
+    evitarEn: "Yogures comerciales ultraprocesados con más de 18g de azúcar añadida.",
+    precioPromedioSol: "S/ 3.50 - S/ 5.50",
+    emoji: "🥣",
     datosEstimados: true,
   },
 ];

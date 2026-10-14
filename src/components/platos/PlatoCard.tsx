@@ -5,7 +5,6 @@ import { PlatoNutricional } from "@/types";
 import {
   FlameIcon,
   ClockIcon,
-  CheckIcon,
   ScaleIcon,
 } from "./Icons";
 
@@ -86,6 +85,15 @@ export function PlatoCard({
           </span>
         </div>
 
+        {/* Etiqueta Imagen Ilustrativa si aplica */}
+        {plato.imagenIlustrativa && (
+          <div className="absolute top-2.5 right-2.5 z-10">
+            <span className="inline-flex items-center px-2 py-0.5 rounded-md text-xs font-bold bg-black/60 text-white backdrop-blur-xs">
+              Imagen ilustrativa
+            </span>
+          </div>
+        )}
+
         {/* Chip de kcal (abajo derecha) */}
         <div className="absolute bottom-2.5 right-2.5 z-10">
           <div className="inline-flex items-center gap-1 text-xs font-black text-amber-950 bg-amber-100/95 px-2.5 py-1 rounded-xl border border-amber-300/80 shadow-xs backdrop-blur-xs">
@@ -109,7 +117,7 @@ export function PlatoCard({
             )}
           </div>
           <p
-            className="mt-1 text-xs text-stone-600 font-medium truncate"
+            className="mt-1.5 text-xs text-stone-600 font-medium line-clamp-2 leading-relaxed min-h-[2.25rem]"
             title={plato.resumenSueno}
           >
             {plato.resumenSueno}
@@ -188,7 +196,7 @@ export function PlatoCard({
           onClick={() => onToggleCompare(plato.id)}
           className={`py-2 px-3 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
             isSelectedForCompare
-              ? "bg-emerald-600 text-white shadow-xs"
+              ? "bg-emerald-600 text-white shadow-xs hover:bg-emerald-700"
               : canCompare
               ? "bg-white text-stone-800 border border-stone-300 hover:border-emerald-500 hover:text-emerald-700"
               : "bg-stone-200 text-stone-400 border border-stone-200 cursor-not-allowed opacity-60"
@@ -202,11 +210,13 @@ export function PlatoCard({
           }
         >
           {isSelectedForCompare ? (
-            <CheckIcon className="w-3.5 h-3.5" />
+            <span>✓ En el duelo</span>
           ) : (
-            <ScaleIcon className="w-3.5 h-3.5" />
+            <>
+              <ScaleIcon className="w-3.5 h-3.5" />
+              <span>Comparar</span>
+            </>
           )}
-          <span>{isSelectedForCompare ? "Listo" : "Comparar"}</span>
         </button>
       </div>
     </article>

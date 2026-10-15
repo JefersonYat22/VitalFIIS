@@ -8,6 +8,7 @@ import { PlatosControls } from "./PlatosControls";
 import { PlatoCard } from "./PlatoCard";
 import { PlatoDetailModal } from "./PlatoDetailModal";
 import { PlatosComparatorModal } from "./PlatosComparatorModal";
+import { SequenceModal } from "./SequenceModal";
 import { BrainIcon, SparklesIcon, ChevronDownIcon, ChevronUpIcon } from "./Icons";
 
 export function PlatosView() {
@@ -18,6 +19,7 @@ export function PlatosView() {
   const [compareIds, setCompareIds] = useState<string[]>([]);
   const [selectedPlatoForDetail, setSelectedPlatoForDetail] = useState<PlatoNutricional | null>(null);
   const [isSourcesExpanded, setIsSourcesExpanded] = useState(false);
+  const [isSequenceModalOpen, setIsSequenceModalOpen] = useState(false);
 
   // Filtrado y Ordenamiento
   const filteredPlatos = useMemo(() => {
@@ -102,7 +104,7 @@ export function PlatosView() {
   return (
     <div className="w-full min-h-screen bg-[#FAF8F5] pb-36 sm:pb-32">
       {/* 1. Header / Hero de Sección */}
-      <PlatosHeader />
+      <PlatosHeader onOpenSequenceModal={() => setIsSequenceModalOpen(true)} />
 
       {/* 2. Barra de Control Interactiva Sticky */}
       <PlatosControls
@@ -201,23 +203,14 @@ export function PlatosView() {
             <div className="px-5 pb-6 sm:px-6 space-y-6 border-t border-stone-100 animate-in fade-in duration-200 pt-5">
               {/* Fuentes y Metodología */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-stone-700">
-                <div className="p-4 rounded-2xl bg-[#FAF8F5] border border-stone-200/80 space-y-1.5">
-                  <div className="flex items-center gap-1.5 font-bold text-stone-900">
-                    <SparklesIcon className="w-4 h-4 text-amber-600" />
-                    <span>Bioquímica de la Glucosa (Jessie Inchauspé)</span>
-                  </div>
-                  <p className="text-stone-600 leading-relaxed font-normal">
-                    Modelos sobre la secuencia de ingesta (fibra vegetal → proteína/grasas → almidones) para regular la tasa de vaciamiento gástrico y aplanar la curva insulínica postprandial sin dietas restrictivas.
-                  </p>
-                </div>
-
+                {/* 1. Tablas TPCA 2023 */}
                 <div className="p-4 rounded-2xl bg-[#FAF8F5] border border-stone-200/80 space-y-1.5">
                   <div className="flex items-center gap-1.5 font-bold text-stone-900">
                     <span>🇵🇪</span>
-                    <span>Tablas Peruanas de Composición de Alimentos</span>
+                    <span>Tablas Peruanas de Composición de Alimentos 2023 (TPCA)</span>
                   </div>
                   <p className="text-stone-600 leading-relaxed font-normal">
-                    Valores de macronutrientes, fibra y energía referenciados en las publicaciones oficiales del{" "}
+                    Datos tomados del{" "}
                     <a
                       href="https://web.ins.gob.pe/es/alimentacion-y-nutricion/ciencia-y-tecnologia-de-alimentos/tabla-de-composicion-de-alimentos"
                       target="_blank"
@@ -226,7 +219,56 @@ export function PlatosView() {
                     >
                       CENAN / Instituto Nacional de Salud (INS) ↗
                     </a>
-                    , adaptados a raciones usuales universitarias.
+                    , empleando los registros analíticos del <strong>Grupo S (Alimentos Preparados)</strong> estratificados por niveles socioeconómicos y tablas auxiliares por ingredientes (grupos A-U) para raciones universitarias promedio.
+                  </p>
+                </div>
+
+                {/* 2. Shukla et al. 2015 */}
+                <div className="p-4 rounded-2xl bg-[#FAF8F5] border border-stone-200/80 space-y-1.5">
+                  <div className="flex items-center gap-1.5 font-bold text-stone-900">
+                    <SparklesIcon className="w-4 h-4 text-emerald-600" />
+                    <span>Secuencia de Ingesta (Shukla et al., 2015)</span>
+                  </div>
+                  <p className="text-stone-600 leading-relaxed font-normal">
+                    <a
+                      href="https://doi.org/10.2337/dc15-0429"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-emerald-700 underline font-bold hover:text-emerald-900"
+                    >
+                      Diabetes Care 2015;38(7):e98–e99 (DOI: 10.2337/dc15-0429) ↗
+                    </a>
+                    . Estudio piloto con 11 adultos con diabetes tipo 2 que demostró que consumir vegetales y proteína antes de los carbohidratos reduce significativamente los picos de glucosa e insulina postprandial.
+                  </p>
+                </div>
+
+                {/* 3. Javierre et al. 1996 */}
+                <div className="p-4 rounded-2xl bg-[#FAF8F5] border border-stone-200/80 space-y-1.5">
+                  <div className="flex items-center gap-1.5 font-bold text-stone-900">
+                    <span>🔬</span>
+                    <span>Actividad Postprandial (Javierre et al., 1996)</span>
+                  </div>
+                  <p className="text-stone-600 leading-relaxed font-normal">
+                    <a
+                      href="https://pubmed.ncbi.nlm.nih.gov/9117604/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-emerald-700 underline font-bold hover:text-emerald-900"
+                    >
+                      J Physiol Biochem 1996;52(4):247–254 ↗
+                    </a>
+                    . Evidencia sobre cómo el ejercicio aeróbico ligero posterior a la ingesta favorece la captación periférica de glucosa por contracción muscular sin generar fatiga.
+                  </p>
+                </div>
+
+                {/* 4. Divulgación Jessie Inchauspé */}
+                <div className="p-4 rounded-2xl bg-[#FAF8F5] border border-stone-200/80 space-y-1.5">
+                  <div className="flex items-center gap-1.5 font-bold text-stone-900">
+                    <span>💡</span>
+                    <span>Divulgación Pedagógica (Jessie Inchauspé)</span>
+                  </div>
+                  <p className="text-stone-600 leading-relaxed font-normal">
+                    Síntesis comunicativa y modelos divulgativos para facilitar la aplicación de la secuencia de ingesta (fibra → proteína → almidón) en la rutina universitaria cotidiana sin requerir dietas restrictivas.
                   </p>
                 </div>
               </div>
@@ -242,7 +284,7 @@ export function PlatosView() {
                       <span className="text-emerald-700">●</span> Somnolencia Postprandial
                     </h5>
                     <p className="text-stone-600 leading-relaxed font-normal">
-                      Ocurre cuando un pico abrupto de glucosa estimula una descarga de insulina, facilitando el transporte de triptófano al cerebro y la síntesis subsecuente de melatonina.
+                      Disminución transitoria del estado de alerta tras la ingesta debida a la redistribución de flujo sanguíneo al sistema digestivo, fluctuaciones de glucosa e insulina, y su interacción con el descenso circadiano natural de primera hora de la tarde.
                     </p>
                   </div>
 
@@ -266,10 +308,10 @@ export function PlatosView() {
                 </div>
               </div>
 
-              {/* Metadato de última revisión */}
+              {/* Metadato de última actualización */}
               <div className="pt-3 border-t border-stone-100 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-400 font-medium gap-1">
                 <span>Plataforma estudiantil VitalFIIS • Grupo 7</span>
-                <span>Última revisión: Octubre 2026</span>
+                <span>Última actualización: Octubre 2026</span>
               </div>
             </div>
           )}
@@ -296,6 +338,12 @@ export function PlatosView() {
         onRemovePlato={handleRemoveCompare}
         onClearAll={handleClearAllCompare}
         isDetailOpen={selectedPlatoForDetail !== null}
+      />
+
+      {/* 7. Modal Educativo de Secuencia de Ingesta */}
+      <SequenceModal
+        isOpen={isSequenceModalOpen}
+        onClose={() => setIsSequenceModalOpen(false)}
       />
     </div>
   );

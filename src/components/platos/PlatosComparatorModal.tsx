@@ -285,6 +285,13 @@ export function PlatosComparatorModal({
                           <span className="text-4xl">{item.emoji}</span>
                         </div>
                       )}
+                      {item.imagenIlustrativa && (
+                        <div className="absolute top-2 right-2">
+                          <span className="px-1.5 py-0.5 rounded text-[10px] font-bold bg-black/60 text-white">
+                            Ilustrativa
+                          </span>
+                        </div>
+                      )}
                     </div>
                     <div className="text-xs font-bold text-stone-500">
                       {item.categoriaLabel} • ~{item.porcionGramos}g

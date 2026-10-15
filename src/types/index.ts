@@ -80,6 +80,10 @@ export interface PlatoNutricional {
   emoji: string;
   imagen?: string;
   imagenAlt?: string;
+  imagenIlustrativa?: boolean;
   resumenSueno: string;
   datosEstimados?: boolean;
+  codigoTPCA?: string;
+  fuenteDato: "tpca-s" | "calculado-ingredientes" | "estimado";
+  rangoKcal?: [number, number];
 }

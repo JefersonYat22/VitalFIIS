@@ -85,6 +85,14 @@ export function PlatoCard({
           </span>
         </div>
 
+        {/* Etiqueta Imagen Ilustrativa condicional */}
+        {plato.imagenIlustrativa && (
+          <div className="absolute top-2.5 right-2.5 z-10">
+            <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-bold bg-black/60 text-white backdrop-blur-xs">
+              Imagen ilustrativa
+            </span>
+          </div>
+        )}
 
         {/* Chip de kcal (abajo derecha) */}
         <div className="absolute bottom-2.5 right-2.5 z-10">

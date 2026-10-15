@@ -128,6 +128,13 @@ export function PlatoDetailModal({
                   sizes="(max-width: 768px) 100vw, 600px"
                   className="object-cover"
                 />
+                {plato.imagenIlustrativa && (
+                  <div className="absolute top-2.5 right-2.5 z-10">
+                    <span className="inline-flex items-center px-2 py-0.5 rounded-md text-xs font-bold bg-black/60 text-white backdrop-blur-xs">
+                      Imagen ilustrativa
+                    </span>
+                  </div>
+                )}
               </div>
             ) : (
               <div className="w-full h-32 rounded-2xl bg-gradient-to-br from-amber-50 via-stone-100 to-emerald-50 flex items-center justify-center border border-stone-200/80">
@@ -165,7 +172,7 @@ export function PlatoDetailModal({
                 <span className="text-sm font-black text-emerald-800">{plato.macros.proteinas}g</span>
               </div>
               <div className="p-2 rounded-xl bg-amber-50 border border-amber-200/60">
-                <span className="text-stone-500 font-medium block">Carbos</span>
+                <span className="text-stone-500 font-medium block">Carbos*</span>
                 <span className="text-sm font-black text-amber-800">{plato.macros.carbohidratos}g</span>
               </div>
               <div className="p-2 rounded-xl bg-rose-50 border border-rose-200/60">
@@ -175,6 +182,35 @@ export function PlatoDetailModal({
               <div className="p-2 rounded-xl bg-teal-50 border border-teal-200/60">
                 <span className="text-stone-500 font-medium block">Fibra</span>
                 <span className="text-sm font-black text-teal-800">{plato.macros.fibra}g</span>
+              </div>
+            </div>
+
+            {/* Aclaración de carbohidratos totales y línea de fuente TPCA */}
+            <div className="space-y-1 pt-0.5 text-[11px] text-stone-500 border-t border-stone-100">
+              <p className="italic">
+                * Los carbohidratos indicados son totales e incluyen la fibra dietaria.
+              </p>
+              <div className="flex flex-wrap items-center justify-between gap-1 pt-0.5">
+                <span>
+                  Fuente:{" "}
+                  <strong className="text-stone-700">
+                    {plato.fuenteDato === "tpca-s"
+                      ? "TPCA 2023 (INS/CENAN - Grupo S)"
+                      : plato.fuenteDato === "calculado-ingredientes"
+                      ? "Calculado por ingredientes (TPCA 2023 Grupos A-U)"
+                      : "Estimación nutricional estandarizada"}
+                  </strong>
+                  {plato.codigoTPCA && (
+                    <span className="ml-1.5 px-1.5 py-0.5 rounded bg-stone-200/80 text-stone-800 font-mono text-[10px] font-bold">
+                      Cód. {plato.codigoTPCA}
+                    </span>
+                  )}
+                </span>
+                {plato.rangoKcal && (
+                  <span className="text-stone-500 font-medium">
+                    Rango: {plato.rangoKcal[0]} - {plato.rangoKcal[1]} kcal
+                  </span>
+                )}
               </div>
             </div>
           </div>
@@ -203,12 +239,12 @@ export function PlatoDetailModal({
             </div>
           </div>
 
-          {/* SECCIÓN (b): ¿Por qué puede darte sueño? */}
+          {/* SECCIÓN (b): ¿Por qué puede pesarte más la tarde? */}
           <div className="p-4 rounded-2xl bg-amber-50/60 border border-amber-200 space-y-2.5">
             <div className="flex items-center justify-between gap-2">
               <h3 className="text-xs font-black uppercase tracking-wider text-amber-950 flex items-center gap-1.5">
                 <BrainIcon className="w-4 h-4 text-amber-700 shrink-0" />
-                <span>¿Por qué puede darte sueño en clase?</span>
+                <span>¿Por qué puede pesarte más la tarde?</span>
               </h3>
               <div className={`px-2 py-0.5 rounded-full border text-xs font-bold ${sleepConfig.badge}`}>
                 {sleepConfig.label}

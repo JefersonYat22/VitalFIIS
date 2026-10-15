@@ -30,7 +30,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
       "Salsa huancaína (queso fresco, ají amarillo, leche y galleta)",
     ],
     porQueDaSueno:
-      "El arroz blanco y la papa aportan almidón rápido que puede elevar la insulina con fuerza, facilitando el paso de triptófano al cerebro y la posterior sensación de pesadez.",
+      "El arroz blanco y la papa aportan una carga de almidón de rápida asimilación que puede amplificar una bajada natural de alerta a primera hora de la tarde.",
     vitalHack: {
       titulo: "Secuencia de Ingesta Inteligente",
       accion:
@@ -45,6 +45,10 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     emoji: "🍗",
     imagen: "/images/platos/arroz-con-pollo.webp",
     imagenAlt: "Arroz con pollo acompañado de papa a la huancaína",
+        imagenIlustrativa: true,
+    codigoTPCA: "SS 33 + SE 74",
+    fuenteDato: "tpca-s",
+    rangoKcal: [740, 810],
     datosEstimados: true,
   },
   {
@@ -90,6 +94,10 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     emoji: "🍲",
     imagen: "/images/platos/lentejas-pescado.webp",
     imagenAlt: "Lentejas peruanas con pescado frito, arroz y sarsa criolla",
+        imagenIlustrativa: true,
+    codigoTPCA: "T 53 + B 21",
+    fuenteDato: "calculado-ingredientes",
+    rangoKcal: [650, 720],
     datosEstimados: true,
   },
   {
@@ -126,7 +134,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
       accion:
         "Consume primero los gajos de cebolla y tomate con el jugo salteado, luego la carne y modera la porción de arroz.",
       explicacionCientifica:
-        "El ácido acético del vinagre y la fibra de las hortalizas ayudan a suavizar la respuesta insulínica de la comida.",
+        "La fibra de las hortalizas junto con los ácidos del marinado (como el ácido acético del vinagre, según estudios preliminares) pueden contribuir a una absorción de glucosa más progresiva.",
       ordenIngestaRecomendado: ["1° Tomate y cebolla", "2° Carne de res", "3° Papas y arroz"],
     },
     mejorMomento: "Almuerzos en días activos con movimiento entre laboratorios.",
@@ -135,6 +143,10 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     emoji: "🥩",
     imagen: "/images/platos/lomo-saltado.webp",
     imagenAlt: "Lomo saltado peruano con papas fritas y arroz blanco",
+        imagenIlustrativa: true,
+    codigoTPCA: "SS 155",
+    fuenteDato: "tpca-s",
+    rangoKcal: [735, 805],
     datosEstimados: true,
   },
   {
@@ -178,6 +190,9 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "Clases teóricas prolongadas de 2:00 PM a 4:00 PM.",
     precioPromedioSol: "S/ 9.00 - S/ 13.00",
     emoji: "🍝",
+        codigoTPCA: "SS 318 + SE 74",
+    fuenteDato: "calculado-ingredientes",
+    rangoKcal: [820, 910],
     datosEstimados: true,
   },
   {
@@ -221,6 +236,9 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "Antes de actividad aeróbica intensa inmediata.",
     precioPromedioSol: "S/ 9.00 - S/ 13.00",
     emoji: "🫘",
+        codigoTPCA: "SS 29",
+    fuenteDato: "tpca-s",
+    rangoKcal: [740, 830],
     datosEstimados: true,
   },
   {
@@ -264,6 +282,9 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "Aulas calurosas con escasa ventilación previas a exposiciones.",
     precioPromedioSol: "S/ 8.50 - S/ 12.00",
     emoji: "🍲",
+        codigoTPCA: "SS 11",
+    fuenteDato: "tpca-s",
+    rangoKcal: [680, 750],
     datosEstimados: true,
   },
   {
@@ -309,6 +330,10 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     emoji: "🐟",
     imagen: "/images/platos/ceviche-pescado.webp",
     imagenAlt: "Ceviche peruano tradicional con choclo, camote y cebolla roja",
+        imagenIlustrativa: true,
+    codigoTPCA: "SE 28",
+    fuenteDato: "tpca-s",
+    rangoKcal: [420, 480],
     datosEstimados: true,
   },
   {
@@ -352,6 +377,9 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "Sesiones de estudio teórico en biblioteca justo después de almorzar.",
     precioPromedioSol: "S/ 10.00 - S/ 14.00",
     emoji: "🍳",
+        codigoTPCA: "SS 307-310",
+    fuenteDato: "tpca-s",
+    rangoKcal: [710, 830],
     datosEstimados: true,
   },
   {
@@ -395,6 +423,9 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "Previo a evaluaciones donde necesites agilidad mental inmediata.",
     precioPromedioSol: "S/ 8.00 - S/ 11.00",
     emoji: "🍲",
+        codigoTPCA: "SS 229",
+    fuenteDato: "tpca-s",
+    rangoKcal: [630, 700],
     datosEstimados: true,
   },
   {
@@ -438,6 +469,9 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "Mediodías calurosos antes de clases magistrales de 2 horas.",
     precioPromedioSol: "S/ 9.00 - S/ 14.00",
     emoji: "🥣",
+        codigoTPCA: "SE 9",
+    fuenteDato: "calculado-ingredientes",
+    rangoKcal: [580, 660],
     datosEstimados: true,
   },
   {
@@ -481,6 +515,9 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "Antes de sesiones de programación o lectura concentrada.",
     precioPromedioSol: "S/ 10.00 - S/ 13.00",
     emoji: "🍝",
+        codigoTPCA: "SS 318",
+    fuenteDato: "tpca-s",
+    rangoKcal: [700, 780],
     datosEstimados: true,
   },
 
@@ -526,6 +563,9 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "Antes de clases teóricas de 2 horas o exámenes decisivos.",
     precioPromedioSol: "S/ 7.00 - S/ 11.00",
     emoji: "🥡",
+        codigoTPCA: "SS 23",
+    fuenteDato: "tpca-s",
+    rangoKcal: [790, 860],
     datosEstimados: true,
   },
   {
@@ -568,6 +608,9 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "Noches previas a exámenes de 7:00 AM o semanas de parciales.",
     precioPromedioSol: "S/ 5.00 - S/ 9.00",
     emoji: "🍟",
+        codigoTPCA: "SE 112 + SS 268",
+    fuenteDato: "calculado-ingredientes",
+    rangoKcal: [880, 990],
     datosEstimados: true,
   },
   {
@@ -611,6 +654,9 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "Puestos con exceso de fritura secundaria en aceite reutilizado.",
     precioPromedioSol: "S/ 10.00 - S/ 15.00",
     emoji: "🍢",
+        codigoTPCA: "SS 184",
+    fuenteDato: "tpca-s",
+    rangoKcal: [480, 560],
     datosEstimados: true,
   },
   {
@@ -654,6 +700,9 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "Como sustituto habitual de un almuerzo nutritivo completo.",
     precioPromedioSol: "S/ 3.50 - S/ 6.00",
     emoji: "🥟",
+        codigoTPCA: "SE 54",
+    fuenteDato: "calculado-ingredientes",
+    rangoKcal: [330, 380],
     datosEstimados: true,
   },
   {
@@ -697,6 +746,8 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "Si el pollo viene saturado en mayonesa industrial añeja.",
     precioPromedioSol: "S/ 4.00 - S/ 7.00",
     emoji: "🥪",
+        fuenteDato: "calculado-ingredientes",
+    rangoKcal: [380, 440],
     datosEstimados: true,
   },
   {
@@ -740,6 +791,9 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "Antes de sesiones de estudio concentrado a media tarde.",
     precioPromedioSol: "S/ 4.00 - S/ 6.50",
     emoji: "🥔",
+        codigoTPCA: "SE 80",
+    fuenteDato: "tpca-s",
+    rangoKcal: [470, 540],
     datosEstimados: true,
   },
 
@@ -772,7 +826,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
       "Aliño ligero de limón y aceite vegetal",
     ],
     porQueDaSueno:
-      "La quinua tiene un índice glucémico moderado-bajo y aporta fibra y aminoácidos que mantienen constante el suministro de glucosa al cerebro.",
+      "La quinua aporta carbohidratos complejos acompañados de fibra y proteína vegetal, lo que suele facilitar un suministro de energía más estable frente a cereales refinados (índice glucémico reportado como moderado a bajo según preparación y variedad; pendiente de estandarización local).",
     vitalHack: {
       titulo: "Palta en la Ensalada",
       accion:
@@ -785,6 +839,8 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "No presenta contraindicaciones académicas.",
     precioPromedioSol: "S/ 6.50 (Tupper) - S/ 14.00 (Cafetería)",
     emoji: "🥗",
+        fuenteDato: "calculado-ingredientes",
+    rangoKcal: [450, 510],
     datosEstimados: true,
   },
   {
@@ -828,6 +884,8 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "Ninguno; es de las opciones más eficientes del entorno universitario.",
     precioPromedioSol: "S/ 4.50 - S/ 6.50",
     emoji: "🥫",
+        fuenteDato: "calculado-ingredientes",
+    rangoKcal: [450, 520],
     datosEstimados: true,
   },
   {
@@ -871,6 +929,9 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "Si no tienes acceso a mantener el tupper fresco en días muy calurosos.",
     precioPromedioSol: "S/ 3.50 - S/ 5.00",
     emoji: "🥗",
+        codigoTPCA: "T 53",
+    fuenteDato: "calculado-ingredientes",
+    rangoKcal: [510, 580],
     datosEstimados: true,
   },
   {
@@ -914,6 +975,8 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "Preparaciones con exceso de aceite quemado en la sartén.",
     precioPromedioSol: "S/ 3.80 - S/ 5.50",
     emoji: "🍳",
+        fuenteDato: "calculado-ingredientes",
+    rangoKcal: [470, 530],
     datosEstimados: true,
   },
   {
@@ -957,6 +1020,9 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "Si se prepara con aderezos comerciales con exceso de glutamato y sodio.",
     precioPromedioSol: "S/ 5.00 - S/ 7.00",
     emoji: "🥦",
+        codigoTPCA: "SS 268",
+    fuenteDato: "calculado-ingredientes",
+    rangoKcal: [450, 510],
     datosEstimados: true,
   },
   {
@@ -1000,6 +1066,8 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "Si la masa contiene manteca hidrogenada en exceso.",
     precioPromedioSol: "S/ 4.50 - S/ 6.50",
     emoji: "🥧",
+        fuenteDato: "calculado-ingredientes",
+    rangoKcal: [390, 450],
     datosEstimados: true,
   },
 
@@ -1044,6 +1112,8 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "Versiones cargadas de azúcar procesada sin acompañamiento proteico.",
     precioPromedioSol: "S/ 2.50 - S/ 4.00",
     emoji: "☕",
+        fuenteDato: "calculado-ingredientes",
+    rangoKcal: [380, 440],
     datosEstimados: true,
   },
   {
@@ -1087,6 +1157,8 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "Añadir leche condensada o cucharadas colmadas de azúcar refinada.",
     precioPromedioSol: "S/ 2.00 - S/ 3.50",
     emoji: "🥣",
+        fuenteDato: "calculado-ingredientes",
+    rangoKcal: [360, 420],
     datosEstimados: true,
   },
   {
@@ -1130,6 +1202,9 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "Desayuno apurado a 10 minutos de ingresar a una prueba de laboratorio.",
     precioPromedioSol: "S/ 3.50 - S/ 6.00",
     emoji: "🫔",
+        codigoTPCA: "SE 135",
+    fuenteDato: "tpca-s",
+    rangoKcal: [410, 480],
     datosEstimados: true,
   },
   {
@@ -1147,8 +1222,8 @@ export const PLATOS_DATA: PlatoNutricional[] = [
       fibra: 3.2,
     },
     riesgoSomnolencia: "bajo",
-    riesgoSomnolenciaDetalle: "Riesgo bajo; máxima densidad de hierro hemo para oxigenación cerebral",
-    resumenSueno: "Máxima densidad de hierro hemo para mantener el cerebro oxigenado.",
+    riesgoSomnolenciaDetalle: "Riesgo bajo; notable aporte de hierro hemo y proteína sin pesadez",
+    resumenSueno: "Alto contenido de hierro hemo que apoya el transporte de oxígeno.",
     horasSaciedad: "3.5 - 4 hrs",
     impactoGlucemico: "Plano y sostenido",
     descripcion:
@@ -1160,7 +1235,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
       "Pan francés crujiente",
     ],
     porQueDaSueno:
-      "Aporta hierro de alta asimilación que favorece la oxigenación celular, con baja carga glucémica que previene la somnolencia en clase matutina.",
+      "Aporta hierro de alta biodisponibilidad que apoya el metabolismo energético celular, con un perfil de absorción que previene la somnolencia en clase matutina.",
     vitalHack: {
       titulo: "Hierbabuena Fresca y Cítrico",
       accion:
@@ -1173,6 +1248,9 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "Consumir simultáneamente con té negro concentrado que inhibe el hierro.",
     precioPromedioSol: "S/ 2.50 - S/ 4.00",
     emoji: "🥖",
+        codigoTPCA: "SE 120",
+    fuenteDato: "calculado-ingredientes",
+    rangoKcal: [350, 410],
     datosEstimados: true,
   },
   {
@@ -1216,6 +1294,8 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "Si se le añade miel, algarrobina y azúcar en exceso de forma conjunta.",
     precioPromedioSol: "S/ 5.00 - S/ 8.00",
     emoji: "🥤",
+        fuenteDato: "calculado-ingredientes",
+    rangoKcal: [450, 530],
     datosEstimados: true,
   },
   {
@@ -1259,6 +1339,8 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "Yogures comerciales ultraprocesados con más de 18g de azúcar añadida.",
     precioPromedioSol: "S/ 3.50 - S/ 5.50",
     emoji: "🥣",
+        fuenteDato: "calculado-ingredientes",
+    rangoKcal: [320, 370],
     datosEstimados: true,
   },
 ];

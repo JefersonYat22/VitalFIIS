@@ -1,8 +1,22 @@
+import type { Metadata } from "next";
+import { HeroSection } from "@/components/hacks-energia/HeroSection";
+import { HacksGrid } from "@/components/hacks-energia/HacksGrid";
+import { GlucoseSimulator } from "@/components/hacks-energia/GlucoseSimulator";
+import { HabitsGuide } from "@/components/hacks-energia/HabitsGuide";
+
+export const metadata: Metadata = {
+  title: "Hacks de Energía para el Campus | VitalFIIS",
+  description:
+    "6 estrategias respaldadas por la ciencia para eliminar la somnolencia post-almuerzo, estabilizar tu glucosa y mantener el enfoque mental durante todo el día.",
+};
+
 export default function HacksEnergiaPage() {
   return (
-    <div className="min-h-[60vh] flex flex-col items-center justify-center bg-[#FAF8F5]">
-      <h1 className="text-4xl font-extrabold text-stone-900 mb-4 text-center">Hacks de Energía</h1>
-      <p className="text-stone-600 text-lg">Aún no hay contenido en esta página.</p>
+    <div className="w-full flex flex-col">
+      <HeroSection />
+      <HacksGrid />
+      <GlucoseSimulator />
+      <HabitsGuide />
     </div>
   );
 }

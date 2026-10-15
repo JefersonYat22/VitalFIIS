@@ -128,13 +128,6 @@ export function PlatoDetailModal({
                   sizes="(max-width: 768px) 100vw, 600px"
                   className="object-cover"
                 />
-                {plato.imagenIlustrativa && (
-                  <div className="absolute top-2.5 right-2.5 z-10">
-                    <span className="inline-flex items-center px-2 py-0.5 rounded-md text-xs font-bold bg-black/60 text-white backdrop-blur-xs">
-                      Imagen ilustrativa
-                    </span>
-                  </div>
-                )}
               </div>
             ) : (
               <div className="w-full h-32 rounded-2xl bg-gradient-to-br from-amber-50 via-stone-100 to-emerald-50 flex items-center justify-center border border-stone-200/80">

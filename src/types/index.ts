@@ -80,7 +80,6 @@ export interface PlatoNutricional {
   emoji: string;
   imagen?: string;
   imagenAlt?: string;
-  imagenIlustrativa?: boolean;
   resumenSueno: string;
   datosEstimados?: boolean;
   codigoTPCA?: string;

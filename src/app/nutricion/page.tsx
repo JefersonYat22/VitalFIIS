@@ -160,7 +160,7 @@ export default function NutricionPage() {
                   <div className="space-y-8">
                     <div className="bg-blue-50 rounded-2xl p-6 border border-blue-100 shadow-sm hover:shadow-md transition-shadow">
                       <h3 className="flex items-center text-lg font-bold text-blue-900 mb-3">
-                        🧠 ¿Cómo te ayuda?
+                         ¿Cómo te ayuda?
                       </h3>
                       <p className="text-blue-800 leading-relaxed text-sm">
                         {detallesAMostrar.comoTeAyuda}
@@ -169,7 +169,7 @@ export default function NutricionPage() {
 
                     <div className="bg-amber-50 rounded-2xl p-6 border border-amber-100 shadow-sm hover:shadow-md transition-shadow">
                       <h3 className="flex items-center text-lg font-bold text-amber-900 mb-3">
-                        ⏱️ Momento Ideal de Consumo
+                         Momento Ideal de Consumo
                       </h3>
                       <p className="text-amber-800 leading-relaxed text-sm">
                         {detallesAMostrar.momentoIdeal}

@@ -1,8 +1,12 @@
+import type { Metadata } from "next";
+import { RendimientoClient } from "@/components/rendimiento/RendimientoClient";
+
+export const metadata: Metadata = {
+  title: "Rendimiento y Sueño: Sedentario vs Actividad Física | VitalFIIS",
+  description:
+    "Elige tu ritmo de vida universitario: consejos y micro-hacks para salir del sedentarismo sin culpa, o descubre el catálogo de actividades físicas con recomendaciones nutricionales y de sueño.",
+};
+
 export default function RendimientoPage() {
-  return (
-    <div className="min-h-[60vh] flex flex-col items-center justify-center bg-[#FAF8F5]">
-      <h1 className="text-4xl font-extrabold text-stone-900 mb-4 text-center">Rendimiento, Entrenamiento y Sueño</h1>
-      <p className="text-stone-600 text-lg">Aún no hay contenido en esta página.</p>
-    </div>
-  );
+  return <RendimientoClient />;
 }

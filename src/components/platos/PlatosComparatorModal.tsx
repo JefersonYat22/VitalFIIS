@@ -411,6 +411,9 @@ export function PlatosComparatorModal({
                     </div>
                   </div>
                 </div>
+                <p className="text-[10px] text-stone-400 italic">
+                  * Glucosa: Clasificación cualitativa del equipo, no medida.
+                </p>
               </div>
 
               {/* Fila 4: Desglose de Macronutrientes (Proteína, Carbos, Grasas, Fibra) */}

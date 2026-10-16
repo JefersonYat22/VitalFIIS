@@ -284,7 +284,7 @@ export function PlatosView() {
                       <span className="text-emerald-700">●</span> Somnolencia Postprandial
                     </h5>
                     <p className="text-stone-600 leading-relaxed font-normal">
-                      Disminución transitoria del estado de alerta tras la ingesta debida a la redistribución de flujo sanguíneo al sistema digestivo, fluctuaciones de glucosa e insulina, y su interacción con el descenso circadiano natural de primera hora de la tarde.
+                      Disminución transitoria del estado de alerta tras la ingesta atribuida habitualmente a fluctuaciones de glucosa e insulina, descenso circadiano vespertino y digestión gastrointestinal.
                     </p>
                   </div>
 
@@ -306,6 +306,11 @@ export function PlatosView() {
                     </p>
                   </div>
                 </div>
+              </div>
+
+              {/* Nota metodológica sobre clasificación de somnolencia */}
+              <div className="p-3.5 rounded-2xl bg-amber-50/70 border border-amber-200/80 text-xs text-amber-950 font-medium leading-relaxed">
+                <strong>Nota metodológica:</strong> La clasificación de riesgo de somnolencia es un criterio cualitativo del equipo: se considera alto cuando el plato aporta unos 100 g o más de carbohidratos con menos de 5 g de fibra, o una carga de grasa muy alta (≥45 g); bajo y moderado se asignan según fibra y carga total. No constituye diagnóstico ni asesoramiento nutricional.
               </div>
 
               {/* Metadato de última actualización */}

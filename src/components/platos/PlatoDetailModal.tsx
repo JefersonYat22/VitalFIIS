@@ -183,12 +183,19 @@ export function PlatoDetailModal({
               <p className="italic">
                 * Los carbohidratos indicados son totales e incluyen la fibra dietaria.
               </p>
+              {plato.fuenteDato === "tpca-s" && (
+                <p className="text-stone-600 font-medium">
+                  Porción estimada; valores por 100 g de la TPCA 2023 (INS/CENAN)
+                </p>
+              )}
               <div className="flex flex-wrap items-center justify-between gap-1 pt-0.5">
                 <span>
                   Fuente:{" "}
                   <strong className="text-stone-700">
                     {plato.fuenteDato === "tpca-s"
                       ? "TPCA 2023 (INS/CENAN - Grupo S)"
+                      : plato.fuenteDato === "estimado-referencia-tpca"
+                      ? "Estimado según referencia TPCA (Grupo S)"
                       : plato.fuenteDato === "calculado-ingredientes"
                       ? "Calculado por ingredientes (TPCA 2023 Grupos A-U)"
                       : "Estimación nutricional estandarizada"}
@@ -198,13 +205,31 @@ export function PlatoDetailModal({
                       Cód. {plato.codigoTPCA}
                     </span>
                   )}
+                  {plato.nombreTPCA && (
+                    <span className="ml-1.5 text-stone-600 text-[10px] italic">
+                      (&quot;{plato.nombreTPCA}&quot;)
+                    </span>
+                  )}
+                  {plato.nFilasTPCA && (
+                    <span className="ml-1.5 px-1.5 py-0.5 rounded bg-stone-100 text-stone-600 font-mono text-[10px]">
+                      {plato.nFilasTPCA} {plato.nFilasTPCA === 1 ? "fila" : "filas"}
+                    </span>
+                  )}
                 </span>
                 {plato.rangoKcal && (
                   <span className="text-stone-500 font-medium">
-                    Rango: {plato.rangoKcal[0]} - {plato.rangoKcal[1]} kcal
+                    {plato.rangoKcal[0] === plato.rangoKcal[1]
+                      ? `Ref.: ${plato.rangoKcal[0]} kcal`
+                      : `Rango: ${plato.rangoKcal[0]} - ${plato.rangoKcal[1]} kcal`}
                   </span>
                 )}
               </div>
+
+              {plato.notaTPCA && (
+                <div className="mt-1.5 p-2 rounded-lg bg-stone-100 text-[11px] text-stone-600 border border-stone-200/80 leading-snug">
+                  <span className="font-bold text-stone-800">Nota TPCA:</span> {plato.notaTPCA}
+                </div>
+              )}
             </div>
           </div>
 
@@ -230,6 +255,34 @@ export function PlatoDetailModal({
                 ))}
               </ul>
             </div>
+
+            {plato.ingredientesPesos && plato.ingredientesPesos.length > 0 && (
+              <div className="pt-2.5 border-t border-stone-200">
+                <span className="text-xs font-bold text-stone-700 block mb-1.5">
+                  Pesos supuestos por el equipo:
+                </span>
+                <div className="overflow-x-auto rounded-xl border border-stone-200 bg-white p-2">
+                  <table className="w-full text-[11px] text-stone-700">
+                    <thead>
+                      <tr className="border-b border-stone-100 text-stone-400 font-semibold text-left">
+                        <th className="pb-1">Ingrediente</th>
+                        <th className="pb-1 text-right">Gramos</th>
+                        <th className="pb-1 text-right pl-2">Alimento TPCA base</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-stone-100 font-medium">
+                      {plato.ingredientesPesos.map((item, idx) => (
+                        <tr key={idx} className="hover:bg-stone-50/60">
+                          <td className="py-1 text-stone-800">{item.ingrediente}</td>
+                          <td className="py-1 text-right font-mono font-bold text-stone-900">{item.gramos}g</td>
+                          <td className="py-1 text-right text-stone-500 pl-2 italic">{item.alimentoTPCA || "—"}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* SECCIÓN (b): ¿Por qué puede pesarte más la tarde? */}
@@ -248,14 +301,19 @@ export function PlatoDetailModal({
               {plato.porQueDaSueno}
             </p>
 
-            <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-amber-200/70 text-xs">
-              <span className="text-stone-600 font-bold">
-                Impacto en glucosa: <strong className="text-stone-900">{plato.impactoGlucemico}</strong>
-              </span>
-              <span className="text-stone-600 font-bold inline-flex items-center gap-1">
-                <ClockIcon className="w-3.5 h-3.5 text-stone-400" />
-                <span>Saciedad aprox.: <strong className="text-stone-900">{plato.horasSaciedad}</strong></span>
-              </span>
+            <div className="space-y-1.5 pt-2 border-t border-amber-200/70 text-xs">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <span className="text-stone-600 font-bold">
+                  Impacto en glucosa: <strong className="text-stone-900">{plato.impactoGlucemico}</strong>
+                </span>
+                <span className="text-stone-600 font-bold inline-flex items-center gap-1">
+                  <ClockIcon className="w-3.5 h-3.5 text-stone-400" />
+                  <span>Saciedad aprox.: <strong className="text-stone-900">{plato.horasSaciedad}</strong></span>
+                </span>
+              </div>
+              <p className="text-[10px] text-stone-500 italic">
+                * Impacto en glucosa: Clasificación cualitativa del equipo, no medida.
+              </p>
             </div>
           </div>
 

@@ -60,13 +60,13 @@ const STEPS: StepData[] = [
   {
     id: 4,
     nombre: "4° Caminata de 10-15 min",
-    subtitulo: "Captación muscular activa",
+    subtitulo: "Actividad ligera postcomida",
     badge: "PASO 4",
     color: "bg-purple-600 text-white",
     borderColor: "border-purple-600",
     activeFill: "#9333ea",
     texto:
-      "Un paseo suave hacia el pabellón o biblioteca estimula a los músculos a captar glucosa circulante de manera independiente a la insulina.",
+      "Un paseo suave hacia el pabellón estimula la contracción muscular para modular la respuesta glucémica.",
     icono: "🚶",
   },
 ];

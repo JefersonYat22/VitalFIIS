@@ -45,9 +45,19 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     emoji: "🍗",
     imagen: "/images/platos/arroz-con-pollo.webp",
     imagenAlt: "Arroz con pollo acompañado de papa a la huancaína",
+    ingredientesPesos: [
+      { ingrediente: "Arroz verde al culantro cocido", gramos: 220, alimentoTPCA: "Arroz pilado o pulido cocido" },
+      { ingrediente: "Pierna o encuentro de pollo guisado con piel", gramos: 150, alimentoTPCA: "Pollo, carne pulpa" },
+      { ingrediente: "Papa sancochada", gramos: 80, alimentoTPCA: "Papa blanca (crudo)" },
+      { ingrediente: "Salsa huancaína (queso fresco, ají, leche, galleta)", gramos: 50, alimentoTPCA: "" },
+      { ingrediente: "Aceite vegetal del aderezo y alverjas", gramos: 20, alimentoTPCA: "Aceite vegetal de soya" },
+    ],
     codigoTPCA: "SS 33 + SE 74",
-    fuenteDato: "tpca-s",
-    rangoKcal: [740, 810],
+    nombreTPCA: "Arroz con pollo + Papa a la huancaína",
+    fuenteDato: "estimado-referencia-tpca",
+    rangoKcal: [690, 723],
+    nFilasTPCA: 10,
+    notaTPCA: "Combinación supuesta según ingredientesPesos: arroz+pollo+aceite=390 g (SS 33) y papa+huancaína=130 g (SE 74). No es una preparación única del PDF.",
     datosEstimados: true,
   },
   {
@@ -78,7 +88,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
       "Sarsa criolla con cebolla, tomate y limón",
     ],
     porQueDaSueno:
-      "La fibra soluble de las lentejas forma una red viscosa en el intestino que modula la entrada de glucosa, evitando caídas bruscas de energía.",
+      "La fibra soluble de las lentejas puede formar una red viscosa en el intestino que modula la entrada de glucosa y ayudar a mantener la energía más estable.",
     vitalHack: {
       titulo: "Sinergia de Hierro y Vitamina C",
       accion:
@@ -93,9 +103,13 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     emoji: "🍲",
     imagen: "/images/platos/lentejas-pescado.webp",
     imagenAlt: "Lentejas peruanas con pescado frito, arroz y sarsa criolla",
-    codigoTPCA: "T 53 + B 21",
+    ingredientesPesos: [
+      { ingrediente: "Lentejas guisadas con sofrito criollo", gramos: 200, alimentoTPCA: "Lentejas chicas cocidas" },
+      { ingrediente: "Arroz blanco cocido", gramos: 150, alimentoTPCA: "Arroz pilado o pulido cocido" },
+      { ingrediente: "Filete de pescado (bonito/jurel frito)", gramos: 100, alimentoTPCA: "Pescado bonito" },
+      { ingrediente: "Sarsa criolla (cebolla, tomate, limón)", gramos: 40, alimentoTPCA: "Cebolla de cabeza" },
+    ],
     fuenteDato: "calculado-ingredientes",
-    rangoKcal: [650, 720],
     datosEstimados: true,
   },
   {
@@ -105,16 +119,16 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     categoriaLabel: "Comedor / Menú",
     objetivos: ["alta-proteina"],
     porcionGramos: 500,
-    calorias: 760,
+    calorias: 828,
     macros: {
-      proteinas: 38,
-      carbohidratos: 84,
-      grasas: 32,
-      fibra: 4.2,
+      proteinas: 27,
+      carbohidratos: 105,
+      grasas: 33,
+      fibra: 3.0,
     },
-    riesgoSomnolencia: "moderado",
-    riesgoSomnolenciaDetalle: "Riesgo moderado por combinación de almidón y grasa de fritura",
-    resumenSueno: "Buena proteína pero digestión pausada por fritura y almidón.",
+    riesgoSomnolencia: "alto",
+    riesgoSomnolenciaDetalle: "Riesgo alto de somnolencia por combinación de doble almidón (>100 g de carbos) y grasa de fritura",
+    resumenSueno: "Doble almidón y aporte calórico elevado (>800 kcal); puede favorecer somnolencia vespertina.",
     horasSaciedad: "4 hrs",
     impactoGlucemico: "Moderado",
     descripcion:
@@ -126,13 +140,13 @@ export const PLATOS_DATA: PlatoNutricional[] = [
       "Sillao, vinagre tinto y culantro",
     ],
     porQueDaSueno:
-      "La digestión conjunta de grasa de fritura y almidón refinado demanda mayor irrigación al tracto gastrointestinal, lo que puede inducir letargia leve.",
+      "La combinación de más de 100 g de carbohidratos (papas fritas y arroz) con baja fibra (3 g) y grasa de cocción puede generar una digestión prolongada y favorecer pesadez o somnolencia postprandial.",
     vitalHack: {
       titulo: "Vegetales Marinados Primero",
       accion:
         "Consume primero los gajos de cebolla y tomate con el jugo salteado, luego la carne y modera la porción de arroz.",
       explicacionCientifica:
-        "La fibra de las hortalizas junto con los ácidos del marinado (como el ácido acético del vinagre, según estudios preliminares) pueden contribuir a una absorción de glucosa más progresiva.",
+        "La fibra de las hortalizas puede contribuir a una digestión más progresiva.",
       ordenIngestaRecomendado: ["1° Tomate y cebolla", "2° Carne de res", "3° Papas y arroz"],
     },
     mejorMomento: "Almuerzos en días activos con movimiento entre laboratorios.",
@@ -142,8 +156,11 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     imagen: "/images/platos/lomo-saltado.webp",
     imagenAlt: "Lomo saltado peruano con papas fritas y arroz blanco",
     codigoTPCA: "SS 155",
+    nombreTPCA: "Lomo saltado con arroz",
     fuenteDato: "tpca-s",
-    rangoKcal: [735, 805],
+    rangoKcal: [735, 945],
+    nFilasTPCA: 5,
+    notaTPCA: "Misma preparación.",
     datosEstimados: true,
   },
   {
@@ -162,7 +179,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     },
     riesgoSomnolencia: "alto",
     riesgoSomnolenciaDetalle: "Riesgo alto de somnolencia severa por sobrecarga de carbohidratos refinados",
-    resumenSueno: "Elevada carga glucémica por pasta y papa; alto riesgo de sopor.",
+    resumenSueno: "Pasta y papa con carga de carbohidratos muy alta; riesgo alto de somnolencia.",
     horasSaciedad: "3.5 hrs",
     impactoGlucemico: "Pico alto y abrupto",
     descripcion:
@@ -187,9 +204,19 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "Clases teóricas prolongadas de 2:00 PM a 4:00 PM.",
     precioPromedioSol: "S/ 9.00 - S/ 13.00",
     emoji: "🍝",
-    codigoTPCA: "SS 318 + SE 74",
-    fuenteDato: "calculado-ingredientes",
-    rangoKcal: [820, 910],
+    ingredientesPesos: [
+      { ingrediente: "Tallarines en salsa criolla de tomate y zanahoria", gramos: 260, alimentoTPCA: "" },
+      { ingrediente: "Presa de pollo guisado", gramos: 140, alimentoTPCA: "Pollo, carne pulpa" },
+      { ingrediente: "Papa sancochada", gramos: 80, alimentoTPCA: "Papa blanca (crudo)" },
+      { ingrediente: "Salsa huancaína", gramos: 55, alimentoTPCA: "" },
+      { ingrediente: "Aceite del aderezo criollo", gramos: 25, alimentoTPCA: "" },
+    ],
+    codigoTPCA: "SS 317 + SE 74",
+    nombreTPCA: "Tallarines rojos con pollo + Papa a la huancaína",
+    fuenteDato: "estimado-referencia-tpca",
+    rangoKcal: [677, 788],
+    nFilasTPCA: 9,
+    notaTPCA: "Tallarines rojos con pollo (SS 317) + papa a la huancaína (SE 74); pesos supuestos.",
     datosEstimados: true,
   },
   {
@@ -199,16 +226,16 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     categoriaLabel: "Comedor / Menú",
     objetivos: ["energia-sostenida", "alta-proteina"],
     porcionGramos: 540,
-    calorias: 740,
+    calorias: 701,
     macros: {
-      proteinas: 44,
-      carbohidratos: 86,
-      grasas: 24,
-      fibra: 13.0,
+      proteinas: 38,
+      carbohidratos: 115,
+      grasas: 9,
+      fibra: 15.1,
     },
     riesgoSomnolencia: "bajo",
-    riesgoSomnolenciaDetalle: "Riesgo bajo-moderado gracias al almidón resistente y fibra de los frejoles",
-    resumenSueno: "Fibra abundante que sostiene la energía y modula el arroz.",
+    riesgoSomnolenciaDetalle: "Riesgo bajo gracias a los más de 15 g de fibra y almidón resistente de los frejoles",
+    resumenSueno: "Fibra muy abundante (~15 g) de la menestra que modula la asimilación del arroz.",
     horasSaciedad: "5 hrs",
     impactoGlucemico: "Plano y sostenido",
     descripcion:
@@ -220,7 +247,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
       "Sarsa criolla con limón",
     ],
     porQueDaSueno:
-      "Aunque es un plato abundante, las legumbres liberan glucosa con lentitud y aportan almidón resistente, lo que suele mantener estable la atención.",
+      "Pese al volumen del plato, la presencia destacada de fibra en las legumbres modula la absorción de carbohidratos, lo que puede ayudar a evitar descensos de energía.",
     vitalHack: {
       titulo: "Acompañamiento Ácido",
       accion:
@@ -234,8 +261,11 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     precioPromedioSol: "S/ 9.00 - S/ 13.00",
     emoji: "🫘",
     codigoTPCA: "SS 29",
+    nombreTPCA: "Arroz con frejoles y seco de pollo",
     fuenteDato: "tpca-s",
-    rangoKcal: [740, 830],
+    rangoKcal: [626, 815],
+    nFilasTPCA: 5,
+    notaTPCA: "Misma preparación (seco de pollo con frejoles y arroz).",
     datosEstimados: true,
   },
   {
@@ -272,16 +302,26 @@ export const PLATOS_DATA: PlatoNutricional[] = [
       accion:
         "Inicia con el huevo duro y la aceituna antes del guiso; deja un tercio del arroz si tu tarde será sedentaria.",
       explicacionCientifica:
-        "La proteína del huevo y las grasas monoinsaturadas de la aceituna estimulan la saciedad temprana vía CCK.",
+        "La proteína del huevo y las grasas de la aceituna pueden favorecer la saciedad.",
       ordenIngestaRecomendado: ["1° Huevo y aceituna", "2° Ají de gallina", "3° Arroz blanco"],
     },
     mejorMomento: "Días frescos de invierno universitario con actividad moderada.",
     evitarEn: "Aulas calurosas con escasa ventilación previas a exposiciones.",
     precioPromedioSol: "S/ 8.50 - S/ 12.00",
     emoji: "🍲",
-    codigoTPCA: "SS 11",
-    fuenteDato: "tpca-s",
-    rangoKcal: [680, 750],
+    ingredientesPesos: [
+      { ingrediente: "Arroz blanco cocido", gramos: 180, alimentoTPCA: "Arroz pilado o pulido cocido" },
+      { ingrediente: "Crema de ají de gallina (pechuga, pan/galleta, ají amarillo, leche)", gramos: 200, alimentoTPCA: "" },
+      { ingrediente: "Papa amarilla sancochada", gramos: 70, alimentoTPCA: "Papa amarilla sin cáscara (crudo)" },
+      { ingrediente: "Huevo duro (1/2 unidad)", gramos: 25, alimentoTPCA: "Huevo de gallina entero (crudo)" },
+      { ingrediente: "Aceituna de botija (1 unidad)", gramos: 15, alimentoTPCA: "Aceituna de botija" },
+    ],
+    codigoTPCA: "SS 335",
+    nombreTPCA: "Ají de gallina con papa blanca más arroz*",
+    fuenteDato: "estimado-referencia-tpca",
+    rangoKcal: [544, 544],
+    nFilasTPCA: 1,
+    notaTPCA: "Aproximación: \"Ají de gallina con papa blanca más arroz*\" (1 fila, marcada con * en el PDF; sin huevo).",
     datosEstimados: true,
   },
   {
@@ -327,9 +367,18 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     emoji: "🐟",
     imagen: "/images/platos/ceviche-pescado.webp",
     imagenAlt: "Ceviche peruano tradicional con choclo, camote y cebolla roja",
-    codigoTPCA: "SE 28",
-    fuenteDato: "tpca-s",
-    rangoKcal: [420, 480],
+    ingredientesPesos: [
+      { ingrediente: "Filete de pescado fresco marinado en limón", gramos: 180, alimentoTPCA: "Pescado bonito" },
+      { ingrediente: "Camote amarillo sancochado", gramos: 120, alimentoTPCA: "Camote amarillo sin cáscara (crudo)" },
+      { ingrediente: "Choclo desgranado sancochado", gramos: 80, alimentoTPCA: "Maíz, grano fresco (choclo)" },
+      { ingrediente: "Cebolla roja en pluma y ají limo", gramos: 50, alimentoTPCA: "" },
+    ],
+    codigoTPCA: "SS 59",
+    nombreTPCA: "Cebiche de pescado",
+    fuenteDato: "estimado-referencia-tpca",
+    rangoKcal: [327, 714],
+    nFilasTPCA: 4,
+    notaTPCA: "Aproximaciones: SS 59 cebiche de pescado (segundo) y SE 25 cebiche de pescado (entrada). No incluyen necesariamente camote y choclo.",
     datosEstimados: true,
   },
   {
@@ -373,9 +422,19 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "Sesiones de estudio teórico en biblioteca justo después de almorzar.",
     precioPromedioSol: "S/ 10.00 - S/ 14.00",
     emoji: "🍳",
-    codigoTPCA: "SS 307-310",
-    fuenteDato: "tpca-s",
-    rangoKcal: [710, 830],
+    ingredientesPesos: [
+      { ingrediente: "Tacu tacu frito (arroz blanco + frejol batido con aderezo)", gramos: 340, alimentoTPCA: "" },
+      { ingrediente: "Huevo frito montado", gramos: 60, alimentoTPCA: "" },
+      { ingrediente: "Sarsa criolla (cebolla, ají, limón)", gramos: 60, alimentoTPCA: "Cebolla de cabeza" },
+      { ingrediente: "Aceite vegetal de dorado", gramos: 20, alimentoTPCA: "Aceite vegetal de soya" },
+      { ingrediente: "Plátano frito de acompañamiento", gramos: 40, alimentoTPCA: "" },
+    ],
+    codigoTPCA: "SS 307",
+    nombreTPCA: "Tacu tacu con churrasco",
+    fuenteDato: "estimado-referencia-tpca",
+    rangoKcal: [832, 832],
+    nFilasTPCA: 1,
+    notaTPCA: "Ningún tacu tacu del PDF es con huevo; SS 307 (churrasco) es referencia y SS 308-311 son alternativas.",
     datosEstimados: true,
   },
   {
@@ -385,16 +444,16 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     categoriaLabel: "Comedor / Menú",
     objetivos: ["energia-sostenida"],
     porcionGramos: 490,
-    calorias: 670,
+    calorias: 614,
     macros: {
-      proteinas: 35,
-      carbohidratos: 82,
-      grasas: 21,
-      fibra: 3.8,
+      proteinas: 32,
+      carbohidratos: 103,
+      grasas: 7,
+      fibra: 3.4,
     },
-    riesgoSomnolencia: "moderado",
-    riesgoSomnolenciaDetalle: "Riesgo moderado si no se regula la porción de arroz con la papa cocida",
-    resumenSueno: "Guiso casero con buena proteína; doble almidón moderado.",
+    riesgoSomnolencia: "alto",
+    riesgoSomnolenciaDetalle: "Riesgo alto de somnolencia por carga de carbohidratos superior a 100 g combinando papa y arroz con baja fibra",
+    resumenSueno: "Doble almidón con más de 100 g de carbohidratos; puede favorecer somnolencia tras la comida.",
     horasSaciedad: "3.5 - 4 hrs",
     impactoGlucemico: "Moderado",
     descripcion:
@@ -406,7 +465,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
       "Arroz blanco cocido",
     ],
     porQueDaSueno:
-      "La papa sancochada en guiso tiene un índice glucémico medio-alto que, al sumarse al arroz, puede generar fatiga si se consume en gran volumen.",
+      "El aporte de 103 g de carbohidratos provenientes de papa y arroz con apenas 3.4 g de fibra puede inducir una demanda insulínica notable y favorecer cierta fatiga o somnolencia vespertina.",
     vitalHack: {
       titulo: "Verduras del Guiso Primero",
       accion:
@@ -419,9 +478,19 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "Previo a evaluaciones donde necesites agilidad mental inmediata.",
     precioPromedioSol: "S/ 8.00 - S/ 11.00",
     emoji: "🍲",
-    codigoTPCA: "SS 229",
+    ingredientesPesos: [
+      { ingrediente: "Presa de pollo guisado en tomate y ají panca", gramos: 160, alimentoTPCA: "Pollo, carne pulpa" },
+      { ingrediente: "Arroz blanco cocido", gramos: 170, alimentoTPCA: "Arroz pilado o pulido cocido" },
+      { ingrediente: "Papa blanca sancochada en el guiso", gramos: 90, alimentoTPCA: "Papa blanca (crudo)" },
+      { ingrediente: "Zanahoria y alverjitas guisadas", gramos: 50, alimentoTPCA: "Zanahoria" },
+      { ingrediente: "Aceite vegetal del aderezo", gramos: 20, alimentoTPCA: "Aceite vegetal de soya" },
+    ],
+    codigoTPCA: "SS 95",
+    nombreTPCA: "Estofado de pollo con arroz",
     fuenteDato: "tpca-s",
-    rangoKcal: [630, 700],
+    rangoKcal: [573, 691],
+    nFilasTPCA: 4,
+    notaTPCA: "Preparación TPCA \"Estofado de pollo con arroz\" (SS 95); la papa y la zanahoria no están declaradas en la preparación TPCA.",
     datosEstimados: true,
   },
   {
@@ -458,16 +527,21 @@ export const PLATOS_DATA: PlatoNutricional[] = [
       accion:
         "Agrega abundante limón y kion, come el huevo duro y la presa antes de terminar el tazón de fideos.",
       explicacionCientifica:
-        "El kion aporta gingeroles estimulantes y el huevo aporta proteína saciante que equilibra los carbohidratos.",
+        "El huevo aporta proteína que favorece la saciedad y ayuda a equilibrar los carbohidratos del plato.",
       ordenIngestaRecomendado: ["1° Huevo duro y presa", "2° Caldo con kion/limón", "3° Fideos"],
     },
     mejorMomento: "Noches frías de repaso o mañanas de recuperación tras días intensos.",
     evitarEn: "Mediodías calurosos antes de clases magistrales de 2 horas.",
     precioPromedioSol: "S/ 9.00 - S/ 14.00",
     emoji: "🥣",
-    codigoTPCA: "SE 9",
+    ingredientesPesos: [
+      { ingrediente: "Caldo concentrado de gallina (fondo líquido)", gramos: 280, alimentoTPCA: "" },
+      { ingrediente: "Presa de gallina cocida", gramos: 110, alimentoTPCA: "Gallina, pechuga de, sin piel" },
+      { ingrediente: "Fideos tallarines cocidos", gramos: 90, alimentoTPCA: "Fideo tallarín (crudo)" },
+      { ingrediente: "Huevo duro entero", gramos: 50, alimentoTPCA: "Huevo de gallina entero (crudo)" },
+      { ingrediente: "Cancha serrana tostada (guarnición)", gramos: 20, alimentoTPCA: "Maíz cancha tostada de" },
+    ],
     fuenteDato: "calculado-ingredientes",
-    rangoKcal: [580, 660],
     datosEstimados: true,
   },
   {
@@ -511,9 +585,12 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "Antes de sesiones de programación o lectura concentrada.",
     precioPromedioSol: "S/ 10.00 - S/ 13.00",
     emoji: "🍝",
-    codigoTPCA: "SS 318",
-    fuenteDato: "tpca-s",
-    rangoKcal: [700, 780],
+    codigoTPCA: "SS 319",
+    nombreTPCA: "Tallarines saltados con pollo",
+    fuenteDato: "estimado-referencia-tpca",
+    rangoKcal: [787, 878],
+    nFilasTPCA: 2,
+    notaTPCA: "SS 319 = Tallarines saltados con pollo (2 filas). SS 318 = Tallarines saltado, sin pollo (1 fila), como alternativa.",
     datosEstimados: true,
   },
 
@@ -525,16 +602,16 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     categoriaLabel: "Al Paso / Económicos",
     objetivos: [],
     porcionGramos: 550,
-    calorias: 820,
+    calorias: 958,
     macros: {
-      proteinas: 26,
-      carbohidratos: 112,
-      grasas: 30,
-      fibra: 2.1,
+      proteinas: 35,
+      carbohidratos: 163,
+      grasas: 15,
+      fibra: 0.0,
     },
     riesgoSomnolencia: "alto",
-    riesgoSomnolenciaDetalle: "Riesgo alto de somnolencia por almidón refinado abundante y sodio elevado",
-    resumenSueno: "Almidón rápido y sodio alto; propicia un pico con posterior bajón.",
+    riesgoSomnolenciaDetalle: "Riesgo alto de somnolencia por carga de carbohidratos muy alta (>160 g) y fibra muy baja (0 g según la tabla)",
+    resumenSueno: "Carga calórica y de carbohidratos elevada con fibra muy baja (0 g según la tabla); puede favorecer somnolencia.",
     horasSaciedad: "2.5 - 3 hrs",
     impactoGlucemico: "Pico alto y abrupto",
     descripcion:
@@ -546,7 +623,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
       "Sillao, aceite vegetal y cebolla china",
     ],
     porQueDaSueno:
-      "El volumen alto de arroz cocido con escasa fibra y alto sodio puede producir un alza glucémica rápida seguida de somnolencia y deshidratación leve.",
+      "La gran cantidad de arroz salteado (unos 163 g de carbohidratos) prácticamente desprovisto de fibra puede generar una respuesta insulínica marcada y favorecer la somnolencia postprandial.",
     vitalHack: {
       titulo: "Hack de Fibra y Ácido Acético",
       accion:
@@ -560,8 +637,11 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     precioPromedioSol: "S/ 7.00 - S/ 11.00",
     emoji: "🥡",
     codigoTPCA: "SS 23",
+    nombreTPCA: "Arroz chaufa de pollo",
     fuenteDato: "tpca-s",
-    rangoKcal: [790, 860],
+    rangoKcal: [930, 984],
+    nFilasTPCA: 5,
+    notaTPCA: "Misma preparación.",
     datosEstimados: true,
   },
   {
@@ -591,7 +671,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
       "Cremas comerciales (mayonesa, mostaza, ají)",
     ],
     porQueDaSueno:
-      "La alta carga lipídica retrasa la motilidad gástrica y desvía flujo sanguíneo prolongado al aparato digestivo, provocando sopor y pesadez.",
+      "La alta carga lipídica retrasa la motilidad gástrica e induce un proceso digestivo prolongado, que puede provocar pesadez y somnolencia.",
     vitalHack: {
       titulo: "Control de Salsas y Agua Previa",
       accion:
@@ -604,9 +684,13 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "Noches previas a exámenes de 7:00 AM o semanas de parciales.",
     precioPromedioSol: "S/ 5.00 - S/ 9.00",
     emoji: "🍟",
-    codigoTPCA: "SE 112 + SS 268",
+    ingredientesPesos: [
+      { ingrediente: "Papas fritas en aceite vegetal", gramos: 230, alimentoTPCA: "SE 77 Papas fritas" },
+      { ingrediente: "Salchicha / hot dog frito en rodajas", gramos: 110, alimentoTPCA: "" },
+      { ingrediente: "Trozos de pollo broaster frito", gramos: 90, alimentoTPCA: "" },
+      { ingrediente: "Salsas emulsionadas (mayonesa, tártara, cremas)", gramos: 50, alimentoTPCA: "" },
+    ],
     fuenteDato: "calculado-ingredientes",
-    rangoKcal: [880, 990],
     datosEstimados: true,
   },
   {
@@ -650,9 +734,18 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "Puestos con exceso de fritura secundaria en aceite reutilizado.",
     precioPromedioSol: "S/ 10.00 - S/ 15.00",
     emoji: "🍢",
-    codigoTPCA: "SS 184",
-    fuenteDato: "tpca-s",
-    rangoKcal: [480, 560],
+    ingredientesPesos: [
+      { ingrediente: "Corazón de res marinado en ají panca y asado", gramos: 180, alimentoTPCA: "Res, corazón de" },
+      { ingrediente: "Papa blanca sancochada y dorada a la parrilla", gramos: 100, alimentoTPCA: "Papa blanca (crudo)" },
+      { ingrediente: "Choclo entero sancochado", gramos: 60, alimentoTPCA: "Maíz, grano fresco (choclo)" },
+      { ingrediente: "Ají carretillero y aderezo parrillero", gramos: 20, alimentoTPCA: "" },
+    ],
+    codigoTPCA: "SS 13",
+    nombreTPCA: "Anticucho con papa y arroz",
+    fuenteDato: "estimado-referencia-tpca",
+    rangoKcal: [392, 410],
+    nFilasTPCA: 2,
+    notaTPCA: "Aproximación: \"Anticucho con papa y arroz\" (SS 13, 2 filas). SS 184 NO es equivalente (parrillada con chorizo y papas fritas).",
     datosEstimados: true,
   },
   {
@@ -696,9 +789,12 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "Como sustituto habitual de un almuerzo nutritivo completo.",
     precioPromedioSol: "S/ 3.50 - S/ 6.00",
     emoji: "🥟",
-    codigoTPCA: "SE 54",
+    ingredientesPesos: [
+      { ingrediente: "Masa horneada de harina de trigo con manteca/mantequilla", gramos: 90, alimentoTPCA: "" },
+      { ingrediente: "Relleno de carne molida guisada con cebolla y pasas", gramos: 55, alimentoTPCA: "Res, carne molida (crudo)" },
+      { ingrediente: "Trozo de huevo cocido y aceituna", gramos: 15, alimentoTPCA: "Huevo de gallina entero (crudo)" },
+    ],
     fuenteDato: "calculado-ingredientes",
-    rangoKcal: [330, 380],
     datosEstimados: true,
   },
   {
@@ -742,8 +838,13 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "Si el pollo viene saturado en mayonesa industrial añeja.",
     precioPromedioSol: "S/ 4.00 - S/ 7.00",
     emoji: "🥪",
+    ingredientesPesos: [
+      { ingrediente: "Pan francés o ciabatta", gramos: 80, alimentoTPCA: "Pan francés fortificado con hierro" },
+      { ingrediente: "Pechuga de pollo sancochada y deshilachada", gramos: 90, alimentoTPCA: "Pollo, carne pulpa" },
+      { ingrediente: "Lechuga fresca y rodaja de tomate", gramos: 25, alimentoTPCA: "" },
+      { ingrediente: "Mayonesa ligera o aderezo casero", gramos: 15, alimentoTPCA: "" },
+    ],
     fuenteDato: "calculado-ingredientes",
-    rangoKcal: [380, 440],
     datosEstimados: true,
   },
   {
@@ -760,9 +861,9 @@ export const PLATOS_DATA: PlatoNutricional[] = [
       grasas: 20,
       fibra: 3.5,
     },
-    riesgoSomnolencia: "alto",
-    riesgoSomnolenciaDetalle: "Riesgo alto por masa de papa prensada frita en aceite profundo",
-    resumenSueno: "Almidón frito de absorción rápida; propicio al sopor al mediodía.",
+    riesgoSomnolencia: "moderado",
+    riesgoSomnolenciaDetalle: "Riesgo moderado por masa de papa prensada y fritura, con porción moderada de carbohidratos (58 g)",
+    resumenSueno: "Almidón frito con porción moderada de carbohidratos; puede generar cierta pesadez temporal.",
     horasSaciedad: "3 hrs",
     impactoGlucemico: "Pico alto y abrupto",
     descripcion:
@@ -774,7 +875,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
       "Sarsa criolla con limón",
     ],
     porQueDaSueno:
-      "La papa hecha puré y frita incrementa la disponibilidad del almidón, provocando un ascenso glucémico rápido que suele terminar en fatiga.",
+      "La masa de papa prensada y frita ofrece disponibilidad moderada-alta de almidón que, combinada con grasa de fritura, puede demandar una digestión pausada y favorecer ligera fatiga posterior.",
     vitalHack: {
       titulo: "Sarsa Criolla como Barrera",
       accion:
@@ -788,8 +889,11 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     precioPromedioSol: "S/ 4.00 - S/ 6.50",
     emoji: "🥔",
     codigoTPCA: "SE 80",
-    fuenteDato: "tpca-s",
-    rangoKcal: [470, 540],
+    nombreTPCA: "Papa rellena con sarsa criolla",
+    fuenteDato: "estimado-referencia-tpca",
+    rangoKcal: [448, 448],
+    nFilasTPCA: 1,
+    notaTPCA: "SE 80 = con sarsa criolla (1 fila). SE 78 = papa rellena (4 filas, rango amplio).",
     datosEstimados: true,
   },
 
@@ -809,7 +913,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
       fibra: 8.5,
     },
     riesgoSomnolencia: "bajo",
-    riesgoSomnolenciaDetalle: "Riesgo mínimo; quinua de bajo índice glucémico y proteína magra",
+    riesgoSomnolenciaDetalle: "Riesgo mínimo; digestión ligera con proteína magra y quinua",
     resumenSueno: "Mente clara y sin bajón; cereal andino de asimilación sostenida.",
     horasSaciedad: "4 hrs",
     impactoGlucemico: "Plano y sostenido",
@@ -822,7 +926,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
       "Aliño ligero de limón y aceite vegetal",
     ],
     porQueDaSueno:
-      "La quinua aporta carbohidratos complejos acompañados de fibra y proteína vegetal, lo que suele facilitar un suministro de energía más estable frente a cereales refinados (índice glucémico reportado como moderado a bajo según preparación y variedad; pendiente de estandarización local).",
+      "La quinua aporta carbohidratos complejos acompañados de fibra y proteína vegetal, lo que suele facilitar un suministro paulatino de energía frente a cereales refinados.",
     vitalHack: {
       titulo: "Palta en la Ensalada",
       accion:
@@ -835,8 +939,13 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "No presenta contraindicaciones académicas.",
     precioPromedioSol: "S/ 6.50  - S/ 14.00",
     emoji: "🥗",
+    ingredientesPesos: [
+      { ingrediente: "Filete de pechuga de pollo a la plancha", gramos: 150, alimentoTPCA: "Pollo, carne pulpa" },
+      { ingrediente: "Quinua blanca perlada cocida graneada", gramos: 150, alimentoTPCA: "Quinua cocida" },
+      { ingrediente: "Ensalada fresca (lechuga, tomate, pepino)", gramos: 120, alimentoTPCA: "" },
+      { ingrediente: "Aceite de oliva para aderezo", gramos: 20, alimentoTPCA: "Aceite vegetal de oliva extravirgen" },
+    ],
     fuenteDato: "calculado-ingredientes",
-    rangoKcal: [450, 510],
     datosEstimados: true,
   },
   {
@@ -855,7 +964,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     },
     riesgoSomnolencia: "bajo",
     riesgoSomnolenciaDetalle: "Riesgo mínimo; ácidos grasos Omega-3 y carbohidratos complejos",
-    resumenSueno: "Económico y fácil; digestión ligera que previene el cansancio.",
+    resumenSueno: "Económico y fácil; digestión ligera que puede ayudar a mantener la energía.",
     horasSaciedad: "4 hrs",
     impactoGlucemico: "Plano y sostenido",
     descripcion:
@@ -880,8 +989,13 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "Ninguno; es de las opciones más eficientes del entorno universitario.",
     precioPromedioSol: "S/ 4.50 - S/ 6.50",
     emoji: "🥫",
+    ingredientesPesos: [
+      { ingrediente: "Filete de atún en agua (escurrido)", gramos: 120, alimentoTPCA: "Pescado atún, enlatado en agua" },
+      { ingrediente: "Camote amarillo sancochado", gramos: 130, alimentoTPCA: "Camote amarillo sin cáscara (crudo)" },
+      { ingrediente: "Choclo desgranado sancochado", gramos: 90, alimentoTPCA: "Maíz, grano fresco (choclo)" },
+      { ingrediente: "Tomate y cebolla en dados", gramos: 70, alimentoTPCA: "Tomate" },
+    ],
     fuenteDato: "calculado-ingredientes",
-    rangoKcal: [450, 520],
     datosEstimados: true,
   },
   {
@@ -925,9 +1039,14 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "Si no tienes acceso a mantener el tupper fresco en días muy calurosos.",
     precioPromedioSol: "S/ 3.50 - S/ 5.00",
     emoji: "🥗",
-    codigoTPCA: "T 53",
+    ingredientesPesos: [
+      { ingrediente: "Frejol canario o pallar cocido guisado", gramos: 210, alimentoTPCA: "Frejol canario cocido" },
+      { ingrediente: "Huevo cocido (duro o pasado)", gramos: 60, alimentoTPCA: "Huevo de gallina entero (crudo)" },
+      { ingrediente: "Ensalada fresca de tomate y cebolla", gramos: 90, alimentoTPCA: "" },
+      { ingrediente: "Palta fuerte en cubos", gramos: 30, alimentoTPCA: "Palta \"fuerte\"" },
+      { ingrediente: "Arroz blanco cocido (porción reducida)", gramos: 30, alimentoTPCA: "" },
+    ],
     fuenteDato: "calculado-ingredientes",
-    rangoKcal: [510, 580],
     datosEstimados: true,
   },
   {
@@ -946,7 +1065,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     },
     riesgoSomnolencia: "bajo",
     riesgoSomnolenciaDetalle: "Riesgo bajo por presencia de hortalizas integradas y proteína del huevo",
-    resumenSueno: "Ligera y nutritiva; verduras con huevo que evitan el letargo.",
+    resumenSueno: "Ligera y nutritiva; verduras con huevo que pueden ayudar a evitar la pesadez.",
     horasSaciedad: "3.5 hrs",
     impactoGlucemico: "Plano y sostenido",
     descripcion:
@@ -971,8 +1090,13 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "Preparaciones con exceso de aceite quemado en la sartén.",
     precioPromedioSol: "S/ 3.80 - S/ 5.50",
     emoji: "🍳",
+    ingredientesPesos: [
+      { ingrediente: "Tortilla de 2 huevos con espinaca y zanahoria", gramos: 160, alimentoTPCA: "" },
+      { ingrediente: "Arroz blanco cocido", gramos: 130, alimentoTPCA: "Arroz pilado o pulido cocido" },
+      { ingrediente: "Palta fuerte laminada", gramos: 60, alimentoTPCA: "Palta \"fuerte\"" },
+      { ingrediente: "Tomate fresco en rodajas y aceite de sartén", gramos: 50, alimentoTPCA: "" },
+    ],
     fuenteDato: "calculado-ingredientes",
-    rangoKcal: [470, 530],
     datosEstimados: true,
   },
   {
@@ -1016,9 +1140,18 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "Si se prepara con aderezos comerciales con exceso de glutamato y sodio.",
     precioPromedioSol: "S/ 5.00 - S/ 7.00",
     emoji: "🥦",
+    ingredientesPesos: [
+      { ingrediente: "Pechuga de pollo en tiras salteada al wok", gramos: 140, alimentoTPCA: "Pollo, carne pulpa" },
+      { ingrediente: "Brócoli, pimiento y cebolla salteados", gramos: 150, alimentoTPCA: "" },
+      { ingrediente: "Arroz blanco cocido", gramos: 120, alimentoTPCA: "Arroz pilado o pulido cocido" },
+      { ingrediente: "Aceite vegetal y sillao", gramos: 20, alimentoTPCA: "Aceite vegetal de soya" },
+    ],
     codigoTPCA: "SS 268",
-    fuenteDato: "calculado-ingredientes",
-    rangoKcal: [450, 510],
+    nombreTPCA: "Saltado de pollo con arroz",
+    fuenteDato: "estimado-referencia-tpca",
+    rangoKcal: [580, 580],
+    nFilasTPCA: 1,
+    notaTPCA: "Aproximación: saltado de pollo con arroz (SS 268).",
     datosEstimados: true,
   },
   {
@@ -1049,7 +1182,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
       "Tomates con limón y orégano",
     ],
     porQueDaSueno:
-      "Al contener un porcentaje moderado de carbohidratos, no dispara la secreción de insulina, evitando el desvío masivo de energía a la digestión.",
+      "Con una proporción moderada de carbohidratos y buena fibra, es menos probable que genere una carga digestiva pesada.",
     vitalHack: {
       titulo: "Tomate con Limón Previo",
       accion:
@@ -1062,8 +1195,12 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "Si la masa contiene manteca hidrogenada en exceso.",
     precioPromedioSol: "S/ 4.50 - S/ 6.50",
     emoji: "🥧",
+    ingredientesPesos: [
+      { ingrediente: "Pastel casero de espinaca con queso fresco y huevo", gramos: 220, alimentoTPCA: "" },
+      { ingrediente: "Ensalada de tomate fresco en rodajas", gramos: 100, alimentoTPCA: "Tomate" },
+      { ingrediente: "Aliño de limón sutil y aceite de oliva", gramos: 40, alimentoTPCA: "Aceite vegetal de oliva extravirgen" },
+    ],
     fuenteDato: "calculado-ingredientes",
-    rangoKcal: [390, 450],
     datosEstimados: true,
   },
 
@@ -1101,15 +1238,19 @@ export const PLATOS_DATA: PlatoNutricional[] = [
       accion:
         "Pide a la casera: 'Sírvalo bajo en dulce, por favor', y prefiere palta o huevo antes que torrejas fritas.",
       explicacionCientifica:
-        "Evitar jarabes azucarados al inicio del día previene caídas reactivas de glucosa durante la clase de 8:00 AM.",
+        "Evitar jarabes azucarados al inicio del día puede ayudar a mantener la energía durante la clase de 8:00 AM.",
       ordenIngestaRecomendado: ["1° Pan con palta/huevo", "2° Quinua tibia a sorbos"],
     },
     mejorMomento: "Desayuno ágil de carretilla entre las 6:45 AM y 7:45 AM en la puerta de la facultad.",
     evitarEn: "Versiones cargadas de azúcar procesada sin acompañamiento proteico.",
     precioPromedioSol: "S/ 2.50 - S/ 4.00",
     emoji: "☕",
+    ingredientesPesos: [
+      { ingrediente: "Bebida caliente de quinua con manzana", gramos: 220, alimentoTPCA: "Quinua cocida" },
+      { ingrediente: "Pan francés fresco", gramos: 70, alimentoTPCA: "Pan francés fortificado con hierro" },
+      { ingrediente: "Palta fuerte machacada o huevo duro", gramos: 90, alimentoTPCA: "Palta \"fuerte\"" },
+    ],
     fuenteDato: "calculado-ingredientes",
-    rangoKcal: [380, 440],
     datosEstimados: true,
   },
   {
@@ -1153,8 +1294,13 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "Añadir leche condensada o cucharadas colmadas de azúcar refinada.",
     precioPromedioSol: "S/ 2.00 - S/ 3.50",
     emoji: "🥣",
+    ingredientesPesos: [
+      { ingrediente: "Tazón de avena cocida con canela y clavo", gramos: 220, alimentoTPCA: "Avena, hojuela cocida" },
+      { ingrediente: "Pan francés fresco", gramos: 70, alimentoTPCA: "Pan francés fortificado con hierro" },
+      { ingrediente: "Huevo revuelto o pasado", gramos: 60, alimentoTPCA: "Huevo de gallina entero (crudo)" },
+      { ingrediente: "Aceite vegetal mínimo de cocción", gramos: 20, alimentoTPCA: "Aceite vegetal de soya" },
+    ],
     fuenteDato: "calculado-ingredientes",
-    rangoKcal: [360, 420],
     datosEstimados: true,
   },
   {
@@ -1199,8 +1345,11 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     precioPromedioSol: "S/ 3.50 - S/ 6.00",
     emoji: "🫔",
     codigoTPCA: "SE 135",
-    fuenteDato: "tpca-s",
-    rangoKcal: [410, 480],
+    nombreTPCA: "Tamal de pollo",
+    fuenteDato: "estimado-referencia-tpca",
+    rangoKcal: [229, 651],
+    nFilasTPCA: 3,
+    notaTPCA: "Solo el tamal (~210 g); el café se asume sin aporte. SE 135 tiene 3 filas con rango muy amplio.",
     datosEstimados: true,
   },
   {
@@ -1231,7 +1380,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
       "Pan francés crujiente",
     ],
     porQueDaSueno:
-      "Aporta hierro de alta biodisponibilidad que apoya el metabolismo energético celular, con un perfil de absorción que previene la somnolencia en clase matutina.",
+      "Aporta hierro hemo, útil para el transporte de oxígeno, y una porción moderada de carbohidratos.",
     vitalHack: {
       titulo: "Hierbabuena Fresca y Cítrico",
       accion:
@@ -1244,9 +1393,12 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "Consumir simultáneamente con té negro concentrado que inhibe el hierro.",
     precioPromedioSol: "S/ 2.50 - S/ 4.00",
     emoji: "🥖",
-    codigoTPCA: "SE 120",
+    ingredientesPesos: [
+      { ingrediente: "Sangrecita de pollo cocida sazonada con hierbabuena y ají", gramos: 130, alimentoTPCA: "Pollo, sangre de, sancochada sin sal" },
+      { ingrediente: "Pan francés fresco", gramos: 80, alimentoTPCA: "Pan francés fortificado con hierro" },
+      { ingrediente: "Camote o papa sancochada en rodajas", gramos: 40, alimentoTPCA: "Camote amarillo sin cáscara (crudo)" },
+    ],
     fuenteDato: "calculado-ingredientes",
-    rangoKcal: [350, 410],
     datosEstimados: true,
   },
   {
@@ -1277,7 +1429,7 @@ export const PLATOS_DATA: PlatoNutricional[] = [
       "Pan francés con queso fresco",
     ],
     porQueDaSueno:
-      "La fructosa líquida de las frutas maduras se asimila con rapidez; moderar el azúcar evita una elevación rápida de glucosa con caída posterior.",
+      "La fructosa líquida de las frutas maduras se asimila con rapidez; moderar el azúcar puede ayudar a evitar una subida rápida de glucosa.",
     vitalHack: {
       titulo: "Pan con Queso Primero",
       accion:
@@ -1290,8 +1442,12 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "Si se le añade miel, algarrobina y azúcar en exceso de forma conjunta.",
     precioPromedioSol: "S/ 5.00 - S/ 8.00",
     emoji: "🥤",
+    ingredientesPesos: [
+      { ingrediente: "Jugo especial licuado (papaya, plátano, leche, algarrobina)", gramos: 260, alimentoTPCA: "" },
+      { ingrediente: "Pan francés o ciabatta", gramos: 80, alimentoTPCA: "Pan francés fortificado con hierro" },
+      { ingrediente: "Queso fresco de vaca en láminas", gramos: 80, alimentoTPCA: "Queso fresco de vaca" },
+    ],
     fuenteDato: "calculado-ingredientes",
-    rangoKcal: [450, 530],
     datosEstimados: true,
   },
   {
@@ -1335,8 +1491,12 @@ export const PLATOS_DATA: PlatoNutricional[] = [
     evitarEn: "Yogures comerciales ultraprocesados con más de 18g de azúcar añadida.",
     precioPromedioSol: "S/ 3.50 - S/ 5.50",
     emoji: "🥣",
+    ingredientesPesos: [
+      { ingrediente: "Yogur natural entero o descremado", gramos: 170, alimentoTPCA: "Yogurt natural de leche descremada" },
+      { ingrediente: "Fruta picada fresca (papaya, plátano, manzana)", gramos: 100, alimentoTPCA: "" },
+      { ingrediente: "Granola artesanal o avena cruda con chía", gramos: 50, alimentoTPCA: "" },
+    ],
     fuenteDato: "calculado-ingredientes",
-    rangoKcal: [320, 370],
     datosEstimados: true,
   },
 ];

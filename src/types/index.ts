@@ -57,6 +57,12 @@ export interface VitalHack {
   ordenIngestaRecomendado?: string[];
 }
 
+export interface IngredientePeso {
+  ingrediente: string;
+  gramos: number;
+  alimentoTPCA?: string;
+}
+
 export interface PlatoNutricional {
   id: string;
   nombre: string;
@@ -83,6 +89,11 @@ export interface PlatoNutricional {
   resumenSueno: string;
   datosEstimados?: boolean;
   codigoTPCA?: string;
-  fuenteDato: "tpca-s" | "calculado-ingredientes" | "estimado";
+  nombreTPCA?: string;
+  fuenteDato: "tpca-s" | "estimado-referencia-tpca" | "calculado-ingredientes" | "estimado";
   rangoKcal?: [number, number];
+  nFilasTPCA?: number;
+  notaTPCA?: string;
+  ingredientesPesos?: IngredientePeso[];
 }
+

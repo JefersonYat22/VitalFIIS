@@ -212,7 +212,7 @@ export function PlatosView() {
                   <p className="text-stone-600 leading-relaxed font-normal">
                     Datos tomados del{" "}
                     <a
-                      href="https://web.ins.gob.pe/es/alimentacion-y-nutricion/ciencia-y-tecnologia-de-alimentos/tabla-de-composicion-de-alimentos"
+                      href="https://repositorio.ins.gob.pe/items/945f2705-5700-4561-9281-974adb816604"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-emerald-700 underline font-bold hover:text-emerald-900"

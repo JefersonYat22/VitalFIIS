@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 import { SlideData } from "@/types";
 
@@ -17,6 +18,7 @@ const slides: SlideData[] = [
     accentIcon: "⚡",
     image: "/images/slide-sueno.webp",
     imageAlt: "Estudiante con sueño frente al computador en clase",
+    href: "/hacks-energia",
   },
   {
     id: 2,
@@ -27,6 +29,7 @@ const slides: SlideData[] = [
     bgGradient: "from-teal-950 via-cyan-900 to-emerald-950",
     badgeBg: "bg-teal-700/60 text-teal-100 border-teal-500/40",
     accentIcon: "👁️",
+    href: "/nutricion",
   },
   {
     id: 3,
@@ -37,6 +40,7 @@ const slides: SlideData[] = [
     bgGradient: "from-stone-900 via-emerald-950 to-emerald-900",
     badgeBg: "bg-amber-900/60 text-amber-200 border-amber-600/40",
     accentIcon: "🧪",
+    href: "/hacks-energia",
   },
 ];
 
@@ -114,11 +118,11 @@ export function HeroCarousel() {
                 </p>
 
                 <div>
-                  <a
-                    href="#perfiles"
+                  <Link
+                    href={slide.href || "#perfiles"}
                     className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-extrabold text-stone-950 bg-amber-400 hover:bg-amber-300 active:scale-95 shadow-xl shadow-amber-400/20 transition-all text-base group cursor-pointer border border-amber-300"
                   >
-                    <span>Saber más</span>
+                    <span>Ver más</span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -133,7 +137,7 @@ export function HeroCarousel() {
                         d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
                       />
                     </svg>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

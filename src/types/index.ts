@@ -10,6 +10,7 @@ export interface SlideData {
   accentIcon: string;
   image?: string;
   imageAlt?: string;
+  href?: string;
 }
 
 export interface Expert {

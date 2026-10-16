@@ -29,3 +29,71 @@ export interface NarrativeSection {
   imageCredit?: string;
   imageCreditUrl?: string;
 }
+
+export type CategoriaPlato =
+  | "comedor"
+  | "al-paso"
+  | "desayuno"
+  | "tupper";
+
+export type ObjetivoPlato =
+  | "anti-sueno"
+  | "alta-proteina"
+  | "energia-sostenida";
+
+export type RiesgoSomnolencia = "bajo" | "moderado" | "alto";
+
+export interface MacrosPlato {
+  proteinas: number; // en gramos
+  carbohidratos: number; // en gramos
+  grasas: number; // en gramos
+  fibra: number; // en gramos
+}
+
+export interface VitalHack {
+  titulo: string;
+  accion: string;
+  explicacionCientifica: string;
+  ordenIngestaRecomendado?: string[];
+}
+
+export interface IngredientePeso {
+  ingrediente: string;
+  gramos: number;
+  alimentoTPCA?: string;
+}
+
+export interface PlatoNutricional {
+  id: string;
+  nombre: string;
+  categoria: CategoriaPlato;
+  categoriaLabel: string;
+  objetivos: ObjetivoPlato[];
+  porcionGramos: number;
+  calorias: number;
+  macros: MacrosPlato;
+  riesgoSomnolencia: RiesgoSomnolencia;
+  riesgoSomnolenciaDetalle: string;
+  horasSaciedad: string;
+  impactoGlucemico: "Plano y sostenido" | "Moderado" | "Pico alto y abrupto";
+  descripcion: string;
+  ingredientesPrincipales: string[];
+  porQueDaSueno: string;
+  vitalHack: VitalHack;
+  mejorMomento: string;
+  evitarEn: string;
+  precioPromedioSol?: string;
+  emoji: string;
+  imagen?: string;
+  imagenAlt?: string;
+  resumenSueno: string;
+  datosEstimados?: boolean;
+  codigoTPCA?: string;
+  nombreTPCA?: string;
+  fuenteDato: "tpca-s" | "estimado-referencia-tpca" | "calculado-ingredientes" | "estimado";
+  rangoKcal?: [number, number];
+  nFilasTPCA?: number;
+  notaTPCA?: string;
+  ingredientesPesos?: IngredientePeso[];
+}
+

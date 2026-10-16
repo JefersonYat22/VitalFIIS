@@ -1,0 +1,1216 @@
+{
+ "_fuente": "Tablas Peruanas de Composición de Alimentos 2023 (INS/CENAN), grupo S. Extracción automática del PDF tpca-2025-2.pdf; verificar visualmente antes de publicar.",
+ "_convenciones": "Valores por 100 g de preparación. \"fila_en_bloque\" = filas de la misma preparación (estratos); la letra de estrato no se asigna. carbohidratos = totales (incluyen fibra). Diferencia % = catálogo vs TPCA (positivo = catálogo mayor).",
+ "platos": [
+  {
+   "id": "arroz-con-pollo-huancaina",
+   "nombre_catalogo": "Arroz con Pollo + Papa a la Huancaína",
+   "porcionGramos": 520,
+   "componentes": [
+    {
+     "gramos_asumidos": 390,
+     "codigo": "SS 33",
+     "nombre_en_pdf": "Arroz con pollo",
+     "n_filas": 5,
+     "por_100g": {
+      "kcal": {
+       "prom": 141.6,
+       "min": 139.0,
+       "max": 145.0
+      },
+      "proteina_g": {
+       "prom": 6.9,
+       "min": 6.8,
+       "max": 7.0
+      },
+      "grasa_g": {
+       "prom": 2.3,
+       "min": 2.2,
+       "max": 2.5
+      },
+      "carb_totales_g": {
+       "prom": 22.9,
+       "min": 21.9,
+       "max": 23.9
+      },
+      "fibra_g": {
+       "prom": 0.6,
+       "min": 0.5,
+       "max": 0.7
+      }
+     }
+    },
+    {
+     "gramos_asumidos": 130,
+     "codigo": "SE 74",
+     "nombre_en_pdf": "Papa a la huancaína",
+     "n_filas": 5,
+     "por_100g": {
+      "kcal": {
+       "prom": 118.4,
+       "min": 114.0,
+       "max": 121.0
+      },
+      "proteina_g": {
+       "prom": 3.5,
+       "min": 3.3,
+       "max": 3.7
+      },
+      "grasa_g": {
+       "prom": 3.9,
+       "min": 3.7,
+       "max": 4.1
+      },
+      "carb_totales_g": {
+       "prom": 18.1,
+       "min": 17.6,
+       "max": 18.6
+      },
+      "fibra_g": {
+       "prom": 1.1,
+       "min": 0.9,
+       "max": 1.3
+      }
+     }
+    }
+   ],
+   "tpca_por_porcion": {
+    "kcal": 706.2,
+    "proteina_g": 31.5,
+    "grasa_g": 14.0,
+    "carb_totales_g": 112.8,
+    "fibra_g": 3.8,
+    "kcal_min": 690,
+    "kcal_max": 723
+   },
+   "catalogo_actual": {
+    "kcal": 780,
+    "proteina_g": 34.0,
+    "grasa_g": 28.0,
+    "carb_totales_g": 98.0,
+    "fibra_g": 3.5
+   },
+   "diferencia_catalogo_vs_tpca_pct": {
+    "kcal": 10,
+    "proteina_g": 8,
+    "grasa_g": 100,
+    "carb_totales_g": -13,
+    "fibra_g": -8
+   },
+   "revisar": [
+    "grasa_g"
+   ],
+   "nota": "Combinación supuesta según ingredientesPesos: arroz+pollo+aceite=390 g (SS 33) y papa+huancaína=130 g (SE 74). No es una preparación única del PDF."
+  },
+  {
+   "id": "lomo-saltado-papas-arroz",
+   "nombre_catalogo": "Lomo Saltado con Papas Fritas y Arroz",
+   "porcionGramos": 500,
+   "componentes": [
+    {
+     "gramos_asumidos": 500,
+     "codigo": "SS 155",
+     "nombre_en_pdf": "Lomo saltado con arroz",
+     "n_filas": 5,
+     "por_100g": {
+      "kcal": {
+       "prom": 165.6,
+       "min": 147.0,
+       "max": 189.0
+      },
+      "proteina_g": {
+       "prom": 5.3,
+       "min": 4.3,
+       "max": 7.3
+      },
+      "grasa_g": {
+       "prom": 6.6,
+       "min": 5.1,
+       "max": 8.2
+      },
+      "carb_totales_g": {
+       "prom": 20.9,
+       "min": 18.6,
+       "max": 22.9
+      },
+      "fibra_g": {
+       "prom": 0.6,
+       "min": 0.2,
+       "max": 0.8
+      }
+     }
+    }
+   ],
+   "tpca_por_porcion": {
+    "kcal": 828.0,
+    "proteina_g": 26.5,
+    "grasa_g": 33.0,
+    "carb_totales_g": 104.5,
+    "fibra_g": 3.0,
+    "kcal_min": 735,
+    "kcal_max": 945
+   },
+   "catalogo_actual": {
+    "kcal": 760,
+    "proteina_g": 38.0,
+    "grasa_g": 32.0,
+    "carb_totales_g": 84.0,
+    "fibra_g": 4.2
+   },
+   "diferencia_catalogo_vs_tpca_pct": {
+    "kcal": -8,
+    "proteina_g": 43,
+    "grasa_g": -3,
+    "carb_totales_g": -20,
+    "fibra_g": 40
+   },
+   "revisar": [
+    "proteina_g",
+    "carb_totales_g",
+    "fibra_g"
+   ],
+   "nota": "Misma preparación."
+  },
+  {
+   "id": "seco-pollo-frejoles-arroz",
+   "nombre_catalogo": "Seco de Pollo / Res con Frejoles y Arroz",
+   "porcionGramos": 540,
+   "componentes": [
+    {
+     "gramos_asumidos": 540,
+     "codigo": "SS 29",
+     "nombre_en_pdf": "Arroz con frejoles y seco de pollo",
+     "n_filas": 5,
+     "por_100g": {
+      "kcal": {
+       "prom": 129.8,
+       "min": 116.0,
+       "max": 151.0
+      },
+      "proteina_g": {
+       "prom": 7.1,
+       "min": 4.9,
+       "max": 8.6
+      },
+      "grasa_g": {
+       "prom": 1.7,
+       "min": 1.0,
+       "max": 2.4
+      },
+      "carb_totales_g": {
+       "prom": 21.2,
+       "min": 17.8,
+       "max": 24.4
+      },
+      "fibra_g": {
+       "prom": 2.8,
+       "min": 2.4,
+       "max": 3.7
+      }
+     }
+    }
+   ],
+   "tpca_por_porcion": {
+    "kcal": 700.9,
+    "proteina_g": 38.3,
+    "grasa_g": 9.2,
+    "carb_totales_g": 114.5,
+    "fibra_g": 15.1,
+    "kcal_min": 626,
+    "kcal_max": 815
+   },
+   "catalogo_actual": {
+    "kcal": 740,
+    "proteina_g": 44.0,
+    "grasa_g": 24.0,
+    "carb_totales_g": 86.0,
+    "fibra_g": 13.0
+   },
+   "diferencia_catalogo_vs_tpca_pct": {
+    "kcal": 6,
+    "proteina_g": 15,
+    "grasa_g": 161,
+    "carb_totales_g": -25,
+    "fibra_g": -14
+   },
+   "revisar": [
+    "grasa_g",
+    "carb_totales_g"
+   ],
+   "nota": "Misma preparación (seco de pollo con frejoles y arroz)."
+  },
+  {
+   "id": "tallarines-rojos-pollo-huancaina",
+   "nombre_catalogo": "Tallarines Rojos con Pollo + Papa a la Huancaína",
+   "porcionGramos": 560,
+   "componentes": [
+    {
+     "gramos_asumidos": 425,
+     "codigo": "SS 317",
+     "nombre_en_pdf": "Tallarines rojos con pollo",
+     "n_filas": 4,
+     "por_100g": {
+      "kcal": {
+       "prom": 133.2,
+       "min": 123.0,
+       "max": 147.0
+      },
+      "proteina_g": {
+       "prom": 8.4,
+       "min": 7.4,
+       "max": 10.2
+      },
+      "grasa_g": {
+       "prom": 2.2,
+       "min": 2.1,
+       "max": 2.3
+      },
+      "carb_totales_g": {
+       "prom": 20.8,
+       "min": 19.6,
+       "max": 22.7
+      },
+      "fibra_g": {
+       "prom": 1.3,
+       "min": 1.2,
+       "max": 1.5
+      }
+     }
+    },
+    {
+     "gramos_asumidos": 135,
+     "codigo": "SE 74",
+     "nombre_en_pdf": "Papa a la huancaína",
+     "n_filas": 5,
+     "por_100g": {
+      "kcal": {
+       "prom": 118.4,
+       "min": 114.0,
+       "max": 121.0
+      },
+      "proteina_g": {
+       "prom": 3.5,
+       "min": 3.3,
+       "max": 3.7
+      },
+      "grasa_g": {
+       "prom": 3.9,
+       "min": 3.7,
+       "max": 4.1
+      },
+      "carb_totales_g": {
+       "prom": 18.1,
+       "min": 17.6,
+       "max": 18.6
+      },
+      "fibra_g": {
+       "prom": 1.1,
+       "min": 0.9,
+       "max": 1.3
+      }
+     }
+    }
+   ],
+   "tpca_por_porcion": {
+    "kcal": 725.9,
+    "proteina_g": 40.4,
+    "grasa_g": 14.6,
+    "carb_totales_g": 112.8,
+    "fibra_g": 7.0,
+    "kcal_min": 677,
+    "kcal_max": 788
+   },
+   "catalogo_actual": {
+    "kcal": 890,
+    "proteina_g": 33.0,
+    "grasa_g": 32.0,
+    "carb_totales_g": 118.0,
+    "fibra_g": 3.0
+   },
+   "diferencia_catalogo_vs_tpca_pct": {
+    "kcal": 23,
+    "proteina_g": -18,
+    "grasa_g": 119,
+    "carb_totales_g": 5,
+    "fibra_g": -57
+   },
+   "revisar": [
+    "kcal",
+    "proteina_g",
+    "grasa_g",
+    "fibra_g"
+   ],
+   "nota": "Tallarines rojos con pollo (SS 317) + papa a la huancaína (SE 74); pesos supuestos."
+  },
+  {
+   "id": "aji-de-gallina-arroz-huevo",
+   "nombre_catalogo": "Ají de Gallina con Arroz, Huevo y Aceituna",
+   "porcionGramos": 490,
+   "componentes": [
+    {
+     "gramos_asumidos": 490,
+     "codigo": "SS 335",
+     "nombre_en_pdf": "Ají de gallina con papa blanca más arroz*",
+     "n_filas": 1,
+     "por_100g": {
+      "kcal": {
+       "prom": 111.0,
+       "min": 111.0,
+       "max": 111.0
+      },
+      "proteina_g": {
+       "prom": 3.7,
+       "min": 3.7,
+       "max": 3.7
+      },
+      "grasa_g": {
+       "prom": 1.9,
+       "min": 1.9,
+       "max": 1.9
+      },
+      "carb_totales_g": {
+       "prom": 19.7,
+       "min": 19.7,
+       "max": 19.7
+      },
+      "fibra_g": {
+       "prom": 1.1,
+       "min": 1.1,
+       "max": 1.1
+      }
+     }
+    }
+   ],
+   "tpca_por_porcion": {
+    "kcal": 543.9,
+    "proteina_g": 18.1,
+    "grasa_g": 9.3,
+    "carb_totales_g": 96.5,
+    "fibra_g": 5.4,
+    "kcal_min": 544,
+    "kcal_max": 544
+   },
+   "catalogo_actual": {
+    "kcal": 710,
+    "proteina_g": 36.0,
+    "grasa_g": 28.0,
+    "carb_totales_g": 74.0,
+    "fibra_g": 2.9
+   },
+   "diferencia_catalogo_vs_tpca_pct": {
+    "kcal": 31,
+    "proteina_g": 99,
+    "grasa_g": 201,
+    "carb_totales_g": -23,
+    "fibra_g": -46
+   },
+   "revisar": [
+    "kcal",
+    "proteina_g",
+    "grasa_g",
+    "carb_totales_g",
+    "fibra_g"
+   ],
+   "nota": "Aproximación: \"Ají de gallina con papa blanca más arroz*\" (1 fila, marcada con * en el PDF; sin huevo)."
+  },
+  {
+   "id": "estofado-pollo-arroz",
+   "nombre_catalogo": "Estofado de Pollo con Papa, Zanahoria y Arroz",
+   "porcionGramos": 490,
+   "componentes": [
+    {
+     "gramos_asumidos": 490,
+     "codigo": "SS 95",
+     "nombre_en_pdf": "Estofado de pollo con arroz",
+     "n_filas": 4,
+     "por_100g": {
+      "kcal": {
+       "prom": 125.2,
+       "min": 117.0,
+       "max": 141.0
+      },
+      "proteina_g": {
+       "prom": 6.5,
+       "min": 3.3,
+       "max": 8.9
+      },
+      "grasa_g": {
+       "prom": 1.5,
+       "min": 1.0,
+       "max": 1.9
+      },
+      "carb_totales_g": {
+       "prom": 21.1,
+       "min": 17.2,
+       "max": 29.2
+      },
+      "fibra_g": {
+       "prom": 0.7,
+       "min": 0.5,
+       "max": 0.8
+      }
+     }
+    }
+   ],
+   "tpca_por_porcion": {
+    "kcal": 613.5,
+    "proteina_g": 31.9,
+    "grasa_g": 7.3,
+    "carb_totales_g": 103.4,
+    "fibra_g": 3.4,
+    "kcal_min": 573,
+    "kcal_max": 691
+   },
+   "catalogo_actual": {
+    "kcal": 670,
+    "proteina_g": 35.0,
+    "grasa_g": 21.0,
+    "carb_totales_g": 82.0,
+    "fibra_g": 3.8
+   },
+   "diferencia_catalogo_vs_tpca_pct": {
+    "kcal": 9,
+    "proteina_g": 10,
+    "grasa_g": 188,
+    "carb_totales_g": -21,
+    "fibra_g": 12
+   },
+   "revisar": [
+    "grasa_g",
+    "carb_totales_g"
+   ],
+   "nota": "\"Estofado de pollo con arroz\" (SS 95), sin papa ni zanahoria declaradas."
+  },
+  {
+   "id": "tallarin-saltado-pollo",
+   "nombre_catalogo": "Tallarín Saltado Criollo de Pollo",
+   "porcionGramos": 480,
+   "componentes": [
+    {
+     "gramos_asumidos": 480,
+     "codigo": "SS 319",
+     "nombre_en_pdf": "Tallarines saltados con pollo",
+     "n_filas": 2,
+     "por_100g": {
+      "kcal": {
+       "prom": 173.5,
+       "min": 164.0,
+       "max": 183.0
+      },
+      "proteina_g": {
+       "prom": 8.2,
+       "min": 7.8,
+       "max": 8.5
+      },
+      "grasa_g": {
+       "prom": 4.2,
+       "min": 3.4,
+       "max": 4.9
+      },
+      "carb_totales_g": {
+       "prom": 27.1,
+       "min": 26.0,
+       "max": 28.1
+      },
+      "fibra_g": {
+       "prom": 1.5,
+       "min": 1.4,
+       "max": 1.7
+      }
+     }
+    }
+   ],
+   "tpca_por_porcion": {
+    "kcal": 832.8,
+    "proteina_g": 39.4,
+    "grasa_g": 20.2,
+    "carb_totales_g": 130.1,
+    "fibra_g": 7.2,
+    "kcal_min": 787,
+    "kcal_max": 878
+   },
+   "catalogo_actual": {
+    "kcal": 690,
+    "proteina_g": 33.0,
+    "grasa_g": 23.0,
+    "carb_totales_g": 85.0,
+    "fibra_g": 3.2
+   },
+   "diferencia_catalogo_vs_tpca_pct": {
+    "kcal": -17,
+    "proteina_g": -16,
+    "grasa_g": 14,
+    "carb_totales_g": -35,
+    "fibra_g": -56
+   },
+   "revisar": [
+    "kcal",
+    "proteina_g",
+    "carb_totales_g",
+    "fibra_g"
+   ],
+   "nota": "SS 319 = Tallarines saltados con pollo (2 filas). SS 318 = Tallarines saltado, sin pollo (1 fila), como alternativa.",
+   "alternativas": [
+    {
+     "codigo": "SS 318",
+     "nombre_en_pdf": "Tallarines saltado",
+     "n_filas": 1,
+     "tpca_por_porcion": {
+      "kcal": 912.0,
+      "proteina_g": 40.8,
+      "grasa_g": 7.7,
+      "carb_totales_g": 179.0,
+      "fibra_g": 10.1,
+      "kcal_min": 912,
+      "kcal_max": 912
+     }
+    }
+   ]
+  },
+  {
+   "id": "arroz-chaufa-pollo",
+   "nombre_catalogo": "Arroz Chaufa de Pollo (Chifa Universitario)",
+   "porcionGramos": 550,
+   "componentes": [
+    {
+     "gramos_asumidos": 550,
+     "codigo": "SS 23",
+     "nombre_en_pdf": "Arroz chaufa de pollo",
+     "n_filas": 5,
+     "por_100g": {
+      "kcal": {
+       "prom": 174.2,
+       "min": 169.0,
+       "max": 179.0
+      },
+      "proteina_g": {
+       "prom": 6.3,
+       "min": 5.8,
+       "max": 6.7
+      },
+      "grasa_g": {
+       "prom": 2.8,
+       "min": 2.0,
+       "max": 4.2
+      },
+      "carb_totales_g": {
+       "prom": 29.5,
+       "min": 28.1,
+       "max": 30.9
+      },
+      "fibra_g": {
+       "prom": 0.0,
+       "min": 0.0,
+       "max": 0.0
+      }
+     }
+    }
+   ],
+   "tpca_por_porcion": {
+    "kcal": 958.1,
+    "proteina_g": 34.6,
+    "grasa_g": 15.4,
+    "carb_totales_g": 162.2,
+    "fibra_g": 0.0,
+    "kcal_min": 930,
+    "kcal_max": 984
+   },
+   "catalogo_actual": {
+    "kcal": 820,
+    "proteina_g": 26.0,
+    "grasa_g": 30.0,
+    "carb_totales_g": 112.0,
+    "fibra_g": 2.1
+   },
+   "diferencia_catalogo_vs_tpca_pct": {
+    "kcal": -14,
+    "proteina_g": -25,
+    "grasa_g": 95,
+    "carb_totales_g": -31,
+    "fibra_g": null
+   },
+   "revisar": [
+    "proteina_g",
+    "grasa_g",
+    "carb_totales_g"
+   ],
+   "nota": "Misma preparación."
+  },
+  {
+   "id": "papa-rellena",
+   "nombre_catalogo": "Papa Rellena de Carne con Sarsa Criolla",
+   "porcionGramos": 280,
+   "componentes": [
+    {
+     "gramos_asumidos": 280,
+     "codigo": "SE 80",
+     "nombre_en_pdf": "Papa rellena con sarsa criolla",
+     "n_filas": 1,
+     "por_100g": {
+      "kcal": {
+       "prom": 160.0,
+       "min": 160.0,
+       "max": 160.0
+      },
+      "proteina_g": {
+       "prom": 3.9,
+       "min": 3.9,
+       "max": 3.9
+      },
+      "grasa_g": {
+       "prom": 9.6,
+       "min": 9.6,
+       "max": 9.6
+      },
+      "carb_totales_g": {
+       "prom": 16.0,
+       "min": 16.0,
+       "max": 16.0
+      },
+      "fibra_g": {
+       "prom": 1.5,
+       "min": 1.5,
+       "max": 1.5
+      }
+     }
+    }
+   ],
+   "tpca_por_porcion": {
+    "kcal": 448.0,
+    "proteina_g": 10.9,
+    "grasa_g": 26.9,
+    "carb_totales_g": 44.8,
+    "fibra_g": 4.2,
+    "kcal_min": 448,
+    "kcal_max": 448
+   },
+   "catalogo_actual": {
+    "kcal": 480,
+    "proteina_g": 16.0,
+    "grasa_g": 20.0,
+    "carb_totales_g": 58.0,
+    "fibra_g": 3.5
+   },
+   "diferencia_catalogo_vs_tpca_pct": {
+    "kcal": 7,
+    "proteina_g": 47,
+    "grasa_g": -26,
+    "carb_totales_g": 29,
+    "fibra_g": -17
+   },
+   "revisar": [
+    "proteina_g",
+    "grasa_g",
+    "carb_totales_g",
+    "fibra_g"
+   ],
+   "nota": "SE 80 = con sarsa criolla (1 fila). SE 78 = papa rellena (4 filas, rango amplio).",
+   "alternativas": [
+    {
+     "codigo": "SE 78",
+     "nombre_en_pdf": "Papa rellena",
+     "n_filas": 4,
+     "tpca_por_porcion": {
+      "kcal": 453.0,
+      "proteina_g": 11.8,
+      "grasa_g": 27.2,
+      "carb_totales_g": 42.6,
+      "fibra_g": 3.4,
+      "kcal_min": 260,
+      "kcal_max": 776
+     }
+    }
+   ]
+  },
+  {
+   "id": "tamal-cafe",
+   "nombre_catalogo": "Tamal Criollo con Sarsa y Café Pasado",
+   "porcionGramos": 260,
+   "componentes": [
+    {
+     "gramos_asumidos": 210,
+     "codigo": "SE 135",
+     "nombre_en_pdf": "Tamal de pollo",
+     "n_filas": 3,
+     "por_100g": {
+      "kcal": {
+       "prom": 201.3,
+       "min": 109.0,
+       "max": 310.0
+      },
+      "proteina_g": {
+       "prom": 5.0,
+       "min": 2.6,
+       "max": 6.8
+      },
+      "grasa_g": {
+       "prom": 11.5,
+       "min": 8.7,
+       "max": 14.6
+      },
+      "carb_totales_g": {
+       "prom": 20.7,
+       "min": 6.1,
+       "max": 48.2
+      },
+      "fibra_g": {
+       "prom": 0.7,
+       "min": 0.4,
+       "max": 1.0
+      }
+     }
+    }
+   ],
+   "tpca_por_porcion": {
+    "kcal": 422.7,
+    "proteina_g": 10.5,
+    "grasa_g": 24.1,
+    "carb_totales_g": 43.5,
+    "fibra_g": 1.5,
+    "kcal_min": 229,
+    "kcal_max": 651
+   },
+   "catalogo_actual": {
+    "kcal": 390,
+    "proteina_g": 11.0,
+    "grasa_g": 18.0,
+    "carb_totales_g": 44.0,
+    "fibra_g": 3.8
+   },
+   "diferencia_catalogo_vs_tpca_pct": {
+    "kcal": -8,
+    "proteina_g": 5,
+    "grasa_g": -25,
+    "carb_totales_g": 1,
+    "fibra_g": 153
+   },
+   "revisar": [
+    "grasa_g",
+    "fibra_g"
+   ],
+   "nota": "Solo el tamal (~210 g); el café se asume sin aporte. SE 135 tiene 3 filas con rango muy amplio."
+  },
+  {
+   "id": "salteado-verduras-pollo-arroz",
+   "nombre_catalogo": "Salteado de Pollo con Brócoli, Pimientos y Arroz",
+   "porcionGramos": 430,
+   "componentes": [
+    {
+     "gramos_asumidos": 430,
+     "codigo": "SS 268",
+     "nombre_en_pdf": "Saltado de pollo con arroz",
+     "n_filas": 1,
+     "por_100g": {
+      "kcal": {
+       "prom": 135.0,
+       "min": 135.0,
+       "max": 135.0
+      },
+      "proteina_g": {
+       "prom": 5.6,
+       "min": 5.6,
+       "max": 5.6
+      },
+      "grasa_g": {
+       "prom": 2.8,
+       "min": 2.8,
+       "max": 2.8
+      },
+      "carb_totales_g": {
+       "prom": 21.4,
+       "min": 21.4,
+       "max": 21.4
+      },
+      "fibra_g": {
+       "prom": 0.3,
+       "min": 0.3,
+       "max": 0.3
+      }
+     }
+    }
+   ],
+   "tpca_por_porcion": {
+    "kcal": 580.5,
+    "proteina_g": 24.1,
+    "grasa_g": 12.0,
+    "carb_totales_g": 92.0,
+    "fibra_g": 1.3,
+    "kcal_min": 580,
+    "kcal_max": 580
+   },
+   "catalogo_actual": {
+    "kcal": 480,
+    "proteina_g": 40.0,
+    "grasa_g": 12.0,
+    "carb_totales_g": 52.0,
+    "fibra_g": 7.5
+   },
+   "diferencia_catalogo_vs_tpca_pct": {
+    "kcal": -17,
+    "proteina_g": 66,
+    "grasa_g": 0,
+    "carb_totales_g": -43,
+    "fibra_g": 477
+   },
+   "revisar": [
+    "kcal",
+    "proteina_g",
+    "carb_totales_g",
+    "fibra_g"
+   ],
+   "nota": "Aproximación: saltado de pollo con arroz (SS 268)."
+  },
+  {
+   "id": "caldo-gallina",
+   "nombre_catalogo": "Caldo de Gallina con Fideos, Huevo y Cancha",
+   "porcionGramos": 550,
+   "componentes": [
+    {
+     "gramos_asumidos": 280,
+     "codigo": "SE 9",
+     "nombre_en_pdf": "Caldo de gallina",
+     "n_filas": 5,
+     "por_100g": {
+      "kcal": {
+       "prom": 47.2,
+       "min": 42.0,
+       "max": 53.0
+      },
+      "proteina_g": {
+       "prom": 3.1,
+       "min": 2.8,
+       "max": 3.8
+      },
+      "grasa_g": {
+       "prom": 0.5,
+       "min": 0.4,
+       "max": 0.6
+      },
+      "carb_totales_g": {
+       "prom": 7.7,
+       "min": 6.9,
+       "max": 8.7
+      },
+      "fibra_g": {
+       "prom": 0.4,
+       "min": 0.3,
+       "max": 0.4
+      }
+     }
+    }
+   ],
+   "tpca_por_porcion": {
+    "kcal": 132.2,
+    "proteina_g": 8.7,
+    "grasa_g": 1.4,
+    "carb_totales_g": 21.6,
+    "fibra_g": 1.1,
+    "kcal_min": 118,
+    "kcal_max": 148
+   },
+   "catalogo_actual": {
+    "kcal": 580,
+    "proteina_g": 32.0,
+    "grasa_g": 22.0,
+    "carb_totales_g": 64.0,
+    "fibra_g": 2.1
+   },
+   "diferencia_catalogo_vs_tpca_pct": {
+    "kcal": 339,
+    "proteina_g": 268,
+    "grasa_g": 1471,
+    "carb_totales_g": 196,
+    "fibra_g": 91
+   },
+   "revisar": [
+    "kcal",
+    "proteina_g",
+    "grasa_g",
+    "carb_totales_g",
+    "fibra_g"
+   ],
+   "nota": "PARCIAL: SE 9 solo representa el caldo. Faltan fideos, presa, huevo y cancha."
+  },
+  {
+   "id": "ceviche-pescado-camote-choclo",
+   "nombre_catalogo": "Ceviche / Pescado Sudado con Camote y Choclo",
+   "porcionGramos": 430,
+   "componentes": [
+    {
+     "gramos_asumidos": 430,
+     "codigo": "SS 59",
+     "nombre_en_pdf": "Cebiche de pescado",
+     "n_filas": 4,
+     "por_100g": {
+      "kcal": {
+       "prom": 124.0,
+       "min": 76.0,
+       "max": 166.0
+      },
+      "proteina_g": {
+       "prom": 8.4,
+       "min": 5.6,
+       "max": 9.6
+      },
+      "grasa_g": {
+       "prom": 2.8,
+       "min": 0.6,
+       "max": 6.3
+      },
+      "carb_totales_g": {
+       "prom": 17.5,
+       "min": 7.0,
+       "max": 32.0
+      },
+      "fibra_g": {
+       "prom": 1.6,
+       "min": 0.6,
+       "max": 2.6
+      }
+     }
+    }
+   ],
+   "tpca_por_porcion": {
+    "kcal": 533.2,
+    "proteina_g": 36.1,
+    "grasa_g": 12.0,
+    "carb_totales_g": 75.2,
+    "fibra_g": 6.9,
+    "kcal_min": 327,
+    "kcal_max": 714
+   },
+   "catalogo_actual": {
+    "kcal": 460,
+    "proteina_g": 39.0,
+    "grasa_g": 8.0,
+    "carb_totales_g": 52.0,
+    "fibra_g": 6.8
+   },
+   "diferencia_catalogo_vs_tpca_pct": {
+    "kcal": -14,
+    "proteina_g": 8,
+    "grasa_g": -33,
+    "carb_totales_g": -31,
+    "fibra_g": -1
+   },
+   "revisar": [
+    "grasa_g",
+    "carb_totales_g"
+   ],
+   "nota": "Aproximaciones: SS 59 cebiche de pescado (segundo) y SE 25 cebiche de pescado (entrada). No incluyen necesariamente camote y choclo.",
+   "alternativas": [
+    {
+     "codigo": "SE 25",
+     "nombre_en_pdf": "Cebiche de pescado",
+     "n_filas": 5,
+     "tpca_por_porcion": {
+      "kcal": 385.3,
+      "proteina_g": 32.7,
+      "grasa_g": 6.5,
+      "carb_totales_g": 52.9,
+      "fibra_g": 4.3,
+      "kcal_min": 353,
+      "kcal_max": 426
+     }
+    }
+   ]
+  },
+  {
+   "id": "anticuchos-papa-choclo",
+   "nombre_catalogo": "Anticuchos de Corazón con Papa y Choclo",
+   "porcionGramos": 360,
+   "componentes": [
+    {
+     "gramos_asumidos": 360,
+     "codigo": "SS 13",
+     "nombre_en_pdf": "Anticucho con papa y arroz",
+     "n_filas": 2,
+     "por_100g": {
+      "kcal": {
+       "prom": 111.5,
+       "min": 109.0,
+       "max": 114.0
+      },
+      "proteina_g": {
+       "prom": 9.6,
+       "min": 9.3,
+       "max": 9.8
+      },
+      "grasa_g": {
+       "prom": 3.2,
+       "min": 3.2,
+       "max": 3.3
+      },
+      "carb_totales_g": {
+       "prom": 11.2,
+       "min": 10.3,
+       "max": 12.1
+      },
+      "fibra_g": {
+       "prom": 0.8,
+       "min": 0.4,
+       "max": 1.1
+      }
+     }
+    }
+   ],
+   "tpca_por_porcion": {
+    "kcal": 401.4,
+    "proteina_g": 34.6,
+    "grasa_g": 11.5,
+    "carb_totales_g": 40.3,
+    "fibra_g": 2.9,
+    "kcal_min": 392,
+    "kcal_max": 410
+   },
+   "catalogo_actual": {
+    "kcal": 510,
+    "proteina_g": 38.0,
+    "grasa_g": 18.0,
+    "carb_totales_g": 46.0,
+    "fibra_g": 5.5
+   },
+   "diferencia_catalogo_vs_tpca_pct": {
+    "kcal": 27,
+    "proteina_g": 10,
+    "grasa_g": 57,
+    "carb_totales_g": 14,
+    "fibra_g": 90
+   },
+   "revisar": [
+    "kcal",
+    "grasa_g",
+    "fibra_g"
+   ],
+   "nota": "Aproximación: \"Anticucho con papa y arroz\" (SS 13, 2 filas). SS 184 NO es equivalente (parrillada con chorizo y papas fritas)."
+  },
+  {
+   "id": "tacu-tacu-frejol-huevo",
+   "nombre_catalogo": "Tacu Tacu de Frejoles con Huevo Frito y Sarsa",
+   "porcionGramos": 520,
+   "componentes": [
+    {
+     "gramos_asumidos": 520,
+     "codigo": "SS 307",
+     "nombre_en_pdf": "Tacu tacu con churrasco",
+     "n_filas": 1,
+     "por_100g": {
+      "kcal": {
+       "prom": 160.0,
+       "min": 160.0,
+       "max": 160.0
+      },
+      "proteina_g": {
+       "prom": 7.1,
+       "min": 7.1,
+       "max": 7.1
+      },
+      "grasa_g": {
+       "prom": 3.8,
+       "min": 3.8,
+       "max": 3.8
+      },
+      "carb_totales_g": {
+       "prom": 24.3,
+       "min": 24.3,
+       "max": 24.3
+      },
+      "fibra_g": {
+       "prom": 3.0,
+       "min": 3.0,
+       "max": 3.0
+      }
+     }
+    }
+   ],
+   "tpca_por_porcion": {
+    "kcal": 832.0,
+    "proteina_g": 36.9,
+    "grasa_g": 19.8,
+    "carb_totales_g": 126.4,
+    "fibra_g": 15.6,
+    "kcal_min": 832,
+    "kcal_max": 832
+   },
+   "catalogo_actual": {
+    "kcal": 730,
+    "proteina_g": 26.0,
+    "grasa_g": 30.0,
+    "carb_totales_g": 88.0,
+    "fibra_g": 9.8
+   },
+   "diferencia_catalogo_vs_tpca_pct": {
+    "kcal": -12,
+    "proteina_g": -30,
+    "grasa_g": 52,
+    "carb_totales_g": -30,
+    "fibra_g": -37
+   },
+   "revisar": [
+    "proteina_g",
+    "grasa_g",
+    "carb_totales_g",
+    "fibra_g"
+   ],
+   "nota": "Ningún tacu tacu del PDF es con huevo; SS 307 (churrasco) es referencia y SS 308-311 son alternativas.",
+   "alternativas": [
+    {
+     "codigo": "SS 308",
+     "nombre_en_pdf": "Tacu tacu con filete de pollo",
+     "n_filas": 2,
+     "tpca_por_porcion": {
+      "kcal": 670.8,
+      "proteina_g": 37.4,
+      "grasa_g": 9.9,
+      "carb_totales_g": 108.2,
+      "fibra_g": 17.7,
+      "kcal_min": 588,
+      "kcal_max": 754
+     }
+    },
+    {
+     "codigo": "SS 309",
+     "nombre_en_pdf": "Tacu tacu con lomito",
+     "n_filas": 3,
+     "tpca_por_porcion": {
+      "kcal": 780.0,
+      "proteina_g": 40.0,
+      "grasa_g": 18.7,
+      "carb_totales_g": 113.4,
+      "fibra_g": 20.3,
+      "kcal_min": 676,
+      "kcal_max": 848
+     }
+    },
+    {
+     "codigo": "SS 310",
+     "nombre_en_pdf": "Tacu tacu con lomo y arroz",
+     "n_filas": 1,
+     "tpca_por_porcion": {
+      "kcal": 790.4,
+      "proteina_g": 31.7,
+      "grasa_g": 13.0,
+      "carb_totales_g": 134.2,
+      "fibra_g": 13.0,
+      "kcal_min": 790,
+      "kcal_max": 790
+     }
+    },
+    {
+     "codigo": "SS 311",
+     "nombre_en_pdf": "Tacu tacu con pescado",
+     "n_filas": 2,
+     "tpca_por_porcion": {
+      "kcal": 832.0,
+      "proteina_g": 49.4,
+      "grasa_g": 22.4,
+      "carb_totales_g": 106.1,
+      "fibra_g": 14.0,
+      "kcal_min": 822,
+      "kcal_max": 842
+     }
+    }
+   ]
+  }
+ ]
+}

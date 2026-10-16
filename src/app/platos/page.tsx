@@ -1,8 +1,21 @@
+import type { Metadata } from "next";
+import { PlatosView } from "@/components/platos/PlatosView";
+
+export const metadata: Metadata = {
+  title: "Radiografía Nutricional de Platos Universitarios | VitalFIIS",
+  description:
+    "Catálogo nutricional empático y datos crudos de los platos más comunes de la vida universitaria peruana. Evita la somnolencia en clase y optimiza tu energía cognitiva.",
+  keywords: [
+    "nutricion universitaria",
+    "platos peruanos",
+    "coma alimenticio",
+    "somnolencia postprandial",
+    "comedor universitario",
+    "tupper universitario",
+    "vitalfiis",
+  ],
+};
+
 export default function PlatosPage() {
-  return (
-    <div className="min-h-[60vh] flex flex-col items-center justify-center bg-[#FAF8F5]">
-      <h1 className="text-4xl font-extrabold text-stone-900 mb-4 text-center">Platos</h1>
-      <p className="text-stone-600 text-lg">Aún no hay contenido en esta página.</p>
-    </div>
-  );
+  return <PlatosView />;
 }

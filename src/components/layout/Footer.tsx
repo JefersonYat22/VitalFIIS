@@ -13,10 +13,9 @@ export function Footer() {
                 <Image
                   src="/images/logo.png"
                   alt="VitalFIIS Logo"
-                  width={128}
-                  height={128}
+                  width={44}
+                  height={44}
                   className="w-full h-full object-contain"
-                  unoptimized
                 />
               </div>
               <span className="font-extrabold text-2xl tracking-tight text-stone-950">
